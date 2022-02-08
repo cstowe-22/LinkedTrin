@@ -1,75 +1,33 @@
-body {
-  background-color: #ffffff;
-  font-size: 18px;
-  color: #000080;
-  font-family: 'Raleway', sans-serif;
+/* Color of the links BEFORE scroll */
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler-icon,
+.navbar-scroll .navbar-brand {
+  color: #262626;
 }
 
-h1 {
-  background-color: #00ffdd;
-  font-size: 40px;
-  text-align: center;
+/* Color of the navbar BEFORE scroll */
+.navbar-scroll {
+  background-color: #FFC017;
 }
 
-div {
-  border-radius: 25px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-right: 50px;
-  margin-left: 50px;
-  background-color: #66ffff;
-  overflow: auto;
-  padding: 15px;
+/* Color of the links AFTER scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler-icon,
+.navbar-scroll .navbar-brand {
+  color: #262626;
 }
 
-button {
-  background-color: #00ffdd;
-  font-size: 12px;
-  border-radius: 6px;
-  border: 2px solid #00cccc;
-  padding: 7px 12px;
+/* Color of the navbar AFTER scroll */
+.navbar-scrolled {
+  background-color: #fff;
 }
 
-button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+/* An optional height of the navbar AFTER scroll */
+.navbar.navbar-scroll.navbar-scrolled {
+  padding-top: auto;
+  padding-bottom: auto;
 }
-
-button:focus {
-  outline: none;
-}
-
-table {
-  border-collapse: collapse;
-  background-color: #4dffe7;
-  margin: auto;
-  width: 50%;
-}
-
-table, th, td {
-  border: 1px solid black;
-  padding: 3px;
-  text-align: center;
-}
-
-tr:hover {
-  background-color: #ccfff8;
-}
-
-a {
-  color: #0000b1;
-}
-
-a:hover {
-  color: #00ccb1;
-}
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-footer {
-  font-size: 50%;
-  text-align: center;
+.navbar-brand {
+  font-size: unset;
+  height: 3.5rem;
 }
