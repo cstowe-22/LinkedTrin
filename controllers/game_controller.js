@@ -4,11 +4,11 @@ const express = require('express'),
 const Game = require('../models/game_model');
 const Opponent = require('../models/opponent_model');
 
-router.get('/play', function(request, response) {
+router.get('/listings', function(request, response) {
     let opponents = Opponent.getOpponents();
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
-    response.render("game/play", {
+    response.render("listings", {
       data: opponents
     });
 });
