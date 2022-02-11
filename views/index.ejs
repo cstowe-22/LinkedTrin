@@ -30,16 +30,16 @@
         margin-top: 45px;
       }
     }
+
+    #scroll {
+      overflow-x: auto;
+    }
   </style>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container-fluid">
       <!-- Navbar brand -->
-      <a class="navbar-brand" target="_blank" href="https://mdbootstrap.com/docs/standard/">
-        <img src="/public/images/logo.png" height="16" alt="" loading="lazy"
-             style="margin-top: -3px;" />
-      </a>
       <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
               aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
@@ -54,7 +54,11 @@
                target="_blank">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Groups</a>
+            <a class="nav-link" href="/groups" target="_blank">Groups</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about" rel="nofollow"
+               target="_blank">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Settings</a>
@@ -81,9 +85,9 @@
     <h1>Recently Viewed</h1>
     <hr />
 
-    <!--Section: News of the day-->
-    <section class="border-to pb-4 mb-5">
-      <div class="row gx-lg-5">
+    <!--Section: News of the day -- we made edits to this-->
+    <section id="scroll" class="border-to pb-4 mb-5 colspan-20">
+  <div class="row gx-lg-5">
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
           <!-- News block -->
           <div>
@@ -100,17 +104,22 @@
 
             <!-- Article title and description -->
             <a href="" class="text-dark">
-              <h5>This is title of the news</h5>
+              <h5>Internship at Nick, Ari, & Cliff Media</h5>
 
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
-                id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
-                adipisci iusto nam temporibus modi animi laboriosam?
+                This is the opportunity of your lifetime. Learn more by clicking on this event.
               </p>
             </a>
           </div>
 
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">Internship at Nick, Ari, & Cliff Media.</p>
+            </div>
           </div>
+
+        </div>
           <!-- News block -->
         </div>
 
@@ -119,21 +128,22 @@
           <div>
             <!-- Featured image -->
             <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/fluid/city/011.jpg" class="img-fluid" />
               <a href="#!">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </a>
+              <a role="button" class="btn btn-primary btn-lg m-2"
+                 href="localhost:3000/events/" rel="nofollow" target="_blank">
+                 Learn More
+               </a>
             </div>
 
 
             <!-- Article title and description -->
             <a href="" class="text-dark">
-              <h5>This is title of the news</h5>
+              <h5>Serve the Community</h5>
 
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
-                id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
-                adipisci iusto nam temporibus modi animi laboriosam?
+                Do service and stuff like that. Learn more by clicking on this event.
               </p>
             </a>
 
@@ -142,7 +152,7 @@
           <!-- News block -->
         </div>
 
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
           <!-- News block -->
           <div>
             <!-- Featured image -->
@@ -166,7 +176,35 @@
           </div>
           <!-- News block -->
         </div>
-      </div>
+  </div>
+  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <!-- News block -->
+  <div>
+          <!-- Featured image -->
+          <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" data-mdb-ripple-color="light">
+            <img src="https://mdbootstrap.com/img/new/fluid/city/011.jpg" class="img-fluid" />
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+
+
+          <!-- Article title and description -->
+          <a href="" class="text-dark">
+            <h5>This is title of the news</h5>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+              id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+              adipisci iusto nam temporibus modi animi laboriosam?
+            </p>
+          </a>
+
+
+        </div>
+        <!-- News block -->
+  </div>
+
     </section>
     <!--Section: News of the day-->
 
