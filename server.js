@@ -16,6 +16,16 @@ app.use(require('./controllers/index'));
 app.use(require('./controllers/game_controller'));
 app.use(require('./controllers/opponent_controller'));
 
+app.get("/:route", function callback(request, response) {
+  let route = request.params.route;
+
+  if (route) {
+    response.status(200);
+    response.setHeader("Content-type", "text/html")
+    response.render(route);
+  }
+});
+
 app.use("", function(request, response) {
   response.redirect('/error?code=400');
 });
