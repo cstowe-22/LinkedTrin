@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>LinkedTrin</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-    <!-- Google Fonts Roboto -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-    <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-    <!--Main Navigation-->
+<%- include('partials/header') -%>
+
 <header>
   <!-- Intro settings -->
   <style>
@@ -52,43 +36,8 @@
     }
   </style>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <div class="container-fluid">
-      <!-- Navbar brand -->
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
-              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarExample01">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="#intro">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/events" rel="nofollow"
-               target="_blank">Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/groups" target="_blank">Groups</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about" rel="nofollow"
-               target="_blank">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Settings</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- Navbar -->
-
   <!-- Jumbotron -->
-  <div id="intro" class="p-5 text-center bg-light">
-    <h1 class="mb-3 h2">LinkedTrin</h1>
-    <p class="mb-3">A guide to academic and extracurricular opportunities at Trinity. Good luck!</p>
+  <div id="intro" class="p-1 text-center bg-light">
   </div>
   <!-- Jumbotron -->
 </header>
@@ -100,14 +49,11 @@
     <!-- Header -->
     <h1>About Us</h1>
     <hr />
+    <p>We are a group of friends who enjoying coding.</p>
 
     <!--Section: Content-->
     <section>
       <h1>The Team</h1>
-      <a role="button" class="btn btn-primary btn-lg m-2"
-         href="localhost:3000/events/" rel="nofollow" target="_blank">
-         See More
-      </a>
       <hr />
       <div class="row gx-lg-5">
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
@@ -115,7 +61,7 @@
           <div>
             <!-- Featured image -->
             <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/fluid/city/113.jpg" class="img-fluid" />
+              <img src="https://www.jewishexponent.com/wp-content/uploads/2018/06/6-7-Sussman-photo-1.jpg" class="img-fluid" />
               <a href="#!">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </a>
@@ -126,10 +72,10 @@
 
             <!-- Article title and description -->
             <a href="" class="text-dark">
-              <h5>Ari Sussman: Insert Title </h5>
+              <h5>Ari Sussman: Backend Developer </h5>
 
               <p>
-              Insert the stuff Ari does for this project
+              Ari has worked the backend development for this project.
               </p>
             </a>
           </div>
@@ -143,7 +89,7 @@
           <div>
             <!-- Featured image -->
             <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/fluid/city/011.jpg" class="img-fluid" />
+              <img src="https://i.ytimg.com/vi/ixZvElzNVT4/maxresdefault.jpg" class="img-fluid" />
               <a href="#!">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </a>
@@ -152,10 +98,10 @@
 
             <!-- Article title and description -->
             <a href="" class="text-dark">
-              <h5>Nick Eng: Insert Title </h5>
+              <h5>Nick Eng: Frontend Developer </h5>
 
               <p>
-                Insert the stuff Nick does for the project
+                Nick has worked on the frontend development for this project.
               </p>
             </a>
 
@@ -169,7 +115,7 @@
           <div>
             <!-- Featured image -->
             <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/fluid/city/018.jpg" class="img-fluid" />
+              <img src="https://bbk12e1-cdn.myschoolcdn.com/163/photo/2015/05/orig_photo387601_5276507.jpg" class="img-fluid" />
               <a href="#!">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </a>
@@ -177,10 +123,10 @@
 
             <!-- Article title and description -->
             <a href="" class="text-dark">
-              <h5>Clifford Stowe</h5>
+              <h5>Clifford Stowe: Full Stack Developer</h5>
 
               <p>
-                Insert the stuff Cliff does for this project
+                Clifford the Big Red Dog
               </p>
             </a>
           </div>
@@ -188,117 +134,7 @@
         </div>
       </div>
     </section>
-    <!--Section: Content-->
 
-    <section class="border-to pb-4 mb-5">
-      <h1>Popular Right Now</h1>
-      <a role="button" class="btn btn-primary btn-lg m-2"
-         href="localhost:3000/events/" rel="nofollow" target="_blank">
-         See More
-      </a>
-      <hr />
-      <div class="row gx-lg-5">
-        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-          <!-- News block -->
-          <div>
-            <!-- Featured image -->
-            <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/fluid/city/113.jpg" class="img-fluid" />
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-
-            <!-- Article data -->
-            <div class="row mb-3">
-
-            <!-- Article title and description -->
-            <a href="" class="text-dark">
-              <h5>This is title of the news</h5>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
-                id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
-                adipisci iusto nam temporibus modi animi laboriosam?
-              </p>
-            </a>
-          </div>
-
-          </div>
-          <!-- News block -->
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <!-- News block -->
-          <div>
-            <!-- Featured image -->
-            <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/fluid/city/011.jpg" class="img-fluid" />
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-
-
-            <!-- Article title and description -->
-            <a href="" class="text-dark">
-              <h5>This is title of the news</h5>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
-                id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
-                adipisci iusto nam temporibus modi animi laboriosam?
-              </p>
-            </a>
-
-
-          </div>
-          <!-- News block -->
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <!-- News block -->
-          <div>
-            <!-- Featured image -->
-            <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/fluid/city/018.jpg" class="img-fluid" />
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-
-            <!-- Article title and description -->
-            <a href="" class="text-dark">
-              <h5>This is title of the news</h5>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
-                id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
-                adipisci iusto nam temporibus modi animi laboriosam?
-              </p>
-            </a>
-          </div>
-          <!-- News block -->
-        </div>
-      </div>
-    </section>
-  </div>
-</main>
 <!--Main layout-->
 
-<!--Footer-->
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!--Footer-->
-    <!-- MDB -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- Custom scripts -->
-    <script type="text/javascript" src="js/script.js"></script>
-</body>
-</html>
+<%- include('partials/footer') -%>

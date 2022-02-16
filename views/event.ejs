@@ -1,0 +1,104 @@
+<%- include('partials/header') -%>
+<header>
+  <!-- Intro settings -->
+  <style>
+    #intro {
+      /* Margin to fix overlapping fixed navbar */
+      margin-top: 58px;
+    }
+
+    @media (max-width: 991px) {
+      #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 45px;
+      }
+    }
+
+    #scroll {
+      overflow-x: scroll;
+    }
+
+    .card {
+      /* Add shadows to create the "card" effect */
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    /* On mouse-over, add a deeper shadow */
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    /* Add some padding inside the card container */
+    .card-body {
+      padding: 2px 16px;
+    }
+
+    .search input[type=text]{
+        width:40rem;
+        height:2rem;
+        border-radius:25px;
+        border: 10px;
+    }
+
+    .search{
+        float:left;
+        margin:20px;
+    }
+
+    .search button{
+        background-color: #0074D9;
+        color: #f2f2f2;
+        float: right;
+        padding: 5px 10px;
+        margin-right: 16px;
+        font-size: 12px;
+        border: none;
+        cursor: pointer;
+    }
+  </style>
+
+  <!-- Jumbotron -->
+  <div id="intro" class="p-1 text-center bg-light">
+
+  </div>
+  <!-- Jumbotron -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main class="my-5">
+  <div class="container">
+    <!-- Header -->
+    <hr />
+    <br>
+    <br> <br>
+    <!--Section: News of the day -- we made edits to this-->
+    <section  class="border-to pb-4 mb-5 colspan-10">
+      <div class="col-lg-4 col-md-24 mb-4 mb-lg-0">
+          <div class="col-lg-4 col-md-6 mb-4 mb-lg-10">
+            <div class="card" style="height: 20rem;width: 81rem;">
+              <div class="card-body">
+                <h4><b>Tech Internship</b></h4>
+                <p class="card-text">Internship at Nick, Ari, & Cliff Media.</p>
+                <p class="card-text">Date: 2/2/22</p>
+                <p class="card-text">This intership will allow students to gain crucial experience in tech. 2/2/22</p>
+                <a role="button" class="btn btn-primary btn-lg m-2"
+                   href="/eventListings" rel="nofollow" target="_blank">
+                   Follow
+                </a>
+                <a role="button" class="btn btn-primary btn-lg m-2"
+                   href="/eventListings" rel="nofollow" target="_blank">
+                   Export to Google Calendar
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+</main>
+<!--Main layout-->
+
+<%- include('partials/footer') -%>

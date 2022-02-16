@@ -1,0 +1,307 @@
+<%- include('partials/header') -%>
+<header>
+  <!-- Intro settings -->
+  <style>
+    #intro {
+      /* Margin to fix overlapping fixed navbar */
+      margin-top: 58px;
+    }
+
+    @media (max-width: 991px) {
+      #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 45px;
+      }
+    }
+
+    #scroll {
+      overflow-x: scroll;
+    }
+
+    .card {
+      /* Add shadows to create the "card" effect */
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    /* On mouse-over, add a deeper shadow */
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    /* Add some padding inside the card container */
+    .card-body {
+      padding: 2px 16px;
+    }
+  </style>
+
+  <!-- Jumbotron -->
+  <div id="intro" class="p-5 text-center bg-light">
+    <h1 class="mb-3 h2">LinkedTrin</h1>
+    <p class="mb-3">A guide to academic and extracurricular opportunities at Trinity. Good luck!</p>
+  </div>
+  <!-- Jumbotron -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main class="my-5">
+  <div class="container">
+    <!-- Header -->
+    <h1>Recently Viewed</h1>
+    <a role="button" class="btn btn-primary btn-lg m-2"
+       href="/eventListings" rel="nofollow" target="_blank">
+       See More
+    </a>
+    <hr />
+
+    <!--Section: News of the day -- we made edits to this-->
+    <section  class="border-to pb-4 mb-5 colspan-20">
+      <div class="row gx-lg-5">
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+          <!-- News block -->
+            <!-- Article title and description -->
+
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+              <div class="card" style="height: 20rem;width: 25rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h4><b>Title</b></h4>
+                  <p class="card-text">Internship at Nick, Ari, & Cliff Media.</p>
+                  <a role="button" class="btn btn-primary btn-lg m-2"
+                     href="/eventListings" rel="nofollow" target="_blank">
+                     Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+          <!-- News block -->
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+            <!-- Article title and description -->
+            <div class="card" style="height:20rem;width: 25rem;">
+              <img class="card-img-top" src="..." alt="Card image cap">
+              <div class="card-body">
+                <h4><b>Serve the Community</b></h4>
+                <p class="card-text">  Do service and stuff like that. Learn more by clicking on this event.</p>
+                <a role="button" class="btn btn-primary btn-lg m-2"
+                   href="/eventListings" rel="nofollow" target="_blank">
+                   Learn More
+                </a>
+              </div>
+            </div>
+          <!-- News block -->
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+            <!-- Article title and description -->
+            <div class="card" style="height:20rem;width: 25rem;">
+              <img class="card-img-top" src="..." alt="Card image cap">
+              <div class="card-body">
+                <h4><b>Serve the Community</b></h4>
+                <p class="card-text">  Do service and stuff like that. Learn more by clicking on this event.</p>
+                <a role="button" class="btn btn-primary btn-lg m-2"
+                   href="/eventListings" rel="nofollow" target="_blank">
+                   Learn More
+                </a>
+              </div>
+            </div>
+        </div>
+  </div>
+
+    </section>
+    <!--Section: News of the day-->
+
+    <!--Section: Content-->
+    <section>
+      <h1>Recommended</h1>
+      <a role="button" class="btn btn-primary btn-lg m-2"
+         href="/eventListings" rel="nofollow" target="_blank">
+         See More
+      </a>
+      <hr />
+      <div class="row gx-lg-5">
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+          <!-- News block -->
+          <div>
+            <!-- Featured image -->
+            <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4" data-mdb-ripple-color="light">
+              <img src="https://mdbootstrap.com/img/new/fluid/city/113.jpg" class="img-fluid" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+
+            <!-- Article data -->
+            <div class="row mb-3">
+
+            <!-- Article title and description -->
+            <a href="" class="text-dark">
+              <h5>This is title of the news</h5>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+                id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+                adipisci iusto nam temporibus modi animi laboriosam?
+              </p>
+            </a>
+          </div>
+
+          </div>
+          <!-- News block -->
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <!-- News block -->
+          <div>
+            <!-- Featured image -->
+            <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" data-mdb-ripple-color="light">
+              <img src="https://mdbootstrap.com/img/new/fluid/city/011.jpg" class="img-fluid" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+
+
+            <!-- Article title and description -->
+            <a href="" class="text-dark">
+              <h5>This is title of the news</h5>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+                id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+                adipisci iusto nam temporibus modi animi laboriosam?
+              </p>
+            </a>
+
+
+          </div>
+          <!-- News block -->
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <!-- News block -->
+          <div>
+            <!-- Featured image -->
+            <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" data-mdb-ripple-color="light">
+              <img src="https://mdbootstrap.com/img/new/fluid/city/018.jpg" class="img-fluid" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+
+            <!-- Article title and description -->
+            <a href="" class="text-dark">
+              <h5>This is title of the news</h5>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+                id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+                adipisci iusto nam temporibus modi animi laboriosam?
+              </p>
+            </a>
+          </div>
+          <!-- News block -->
+        </div>
+      </div>
+    </section>
+    <!--Section: Content-->
+
+    <section class="border-to pb-4 mb-5">
+      <h1>Popular Right Now</h1>
+      <a role="button" class="btn btn-primary btn-lg m-2"
+         href="/eventListings" rel="nofollow" target="_blank">
+         See More
+      </a>
+      <hr />
+      <div class="row gx-lg-5">
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+          <!-- News block -->
+          <div>
+            <!-- Featured image -->
+            <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4" data-mdb-ripple-color="light">
+              <img src="https://mdbootstrap.com/img/new/fluid/city/113.jpg" class="img-fluid" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+
+            <!-- Article data -->
+            <div class="row mb-3">
+
+            <!-- Article title and description -->
+            <a href="" class="text-dark">
+              <h5>This is title of the news</h5>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+                id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+                adipisci iusto nam temporibus modi animi laboriosam?
+              </p>
+            </a>
+          </div>
+
+          </div>
+          <!-- News block -->
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <!-- News block -->
+          <div>
+            <!-- Featured image -->
+            <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" data-mdb-ripple-color="light">
+              <img src="https://mdbootstrap.com/img/new/fluid/city/011.jpg" class="img-fluid" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+
+
+            <!-- Article title and description -->
+            <a href="" class="text-dark">
+              <h5>This is title of the news</h5>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+                id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+                adipisci iusto nam temporibus modi animi laboriosam?
+              </p>
+            </a>
+
+
+          </div>
+          <!-- News block -->
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <!-- News block -->
+          <div>
+            <!-- Featured image -->
+            <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" data-mdb-ripple-color="light">
+              <img src="https://mdbootstrap.com/img/new/fluid/city/018.jpg" class="img-fluid" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+
+            <!-- Article title and description -->
+            <a href="" class="text-dark">
+              <h5>This is title of the news</h5>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+                id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+                adipisci iusto nam temporibus modi animi laboriosam?
+              </p>
+            </a>
+          </div>
+          <!-- News block -->
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<!--Main layout-->
+
+<%- include('partials/footer') -%>
