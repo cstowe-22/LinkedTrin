@@ -14,7 +14,7 @@ app.set('view engine', 'ejs'); //specify templating library
 
 app.use(require('./controllers/index'));
 app.use(require('./controllers/event_controller'));
-app.use(require('./controllers/opponent_controller'));
+app.use(require('./controllers/group_controller'));
 
 app.get("/:route", function callback(request, response) {
   let route = request.params.route;
