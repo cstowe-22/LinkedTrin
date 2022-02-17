@@ -2,9 +2,9 @@ const uuid = require('uuid');
 const fs = require('fs');
 
 
-exports.getAllGames =  function() {
-  let allGames = JSON.parse(fs.readFileSync(__dirname+'/../data/games.json'));
-  return allGames;
+exports.getAllEvents =  function() {
+  let allEvents = JSON.parse(fs.readFileSync(__dirname+'/../data/events.json'));
+  return allEvents;
 }
 
 exports.getSortedGames =  function() {

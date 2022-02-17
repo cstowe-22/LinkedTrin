@@ -1,15 +1,15 @@
 const express = require('express'),
   router = express.Router();
 
-const Game = require('../models/game_model');
+const Event = require('../models/event_model');
 const Opponent = require('../models/opponent_model');
 
-router.get('/listings', function(request, response) {
-    let opponents = Opponent.getOpponents();
+router.get('/eventListings', function(request, response) {
+    let events = Opponent.getOpponents();
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
-    response.render("listings", {
-      data: opponents
+    response.render("eventListings", {
+      data: events
     });
 });
 
