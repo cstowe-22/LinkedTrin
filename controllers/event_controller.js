@@ -5,12 +5,14 @@ const Event = require('../models/event_model');
 
 router.get('/eventListings', function(request, response) {
     let events = Event.getAllEvents();
-    let eventList = Array.from(events);
-    console.log(eventList[0]);
+    let eventArray = [];
     response.status(200);
+    for(title in events){
+      eventArray.push(events[title])
+    }
     response.setHeader('Content-Type', 'text/html')
     response.render("eventListings", {
-      eventList: eventList
+      events: eventArray
     });
 });
 
