@@ -3,18 +3,21 @@
     "Club Name": "Esports Club",
     "Leadership": "Nicholas Eng and Santiago Soto",
     "Advisor": "Paul Cernota",
-    "description": "We play competitive video games.",
+    "Description": "We play competitive video games.",
+    "Members:" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"],
   },
   "9196be60-730c-11ec-959f-47934c7cc5bd": {
     "Club Name": "Community Circle",
     "Leadership": "Alexander Kostin",
     "Advisor": "Kai Williams",
-    "description": "We help the disabled and serve food to the elderly.",
+    "Description": "We help the disabled and serve food to the elderly.",
+    "Members:" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"],
   },
   "97eee3a0-730c-11ec-959f-47934c7cc5bd": {
     "Club Name": "HackTrin",
-    "Leadership": "Lake Gifford, Elizabeth Ting, and Lux Hogan-Murphy",
+    "Leadership": "Lake Gifford, Elizabeth Ting, Lux Hogan-Murphy",
     "Advisor": "Justin Gohde",
-    "description": "We are in charge of planning HackTrin IX, Triniy's official hackathon.",
+    "Description": "We are in charge of planning HackTrin IX, Triniy's official hackathon.",
+    "Members:" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"],
   }
 }
