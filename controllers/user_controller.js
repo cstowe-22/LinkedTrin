@@ -12,8 +12,8 @@ router.get('/eventListings', function(request, response) {
     let users = User.getAllUsers();
     let userArray = [];
     response.status(200);
-    for(id in users){
-      userArray.push(users[id])
+    for(fullName in users){
+      userArray.push(users[fullName])
     }
     response.setHeader('Content-Type', 'text/html')
     response.render("eventListings", {
