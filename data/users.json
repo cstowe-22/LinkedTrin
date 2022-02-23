@@ -3,24 +3,66 @@
     "fullName": "Nicholas Eng",
     "email": "nicholas.eng22@trinityschoolnyc.org",
     "graduationYear": "2022",
-    "groupLeadership": ["7c095170-730c-11ec-959f-47934c7cc5bd", "3aaa68f4-4db4-4917-b593-2b4474420bff?", "4a4ccf1f-39da-41b4-afda-b95caa2d4636"],
-    "followedGroups": ["1a8f741f-23a3-4de9-bc69-bb5c28f736c4", "797f59c5-22bf-44a5-a18f-34ace8cd35d5", "ac23c1a4-bc48-4219-a0c0-9714b80d2195", "063175ee-7070-46a0-bdd2-6752e0d706ba"],
-    "followedEvents": ["6aafa983-391c-47a8-8963-fed8487c1158", "0cbef25b-0ecd-48bd-ae5c-de3ca7ce50cb", "2451c697-1b53-40ca-bc59-ed9c92cac34b", "eb25347d-02e6-419f-8609-9bf1aac7e0cf"]
+    "groupLeadership": [
+      "7c095170-730c-11ec-959f-47934c7cc5bd",
+      "3aaa68f4-4db4-4917-b593-2b4474420bff?",
+      "4a4ccf1f-39da-41b4-afda-b95caa2d4636"
+    ],
+    "followedGroups": [
+      "1a8f741f-23a3-4de9-bc69-bb5c28f736c4",
+      "797f59c5-22bf-44a5-a18f-34ace8cd35d5",
+      "ac23c1a4-bc48-4219-a0c0-9714b80d2195",
+      "063175ee-7070-46a0-bdd2-6752e0d706ba"
+    ],
+    "followedEvents": [
+      "6aafa983-391c-47a8-8963-fed8487c1158",
+      "0cbef25b-0ecd-48bd-ae5c-de3ca7ce50cb",
+      "2451c697-1b53-40ca-bc59-ed9c92cac34b",
+      "eb25347d-02e6-419f-8609-9bf1aac7e0cf"
+    ]
   },
   "37cddc9b-1150-49d1-af8c-8c78c096ac6b": {
     "fullName": "Clifford Stowe",
     "email": "clifford.stowe22@trinityschoolnyc.org",
     "graduationYear": "2022",
-    "groupLeadership": ["7c095170-730c-11ec-959f-43934c7cc5bd", "3a2a68f4-4db4-4917-b593-2b4474420bff?", "4s4ccf1f-39da-41b4-afda-b95caa2d4636"],
-    "followedGroups": ["1a8f741f-23a3-4de9-bc69-bh5c28f736c4", "797f59c5-22bf-44a5-a18f-34ace6cd35d5", "ac23c1a4-bc48-4219-a0c0-9712b80d2195", "063195ee-7070-46a0-bdd2-6752e0d706ba"],
-    "followedEvents": ["6aafa983-391c-47a8-8963-fad8487c1158", "0cbef25b-0ecd-48bd-ae5c-de3ca7ve50cb", "2451c697-1b53-40ca-bc59-ed9h92cac34b", "eb25347c-02e6-419f-8609-9bf1aac7e0cf"]
+    "groupLeadership": [
+      "7c095170-730c-11ec-959f-43934c7cc5bd",
+      "3a2a68f4-4db4-4917-b593-2b4474420bff?",
+      "4s4ccf1f-39da-41b4-afda-b95caa2d4636"
+    ],
+    "followedGroups": [
+      "1a8f741f-23a3-4de9-bc69-bh5c28f736c4",
+      "797f59c5-22bf-44a5-a18f-34ace6cd35d5",
+      "ac23c1a4-bc48-4219-a0c0-9712b80d2195",
+      "063195ee-7070-46a0-bdd2-6752e0d706ba"
+    ],
+    "followedEvents": [
+      "6aafa983-391c-47a8-8963-fad8487c1158",
+      "0cbef25b-0ecd-48bd-ae5c-de3ca7ve50cb",
+      "2451c697-1b53-40ca-bc59-ed9h92cac34b",
+      "eb25347c-02e6-419f-8609-9bf1aac7e0cf"
+    ]
   },
   "93499d81-2856-4213-b5e5-f2b821acf75c": {
     "fullName": "Ari Sussman",
     "email": "ari.sussman22@trinityschoolnyc.org",
     "graduationYear": "2022",
-    "groupLeadership": ["7c095172-730c-11ec-959f-47934c7cc5bd", "3aaa68f2-4db4-4917-b593-2b4474420bff?", "4auccf1f-39da-41b4-afda-b95caa2d4636"],
-    "followedGroups": ["1a8fd41f-23a3-4de9-bc69-bb5c28f736c4", "797f39c5-r2bf-44a5-a18f-34ace8cd35d5", "ac2331a4-bc48-4219-a0c0-9714b80d2195", "063178ee-7070-46a0-bdd2-6752e0d706ba"],
-    "followedEvents": ["6aafa9c3-391c-47a8-8963-fed8487c1158", "0cbef25b-3ecd-48bd-ae5c-de3ca7ce50cb", "24514697-1b53-40ca-bc59-ed9c92cac34b", "eb25357d-02e6-419f-8609-9bf1aac7e0cf"]
-  },
+    "groupLeadership": [
+      "7c095172-730c-11ec-959f-47934c7cc5bd",
+      "3aaa68f2-4db4-4917-b593-2b4474420bff?",
+      "4auccf1f-39da-41b4-afda-b95caa2d4636"
+    ],
+    "followedGroups": [
+      "1a8fd41f-23a3-4de9-bc69-bb5c28f736c4",
+      "797f39c5-r2bf-44a5-a18f-34ace8cd35d5",
+      "ac2331a4-bc48-4219-a0c0-9714b80d2195",
+      "063178ee-7070-46a0-bdd2-6752e0d706ba"
+    ],
+    "followedEvents": [
+      "6aafa9c3-391c-47a8-8963-fed8487c1158",
+      "0cbef25b-3ecd-48bd-ae5c-de3ca7ce50cb",
+      "24514697-1b53-40ca-bc59-ed9c92cac34b",
+      "eb25357d-02e6-419f-8609-9bf1aac7e0cf"
+    ]
+  }
 }

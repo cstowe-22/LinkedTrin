@@ -13,6 +13,7 @@ router.get('/eventListings', function(request, response) {
     }
 
     let users = User.getAllUsers();
+    let userObj = User.getAllUsers();
     let userArray = [];
     response.status(200);
     for(id in users){
@@ -22,7 +23,7 @@ router.get('/eventListings', function(request, response) {
     response.setHeader('Content-Type', 'text/html')
     response.render("eventListings", {
       events: eventArray,
-      users: userArray
+      users: userObj
     });
 });
 
