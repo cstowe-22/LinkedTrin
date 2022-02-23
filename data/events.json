@@ -3,18 +3,30 @@
     "title": "Tech Internship",
     "description": "Internship at Nick, Ari, & Cliff Media.",
     "date": "3/22/22",
-    "members" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"]
+    "members": [
+      "4774fe1c-9915-473d-a3fc-95a112e00194",
+      "6232bd3c-5009-49eb-98da-e5eb8f99414e",
+      "696d0e4d-765d-4769-b005-c1f8c67535e3"
+    ]
   },
   "55c614c5-bae3-47fe-bd39-4b101f61cb85": {
     "title": "Serve the Community",
     "description": "Do service and stuff like that.",
     "date": "3/23/22",
-    "members" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"]
+    "members": [
+      "4774fe1c-9915-473d-a3fc-95a112e00194",
+      "6232bd3c-5009-49eb-98da-e5eb8f99414e",
+      "696d0e4d-765d-4769-b005-c1f8c67535e3"
+    ]
   },
   "40da3baf-0f71-495e-89b4-562eb8a5740e": {
     "title": "HackTrin",
     "description": "Coding happens here.",
     "date": "3/24/22",
-    "members" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"]
+    "members": [
+      "4774fe1c-9915-473d-a3fc-95a112e00194",
+      "6232bd3c-5009-49eb-98da-e5eb8f99414e",
+      "696d0e4d-765d-4769-b005-c1f8c67535e3"
+    ]
   }
 }

@@ -111,6 +111,12 @@
                 <h4><b><%=events[i].title%></b></h4>
                 <p class="card-text"><%=events[i].description%></p>
                 <p class="card-text"><%=events[i].date%></p>
+                <p class="card-text">Members: <%=events[i].members.length%> </p>
+                <ul>
+                  <%for(let j = 0; j<events[i].members.length;j++) {%>
+                    <li><%=events[i].members[j];%></li>
+                  <%}%>
+                </ul>
                 <a role="button" class="btn btn-primary btn-lg m-2"
                    href="/event" rel="nofollow" target="_self">
                    Learn More
