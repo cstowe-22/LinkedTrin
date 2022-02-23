@@ -3,6 +3,11 @@ const express = require('express'),
 
 const User = require('../models/user_model');
 
+function userLoookUp(user, userArray) {
+    if (userArray[user])
+      return userArray[user].fullName;
+}
+
 router.get('/eventListings', function(request, response) {
     let users = User.getAllUsers();
     let userArray = [];
