@@ -3,8 +3,9 @@ const express = require('express'),
 
 const User = require('../models/user_model');
 
+
 router.get('/eventListings', function(request, response) {
-    let userArray = User.getAllUsers();
+    let users = User.getAllUsers();
     let userArray = [];
     response.status(200);
     for(id in users){
