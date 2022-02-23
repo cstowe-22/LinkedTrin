@@ -3,16 +3,16 @@ const express = require('express'),
 
 const Group = require('../models/group_model');
 
-router.get('/eventListings', function(request, response) {
+router.get('/groupListings', function(request, response) {
     let groups = Group.getAllGroups();
     let groupArray = [];
     response.status(200);
-    for(title in events){
-      eventArray.push(events[title])
+    for(name in groups){
+      groupArray.push(groups[name])
     }
     response.setHeader('Content-Type', 'text/html')
-    response.render("eventListings", {
-      events: eventArray
+    response.render("groupListings", {
+      groups: groupArray
     });
 });
 
