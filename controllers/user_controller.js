@@ -3,17 +3,12 @@ const express = require('express'),
 
 const User = require('../models/user_model');
 
-function userLoookUp(user, userArray) {
-    if (userArray[user])
-      return userArray[user].fullName;
-}
-
 router.get('/eventListings', function(request, response) {
-    let users = User.getAllUsers();
+    let userArray = User.getAllUsers();
     let userArray = [];
     response.status(200);
-    for(fullName in users){
-      userArray.push(users[fullName])
+    for(id in users){
+      userArray.push(users[id])
     }
     response.setHeader('Content-Type', 'text/html')
     response.render("eventListings", {

@@ -116,7 +116,7 @@
                 <p class="card-text">Members: <%=events[i].members.length%> </p>
                 <ul>
                   <%for(let j = 0; j<events[i].members.length;j++) {%>
-                    <li><%=events[i].members[j];%></li>
+                    <li><%=users[events[i].members[j]].fullName;%></li>
                   <%}%>
                 </ul>
                 <a role="button" class="btn btn-primary btn-lg m-2"
