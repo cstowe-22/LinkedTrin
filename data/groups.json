@@ -20,7 +20,7 @@
     "leaders": "Lake Gifford, Elizabeth Ting, Lux Hogan-Murphy",
     "advisor": "Justin Gohde",
     "description": "We are in charge of planning HackTrin IX, Triniy's official hackathon.",
-
+    "type":"academic",
     "members:" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"]
   }
 }
