@@ -40,7 +40,7 @@ router.get('/groupListings/:type', function(request, response) {
       response.status(200);
       response.setHeader('Content-Type', 'text/html')
       response.render("groupSort",{
-        groupFilter: groups[type]
+        groupFilter: groupList
       });
 });
 
