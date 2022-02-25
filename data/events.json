@@ -31,5 +31,16 @@
       "93499d81-2856-4213-b5e5-f2b821acf75c",
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b"
     ]
+  },
+  "TrinLabs Meeting": {
+    "title": "TrinLabs Meeting",
+    "description": "We make applications for Trinity.",
+    "date": "5/24/22",
+    "organization" : "TrinLabs",
+    "members": [
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85",
+      "93499d81-2856-4213-b5e5-f2b821acf75c",
+      "37cddc9b-1150-49d1-af8c-8c78c096ac6b"
+    ]
   }
 }
