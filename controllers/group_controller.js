@@ -27,17 +27,17 @@ router.get('/groupListings', function(request, response) {
     });
 });
 
-router.get('/groupListings/volunteer', function(request, response) {
+router.get('/groupListings/:type', function(request, response) {
     let groups = Group.getAllGroups();
-    let groupArray = [];
     response.status(200);
-    for(name in groups){
-      groupArray.push(groups[name])
-    }
-    response.setHeader('Content-Type', 'text/html')
-    response.render("groupListings/volunteer", {
-      groups: groupArray
-    });
+    let groupType = request.params.type;
+
+    if(groups[type]){
+      response.status(200);
+      response.setHeader('Content-Type', 'text/html')
+      response.render("groupSort",{
+        groupFilter: groups[type]
+      });
 });
 
 module.exports = router;
