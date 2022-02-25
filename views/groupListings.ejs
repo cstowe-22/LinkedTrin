@@ -81,11 +81,12 @@
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="#">Volunteer</a>
         <%type = "volunteer";%>
+        <%console.log(type)%>
         <a class="dropdown-item" href="#">Club</a>
-        <%type = "club"%>
+        <%type = "club";%>
         <a class="dropdown-item" href="#">Academic</a>
         <%type = "academic";%>
-        <a class="dropdown-item" href="#">All Events</a>
+        <a class="dropdown-item" href="#">All Groups</a>
         <%type = "";%>
       </div>
     </div>
@@ -108,7 +109,7 @@
     <!--Section: News of the day -- we made edits to this-->
     <section  class="border-to pb-4 mb-5 colspan-10">
       <%for(i=0;i<groups.length;i++){%>
-          <%if(type!=""&&groups[i].type=type){%>
+          <%if(type!=""&&groups[i].type==type){%>
       <div class="col-lg-4 col-md-24 mb-4 mb-lg-0">
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-10">
             <div class="card" style="height: 20rem;width: 81rem;">
