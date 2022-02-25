@@ -107,7 +107,7 @@
       <%for(i=0;i<events.length;i++){%>
       <div class="col-lg-4 col-md-24 mb-4 mb-lg-0">
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-10">
-            <div class="card" style="height: 20rem;width: 81rem;">
+            <div class="card" style="height: 30rem;width: 81rem;">
               <div class="card-body">
                 <h4><b><%=events[i].title%></b></h4>
                 <% if (events[i].organization) {%>
@@ -124,7 +124,8 @@
                 </ul>
                 <a role="button" class="btn btn-primary btn-lg m-2"
                    href="/event" rel="nofollow" target="_self">
-                   Learn More
+                   About <%=events[i].title%>
+                   <!-- Find a way to send data to event -->
                 </a>
               </div>
             </div>
