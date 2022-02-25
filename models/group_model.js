@@ -6,3 +6,7 @@ exports.getAllGroups =  function() {
   let allGroups = JSON.parse(fs.readFileSync(__dirname+'/../data/groups.json'));
   return allGroups;
 }
+
+// exports.sendGroupData = function() {
+//   let
+// }
