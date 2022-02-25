@@ -1,6 +1,7 @@
 {
   "Esports Club": {
     "name": "Esports Club",
+    "path": "/esports-club"
     "leaders": "Nicholas Eng and Santiago Soto",
     "advisor": "Paul Cernota",
     "description": "We play competitive video games.",
@@ -9,6 +10,7 @@
   },
   "Community Circle": {
     "name": "Community Circle",
+    "path": "/community-circle",
     "leaders": "Alexander Kostin",
     "advisor": "Kai Williams",
     "description": "We help the disabled and serve food to the elderly.",
@@ -17,6 +19,7 @@
   },
   "HackTrin": {
     "name": "HackTrin",
+    "path": "/hacktrin",
     "leaders": "Lake Gifford, Elizabeth Ting, Lux Hogan-Murphy",
     "advisor": "Justin Gohde",
     "description": "We are in charge of planning HackTrin IX, Triniy's official hackathon.",
