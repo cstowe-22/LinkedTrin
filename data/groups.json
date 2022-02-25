@@ -1,5 +1,5 @@
 {
-  "7c095170-730c-11ec-959f-47934c7cc5bd": {
+  "Esports Club": {
     "name": "Esports Club",
     "leaders": "Nicholas Eng and Santiago Soto",
     "advisor": "Paul Cernota",
@@ -7,7 +7,7 @@
     "type":"club",
     "members:" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"]
   },
-  "9196be60-730c-11ec-959f-47934c7cc5bd": {
+  "Community Circle": {
     "name": "Community Circle",
     "leaders": "Alexander Kostin",
     "advisor": "Kai Williams",
@@ -15,7 +15,7 @@
     "type":"volunteer",
     "members:" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"]
   },
-  "97eee3a0-730c-11ec-959f-47934c7cc5bd": {
+  "HackTrin": {
     "name": "HackTrin",
     "leaders": "Lake Gifford, Elizabeth Ting, Lux Hogan-Murphy",
     "advisor": "Justin Gohde",

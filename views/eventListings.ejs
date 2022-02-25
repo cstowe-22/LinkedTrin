@@ -110,6 +110,10 @@
             <div class="card" style="height: 20rem;width: 81rem;">
               <div class="card-body">
                 <h4><b><%=events[i].title%></b></h4>
+                <% if (events[i].organization) {%>
+                  <p class="card-text"> <i> By <%=events[i].organization%></i></p>
+                <%}%>
+
                 <p class="card-text"><%=events[i].description%></p>
                 <p class="card-text"><%=events[i].date%></p>
                 <p class="card-text">Members: <%=events[i].members.length%> </p>
