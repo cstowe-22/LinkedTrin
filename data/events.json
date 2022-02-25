@@ -22,10 +22,10 @@
     ]
   },
   "HackTrin IX": {
-    "title": "HackTrin",
+    "title": "HackTrin IX",
     "description": "Coding happens here.",
     "date": "3/24/22",
-    "organization" : "HackTrin",
+    "organization": "HackTrin",
     "members": [
       "55c614c5-bae3-47fe-bd39-4b101f61cb85",
       "93499d81-2856-4213-b5e5-f2b821acf75c",
@@ -36,7 +36,7 @@
     "title": "TrinLabs Meeting",
     "description": "We make applications for Trinity.",
     "date": "5/24/22",
-    "organization" : "TrinLabs",
+    "organization": "TrinLabs",
     "members": [
       "55c614c5-bae3-47fe-bd39-4b101f61cb85",
       "93499d81-2856-4213-b5e5-f2b821acf75c",

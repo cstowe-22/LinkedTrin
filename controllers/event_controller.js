@@ -6,6 +6,7 @@ const User = require('../models/user_model');
 
 router.get('/eventListings', function(request, response) {
     let events = Event.getAllEvents();
+    let eventObj = Event.getAllEvents();
     let eventArray = [];
     response.status(200);
     for(title in events){
@@ -19,10 +20,11 @@ router.get('/eventListings', function(request, response) {
     for(id in users){
       userArray.push(users[id])
     }
-
+    console.log(eventObj);
     response.setHeader('Content-Type', 'text/html')
     response.render("eventListings", {
       events: eventArray,
+      eventsObj: eventObj,
       users: userObj
     });
 });
