@@ -30,9 +30,13 @@ router.get('/groupListings', function(request, response) {
 router.get('/groupListings/:type', function(request, response) {
     let groups = Group.getAllGroups();
     response.status(200);
-    let groupType = request.params.type;
-
-    if(groups[type]){
+    let type = request.params.type;
+    let groupList = [];
+    for(type in groups){
+      if(groups[type]==type){
+        groupList.push(groups[type])
+      }
+    }
       response.status(200);
       response.setHeader('Content-Type', 'text/html')
       response.render("groupSort",{
