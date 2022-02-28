@@ -116,9 +116,11 @@
                 <p class="card-text">Advisor: <%=users[groups[i].advisor.toString()].fullName%></p>
                 <p class="card-text"><%=groups[i].description%></p>
                 <p class="card-text">Members:
+                <ul>
                   <% for (let k = 0; k < groups[i].members.length; k++) {%>
-                    <%=groups[i].members[k]%>
+                    <li> <%=users[groups[i].members[k].toString()].fullName%> </li>
                   <%}%> </p>
+                </ul>
 
                 <a role="button" class="btn btn-primary btn-lg m-2"
                    href="/group" rel="nofollow" target="_self">
