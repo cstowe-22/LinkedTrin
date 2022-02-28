@@ -78,10 +78,10 @@
         Search Filter
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/volunteer">Volunteer</a>
+        <a class="dropdown-item" href="/groupListings/<%="volunteer"%>">Volunteer</a>
         <a class="dropdown-item" href="#">Club</a>
         <a class="dropdown-item" href="#">Academic</a>
-        <a class="dropdown-item" href="#">All Groups</a
+        <a class="dropdown-item" href="#">All Groups</a>
       </div>
     </div>
     <br>
@@ -108,9 +108,20 @@
             <div class="card" style="height: 20rem;width: 81rem;">
               <div class="card-body">
                 <h4><b><%=groupFilter[i].name%></b></h4>
-                <p class="card-text"><%=groupFilter[i].leaders%></p>
-                <p class="card-text"><%=groupFilter[i].advisor%></p>
+                <p class="card-text">Leadership:
+                  <% for (let j = 0; j < groupFilter[i].leaders.length; j++) {%>
+                    <%=users[groupFilter[i].leaders[j].toString()].fullName%>,
+                  <%}%>
+                </p>
+                <p class="card-text">Advisor: <%=users[groupFilter[i].advisor.toString()].fullName%></p>
                 <p class="card-text"><%=groupFilter[i].description%></p>
+                <p class="card-text">Members:
+                <ul>
+                  <% for (let k = 0; k < groupFilter[i].members.length; k++) {%>
+                    <li> <%=users[groupFilter[i].members[k].toString()].fullName%> </li>
+                  <%}%> </p>
+                </ul>
+
                 <a role="button" class="btn btn-primary btn-lg m-2"
                    href="/group" rel="nofollow" target="_self">
                    Learn More

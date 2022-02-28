@@ -31,18 +31,24 @@ router.get('/groupListings', function(request, response) {
 
 router.get('/groupListings/:type', function(request, response) {
     let groups = Group.getAllGroups();
-    response.status(200);
-    let type = request.params.type;
     let groupList = [];
+    let typeSave = request.params.type;
     for(type in groups){
-      if(groups[type]==type){
-        groupList.push(groups[type])
+      if(groups[type].type==typeSave){
+        groupList.push(groups[type]);
       }
+    }
+    let users = User.getAllUsers();
+    let userObj = User.getAllUsers();
+    let userArray = [];
+    for(id in users){
+      userArray.push(users[id])
     }
       response.status(200);
       response.setHeader('Content-Type', 'text/html')
       response.render("groupSort",{
-        groupFilter: groupList
+        groupFilter: groupList,
+        users: userObj
       });
 });
 
