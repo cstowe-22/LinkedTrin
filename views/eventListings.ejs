@@ -120,9 +120,9 @@
                   <%}%>
                 </ul>
                 <!-- Pass in this object to event.ejs -->
+                <% console.log("Test123: " + eventsObj[events[i].title.toString()]);%>
+                <% let oneEvent = eventsObj[events[i].title.toString()];%>
                 <p class="card-text"> <%=eventsObj[events[i].title.toString()].description%> </p>
-
-                <%let eventObject =  eventsObj[events[i].title.toString()].fullName;%>
 
                 <a role="button" class="btn btn-primary btn-lg m-2"
                    href="" rel="nofollow" target="_self" onclick="sendData">
@@ -132,7 +132,15 @@
 
                 <script>
                   function sendData() {
-                    console.log("Tester: " + eventsObj[events[i].title.toString()].title);
+                    let selectedEvent = {
+                      title : <%oneEvent.title%>,
+                      description  :   <%eventsObj[events[i].title.toString()].description%>,
+                      date     : <%eventsObj[events[i].title.toString()].date%>,
+                      organization  : <%eventsObj[events[i].title.toString()].title%>,
+                      type: <%eventsObj[events[i].title.toString()].type%>,
+                      members: <%eventsObj[events[i].title.toString()].members%>
+                    };
+                    console.log(selectedEvent);
                   }
                 </script>
               </div>
