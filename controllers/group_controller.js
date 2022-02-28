@@ -6,6 +6,7 @@ const User = require('../models/user_model');
 
 router.get('/groupListings', function(request, response) {
     let groups = Group.getAllGroups();
+    let groupObj = Group.getAllGroups();
     let groupArray = [];
     response.status(200);
     for(name in groups){
@@ -23,6 +24,7 @@ router.get('/groupListings', function(request, response) {
     response.setHeader('Content-Type', 'text/html')
     response.render("groupListings", {
       groups: groupArray,
+      groupsObj: groupObj,
       users: userObj
     });
 });

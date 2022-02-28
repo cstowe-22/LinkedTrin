@@ -108,9 +108,18 @@
             <div class="card" style="height: 20rem;width: 81rem;">
               <div class="card-body">
                 <h4><b><%=groups[i].name%></b></h4>
-                <p class="card-text"><%=groups[i].leaders%></p>
-                <p class="card-text"><%=groups[i].advisor%></p>
+                <p class="card-text">Leadership:
+                  <% for (let j = 0; j < groups[i].leaders.length; j++) {%>
+                    <%=users[groups[i].leaders[j].toString()].fullName%>,
+                  <%}%>
+                </p>
+                <p class="card-text">Advisor: <%=users[groups[i].advisor.toString()].fullName%></p>
                 <p class="card-text"><%=groups[i].description%></p>
+                <p class="card-text">Members:
+                  <% for (let k = 0; k < groups[i].members.length; k++) {%>
+                    <%=groups[i].members[k]%>
+                  <%}%> </p>
+
                 <a role="button" class="btn btn-primary btn-lg m-2"
                    href="/group" rel="nofollow" target="_self">
                    Learn More

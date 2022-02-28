@@ -2,28 +2,46 @@
   "Esports Club": {
     "name": "Esports Club",
     "path": "/esports-club",
-    "leaders": "Nicholas Eng and Santiago Soto",
-    "advisor": "Paul Cernota",
+    "leaders": [
+      "93499d81-2856-4213-b5e5-f2b821acf75c",
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85"
+    ],
+    "advisor": "3b8a465c-55bb-45ec-931c-2e87f1ce1772",
     "description": "We play competitive video games.",
-    "type":"club",
-    "members:" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"]
+    "type": "club",
+    "members": [
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85",
+      "37cddc9b-1150-49d1-af8c-8c78c096ac6b",
+      "93499d81-2856-4213-b5e5-f2b821acf75c"
+    ]
   },
   "Community Circle": {
     "name": "Community Circle",
     "path": "/community-circle",
-    "leaders": "Alexander Kostin",
-    "advisor": "Kai Williams",
+    "leaders": [
+      "60da66fe-43e9-4497-a06b-7f91df321f88"
+    ],
+    "advisor": "6d6d812a-557a-48ca-ba5c-651eb84f0ad1",
     "description": "We help the disabled and serve food to the elderly.",
-    "type":"volunteer",
-    "members:" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"]
+    "type": "volunteer",
+    "members": [
+      "93499d81-2856-4213-b5e5-f2b821acf75c",
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85"
+    ]
   },
   "HackTrin": {
     "name": "HackTrin",
     "path": "/hacktrin",
-    "leaders": "Lake Gifford, Elizabeth Ting, Lux Hogan-Murphy",
-    "advisor": "Justin Gohde",
+    "leaders": [
+      "60da66fe-43e9-4497-a06b-7f91df321f88",
+      "37cddc9b-1150-49d1-af8c-8c78c096ac6b"
+    ],
+    "advisor": "932fc20d-316f-4020-8dca-066141ebd403",
     "description": "We are in charge of planning HackTrin IX, Triniy's official hackathon.",
-    "type":"academic",
-    "members:" : ["4774fe1c-9915-473d-a3fc-95a112e00194", "6232bd3c-5009-49eb-98da-e5eb8f99414e", "696d0e4d-765d-4769-b005-c1f8c67535e3"]
+    "type": "academic",
+    "members": [
+      "93499d81-2856-4213-b5e5-f2b821acf75c",
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85"
+    ]
   }
 }

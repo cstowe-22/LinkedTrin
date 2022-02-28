@@ -9,10 +9,8 @@
       "Business Research"
     ],
     "followedGroups": [
-      "1a8f741f-23a3-4de9-bc69-bb5c28f736c4",
-      "797f59c5-22bf-44a5-a18f-34ace8cd35d5",
-      "ac23c1a4-bc48-4219-a0c0-9714b80d2195",
-      "063175ee-7070-46a0-bdd2-6752e0d706ba"
+      "HackTrin",
+      "Hackathon"
     ],
     "followedEvents": [
       "6aafa983-391c-47a8-8963-fed8487c1158",
@@ -63,6 +61,66 @@
       "0cbef25b-3ecd-48bd-ae5c-de3ca7ce50cb",
       "24514697-1b53-40ca-bc59-ed9c92cac34b",
       "eb25357d-02e6-419f-8609-9bf1aac7e0cf"
+    ]
+  },
+  "6d6d812a-557a-48ca-ba5c-651eb84f0ad1": {
+    "fullName": "Kai Williams",
+    "email": "kai.williams@trinityschoolnyc.org",
+    "graduationYear": "",
+    "groupLeadership": [
+      "7c095172-730c-11ec-959f-47934c7cc5bd",
+      "3aaa68f2-4db4-4917-b593-2b4474420bff?",
+      "4auccf1f-39da-41b4-afda-b95caa2d4636"
+    ],
+    "followedGroups": [
+
+    ],
+    "followedEvents": [
+    ]
+  },
+  "3b8a465c-55bb-45ec-931c-2e87f1ce1772": {
+    "fullName": "Paul Cernota",
+    "email": "paul.cernota@trinityschoolnyc.org",
+    "graduationYear": "",
+    "groupLeadership": [
+      "7c095172-730c-11ec-959f-47934c7cc5bd",
+      "3aaa68f2-4db4-4917-b593-2b4474420bff?",
+      "4auccf1f-39da-41b4-afda-b95caa2d4636"
+    ],
+    "followedGroups": [
+
+    ],
+    "followedEvents": [
+    ]
+  },
+  "932fc20d-316f-4020-8dca-066141ebd403": {
+    "fullName": "Justin Gohde",
+    "email": "justin.ghode@trinityschoolnyc.org",
+    "graduationYear": "",
+    "groupLeadership": [
+      "7c095172-730c-11ec-959f-47934c7cc5bd",
+      "3aaa68f2-4db4-4917-b593-2b4474420bff?",
+      "4auccf1f-39da-41b4-afda-b95caa2d4636"
+    ],
+    "followedGroups": [
+
+    ],
+    "followedEvents": [
+    ]
+  },
+  "60da66fe-43e9-4497-a06b-7f91df321f88": {
+    "fullName": "Alexander Kostin",
+    "email": "aleexander.kostin22@trinityschoolnyc.org",
+    "graduationYear": "2022",
+    "groupLeadership": [
+      "7c095172-730c-11ec-959f-47934c7cc5bd",
+      "3aaa68f2-4db4-4917-b593-2b4474420bff?",
+      "4auccf1f-39da-41b4-afda-b95caa2d4636"
+    ],
+    "followedGroups": [
+
+    ],
+    "followedEvents": [
     ]
   }
 }

@@ -122,6 +122,7 @@
                     <li><%=users[events[i].members[j].toString()].fullName%></li>
                   <%}%>
                 </ul>
+                <!-- Pass in this object to event.ejs -->
                 <p class="card-text"> <%=eventsObj[events[i].title.toString()].title%> </p>
                 <p class="card-text"> <%=eventsObj[events[i].title.toString()].description%> </p>
                 <a role="button" class="btn btn-primary btn-lg m-2"
