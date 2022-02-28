@@ -20,7 +20,6 @@ router.get('/eventListings', function(request, response) {
     for(id in users){
       userArray.push(users[id])
     }
-    console.log(eventObj);
     response.setHeader('Content-Type', 'text/html')
     response.render("eventListings", {
       events: eventArray,
