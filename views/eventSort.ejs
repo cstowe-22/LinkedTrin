@@ -1,4 +1,6 @@
 <%- include('partials/header') -%>
+<body>
+    <!--Main Navigation-->
 <header>
   <!-- Intro settings -->
   <style>
@@ -81,7 +83,7 @@
         <a class="dropdown-item" href="/eventListings/<%="volunteer"%>">Volunteer</a>
         <a class="dropdown-item" href="/eventListings/<%="club"%>">Club</a>
         <a class="dropdown-item" href="/eventListings/<%="academic"%>">Academic</a>
-        <a class="dropdown-item" href="/eventListings/">All Events</a>
+        <a class="dropdown-item" href="/eventListings/">All Groups</a>
       </div>
     </div>
     <br>
@@ -102,29 +104,28 @@
 
     <!--Section: News of the day -- we made edits to this-->
     <section  class="border-to pb-4 mb-5 colspan-10">
-      <%for(i=0;i<events.length;i++){%>
+      <%for(i=0;i<eventFilter.length;i++){%>
       <div class="col-lg-4 col-md-24 mb-4 mb-lg-0">
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-10">
             <div class="card" style="height: 30rem;width: 81rem;">
               <div class="card-body">
-                <h4><b><%=events[i].title%></b></h4>
-                <% if (events[i].organization) {%>
-                  <p class="card-text"> <i> By <%=events[i].organization%></i></p>
+                <h4><b><%=eventFilter[i].title%></b></h4>
+                <% if (eventFilter[i].organization) {%>
+                  <p class="card-text"> <i> By <%=eventFilter[i].organization%></i></p>
                 <%}%>
-                <p class="card-text"><%=events[i].description%></p>
-                <p class="card-text"><%=events[i].date%></p>
-                <p class="card-text">Members: <%=events[i].members.length%> </p>
+
+                <p class="card-text"><%=eventFilter[i].description%></p>
+                <p class="card-text"><%=eventFilter[i].date%></p>
+                <p class="card-text">Members: <%=eventFilter[i].members.length%> </p>
                 <ul>
-                  <%for(let j = 0; j<events[i].members.length;j++) {%>
-                    <li><%=users[events[i].members[j].toString()].fullName%></li>
+                  <%for(let j = 0; j<eventFilter[i].members.length;j++) {%>
+                    <li><%=users[eventFilter[i].members[j].toString()].fullName%></li>
                   <%}%>
                 </ul>
                 <!-- Pass in this object to event.ejs -->
-                <p class="card-text"> <%=eventsObj[events[i].title.toString()].title%> </p>
-                <p class="card-text"> <%=eventsObj[events[i].title.toString()].description%> </p>
                 <a role="button" class="btn btn-primary btn-lg m-2"
                    href="/event" rel="nofollow" target="_self">
-                   About <%=events[i].title%>
+                   About <%=eventFilter[i].title%>
                    <!-- Find a way to send data to event -->
                 </a>
               </div>
@@ -137,4 +138,4 @@
 </main>
 <!--Main layout-->
 
-<%- include('partials/footer') -%>
+<%- include('partials/header') -%>

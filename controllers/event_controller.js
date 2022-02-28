@@ -27,13 +27,13 @@ router.get('/eventListings', function(request, response) {
     });
 });
 
-router.get('/evemtListings/:type', function(request, response) {
-    let evemtss = Group.getAllGroups();
-    let groupList = [];
+router.get('/eventListings/:type', function(request, response) {
+    let events = Event.getAllEvents();
+    let eventList = [];
     let typeSave = request.params.type;
-    for(type in groups){
-      if(groups[type].type==typeSave){
-        groupList.push(groups[type]);
+    for(type in events){
+      if(events[type].type==typeSave){
+        eventList.push(events[type]);
       }
     }
     let users = User.getAllUsers();
@@ -44,8 +44,8 @@ router.get('/evemtListings/:type', function(request, response) {
     }
       response.status(200);
       response.setHeader('Content-Type', 'text/html')
-      response.render("groupSort",{
-        groupFilter: groupList,
+      response.render("eventSort",{
+        eventFilter: eventList,
         users: userObj
       });
 });
