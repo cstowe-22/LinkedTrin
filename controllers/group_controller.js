@@ -9,11 +9,9 @@ router.get('/groupListings', function(request, response) {
     let groups = Group.getAllGroups();
     let groupObj = Group.getAllGroups();
     let groupArray = [];
-    response.status(200);
     for(name in groups){
       groupArray.push(groups[name])
     }
-
     let users = User.getAllUsers();
     let userObj = User.getAllUsers();
     let userArray = [];
@@ -30,10 +28,9 @@ router.get('/groupListings', function(request, response) {
     });
 });
 
-router.get('/groupListings/:type', function(request, response) {
+router.get('/groupListings/'+':type', function(request, response) {
     let groups = Group.getAllGroups();
     let groupList = [];
-    let groupsObj = Group.getAllGroups();
     let typeSave = request.params.type;
     for(type in groups){
       if(groups[type].type==typeSave){
@@ -43,14 +40,13 @@ router.get('/groupListings/:type', function(request, response) {
     let users = User.getAllUsers();
     let userObj = User.getAllUsers();
     let userArray = [];
+    response.status(200);
     for(id in users){
       userArray.push(users[id])
     }
-      response.status(200);
       response.setHeader('Content-Type', 'text/html')
-      response.render("groupSort",{
-        groupFilter: groupList,
-        groupsObj: groupObj,
+      response.render("groupListings",{
+        groups: groupList,
         users: userObj
       });
 });
