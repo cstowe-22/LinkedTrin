@@ -1,5 +1,6 @@
 const express = require('express'),
   router = express.Router();
+  const app = express();
 
 const Group = require('../models/group_model');
 const User = require('../models/user_model');
@@ -32,6 +33,7 @@ router.get('/groupListings', function(request, response) {
 router.get('/groupListings/:type', function(request, response) {
     let groups = Group.getAllGroups();
     let groupList = [];
+    let groupsObj = Group.getAllGroups();
     let typeSave = request.params.type;
     for(type in groups){
       if(groups[type].type==typeSave){
@@ -48,6 +50,7 @@ router.get('/groupListings/:type', function(request, response) {
       response.setHeader('Content-Type', 'text/html')
       response.render("groupSort",{
         groupFilter: groupList,
+        groupsObj: groupObj,
         users: userObj
       });
 });
