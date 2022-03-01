@@ -30,6 +30,7 @@ router.get('/groupListings', function(request, response) {
 
 router.get('/groupListings/'+':type', function(request, response) {
     let groups = Group.getAllGroups();
+    let groupObj = Group.getAllGroups();
     let groupList = [];
     let typeSave = request.params.type;
     for(type in groups){
@@ -47,6 +48,7 @@ router.get('/groupListings/'+':type', function(request, response) {
       response.setHeader('Content-Type', 'text/html')
       response.render("groupListings",{
         groups: groupList,
+        groupsObj: groupObj,
         users: userObj
       });
 });
