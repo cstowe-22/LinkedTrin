@@ -17,9 +17,8 @@ app.use(require('./controllers/index'));
 app.use(require('./controllers/event_controller'));
 app.use(require('./controllers/group_controller'));
 
-app.get("/:route/:param1", function callback(request, response) {
+app.get("/:route/", function callback(request, response) {
   let route = request.params.route;
-  let param1 = request.params.param1;
   if (route) {
     response.status(200);
     response.setHeader("Content-type", "text/html")
