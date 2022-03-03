@@ -1,7 +1,7 @@
 {
   "esports-club": {
     "name": "Esports Club",
-    "path": "/esports-club",
+    "path": "esports-club",
     "leaders": [
       "93499d81-2856-4213-b5e5-f2b821acf75c",
       "55c614c5-bae3-47fe-bd39-4b101f61cb85"
@@ -17,7 +17,7 @@
   },
   "community-circle": {
     "name": "Community Circle",
-    "path": "/community-circle",
+    "path": "community-circle",
     "leaders": [
       "60da66fe-43e9-4497-a06b-7f91df321f88"
     ],
@@ -31,7 +31,7 @@
   },
   "hacktrin": {
     "name": "HackTrin",
-    "path": "/hacktrin",
+    "path": "hacktrin",
     "leaders": [
       "60da66fe-43e9-4497-a06b-7f91df321f88",
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b"

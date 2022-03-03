@@ -106,7 +106,7 @@
             <%}%>
             <p class="card-text"><%=event.description%></p>
             <p class="card-text"><%=event.date%></p>
-            <p class="card-text">Members: <%=event.members.length%> </p>
+            <p class="card-text">Members:</p>
             <ul>
               <%for(let j = 0; j<event.members.length;j++) {%>
                 <li><%=users[event.members[j].toString()].fullName%></li>

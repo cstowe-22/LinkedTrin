@@ -92,7 +92,7 @@
       <%for(i=0;i<groups.length;i++){%>
       <div class="col-lg-4 col-md-24 mb-4 mb-lg-0">
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-10">
-            <div class="card" style="height: 20rem;width: 81rem;">
+            <div class="card" style="min-height: 21rem;width: 81rem;padding: 2rem;">
               <div class="card-body">
                 <h4><b><%=groups[i].name%></b></h4>
                 <p class="card-text">Leadership:
@@ -102,15 +102,9 @@
                 </p>
                 <p class="card-text">Advisor: <%=users[groups[i].advisor.toString()].fullName%></p>
                 <p class="card-text"><%=groups[i].description%></p>
-                <p class="card-text">Members:
-                <ul>
-                  <% for (let k = 0; k < groups[i].members.length; k++) {%>
-                    <li> <%=users[groups[i].members[k].toString()].fullName%> </li>
-                  <%}%> </p>
-                </ul>
-
+                <p class="card-text">Members: <%=groups[i].members.length%> </p>
                 <a role="button" class="btn btn-primary btn-lg m-2"
-                   href="/group" rel="nofollow" target="_self">
+                   href="/group/<%=groups[i].path%>" rel="nofollow" target="_self">
                    Learn More
                 </a>
               </div>
