@@ -53,4 +53,31 @@ router.get('/groupListings/'+':type', function(request, response) {
       });
 });
 
+router.get('/group/:path', function(request, response) {
+    let groups = Group.getAllGroups();
+    let groupObj = Group.getAllGroups();
+    let selectedGroup = {};
+    let path = request.params.path;
+    for(groupEntry in groups){
+      if(groups[groupEntry].path==path){
+        selectedGroup = groups[groupEntry];
+      }
+    }
+    let users = User.getAllUsers();
+    let userObj = User.getAllUsers();
+    let userArray = [];
+    response.status(200);
+    for(id in users){
+      userArray.push(users[id])
+    }
+    // TODO: add logic after user is figured route
+    let followed = 0;
+      response.setHeader('Content-Type', 'text/html')
+      response.render("group",{
+        group: selectedGroup,
+        users: userObj,
+        followed: followed
+      });
+});
+
 module.exports = router;
