@@ -1,6 +1,7 @@
 {
-  "Tech Internship": {
+  "tech-internship": {
     "title": "Tech Internship",
+    "path": "tech-internship",
     "description": "Internship at Nick, Ari, & Cliff Media.",
     "date": "3/22/22",
     "organization": "",
@@ -11,8 +12,9 @@
       "55c614c5-bae3-47fe-bd39-4b101f61cb85"
     ]
   },
-  "Serve the Community": {
+  "serve-the-community": {
     "title": "Serve the Community",
+    "path": "serve-the-community",
     "description": "Do service and stuff like that.",
     "date": "3/23/22",
     "organization": "Community Circle",
@@ -23,8 +25,9 @@
       "93499d81-2856-4213-b5e5-f2b821acf75c"
     ]
   },
-  "HackTrin IX": {
+  "hacktrin-ix": {
     "title": "HackTrin IX",
+    "path": "hacktrin-ix",
     "description": "Coding happens here.",
     "date": "3/24/22",
     "organization": "HackTrin",
@@ -35,8 +38,9 @@
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b"
     ]
   },
-  "TrinLabs Meeting": {
+  "trinlabs-meeting": {
     "title": "TrinLabs Meeting",
+    "path": "trinlabs-meeting",
     "description": "We make applications for Trinity.",
     "date": "5/24/22",
     "organization": "TrinLabs",

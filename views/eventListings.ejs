@@ -105,7 +105,7 @@
       <%for(i=0;i<events.length;i++){%>
       <div class="col-lg-4 col-md-24 mb-4 mb-lg-0">
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-10">
-            <div class="card" style="height: 30rem;width: 81rem;">
+            <div class="card" style="min-height: 21rem;width: 81rem;padding: 2rem;">
               <div class="card-body">
                 <h4><b><%=events[i].title%></b></h4>
                 <% if (events[i].organization) {%>
@@ -114,35 +114,13 @@
                 <p class="card-text"><%=events[i].description%></p>
                 <p class="card-text"><%=events[i].date%></p>
                 <p class="card-text">Members: <%=events[i].members.length%> </p>
-                <ul>
-                  <%for(let j = 0; j<events[i].members.length;j++) {%>
-                    <li><%=users[events[i].members[j].toString()].fullName%></li>
-                  <%}%>
-                </ul>
-                <!-- Pass in this object to event.ejs -->
-                <% console.log("Test123: " + eventsObj[events[i].title.toString()]);%>
-                <% let oneEvent = eventsObj[events[i].title.toString()];%>
-                <p class="card-text"> <%=eventsObj[events[i].title.toString()].description%> </p>
 
                 <a role="button" class="btn btn-primary btn-lg m-2"
-                   href="" rel="nofollow" target="_self" onclick="sendData">
+                   href="/event/<%=events[i].path%>" rel="nofollow" target="_self">
                    About <%=events[i].title%>
                    <!-- Find a way to send data to event -->
                 </a>
 
-                <script>
-                  function sendData() {
-                    let selectedEvent = {
-                      title : <%oneEvent.title%>,
-                      description  :   <%eventsObj[events[i].title.toString()].description%>,
-                      date     : <%eventsObj[events[i].title.toString()].date%>,
-                      organization  : <%eventsObj[events[i].title.toString()].title%>,
-                      type: <%eventsObj[events[i].title.toString()].type%>,
-                      members: <%eventsObj[events[i].title.toString()].members%>
-                    };
-                    console.log(selectedEvent);
-                  }
-                </script>
               </div>
             </div>
           </div>
