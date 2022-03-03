@@ -1,5 +1,5 @@
 {
-  "Esports Club": {
+  "esports-club": {
     "name": "Esports Club",
     "path": "/esports-club",
     "leaders": [
@@ -15,7 +15,7 @@
       "93499d81-2856-4213-b5e5-f2b821acf75c"
     ]
   },
-  "Community Circle": {
+  "community-circle": {
     "name": "Community Circle",
     "path": "/community-circle",
     "leaders": [
@@ -29,7 +29,7 @@
       "55c614c5-bae3-47fe-bd39-4b101f61cb85"
     ]
   },
-  "HackTrin": {
+  "hacktrin": {
     "name": "HackTrin",
     "path": "/hacktrin",
     "leaders": [

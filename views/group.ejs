@@ -67,36 +67,54 @@
 </header>
 <!--Main Navigation-->
 
-<!--Main layout-->
 <main class="my-5">
   <div class="container">
     <!-- Header -->
+    <h1><%=group.name%> Event</h1>
     <hr />
     <br>
-    <br> <br>
     <!--Section: News of the day -- we made edits to this-->
     <section  class="border-to pb-4 mb-5 colspan-10">
-      <div class="col-lg-4 col-md-24 mb-4 mb-lg-0">
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-10">
-            <div class="card" style="height: 20rem;width: 81rem;">
-              <div class="card-body">
-                <h4><b>Esports Club</b></h4>
-                <p class="card-text">This club plays video games and participates in tournaments.</p>
-                <p class="card-text">The leaders of the club are Nick Eng and Ari Sussman, and the faculty advisor is Dr. Cernota.</p>
-                <a role="button" class="btn btn-primary btn-lg m-2"
-                   href="/eventListings" rel="nofollow" target="_blank">
-                   Follow
-                </a>
-                <a role="button" class="btn btn-primary btn-lg m-2"
-                   href="/eventListings" rel="nofollow" target="_blank">
-                   See Events
-                </a>
+        <div class="card_container">
+          <div class="card_content">
+            <h4><b><%=group.name%></b></h4>
+            <p class="card-text"><%=group.description%></p>
 
-              </div>
-            </div>
+            <p class="card-text">Members: <%=group.members.length%> </p>
+            <ul>
+              <%for(let j = 0; j<group.members.length;j++) {%>
+                <li><%=users[group.members[j].toString()].fullName%></li>
+              <%}%>
+            </ul>
+          </div>
+          <div class="card_control">
+            <a role="button" class="btn btn-primary btn-lg m-2" style="<%= followed == 1 ? 'display:none': '' %>"
+               id="button" rel="nofollow" target="_self" onclick="followEvent">
+               Follow <%=group.name%>
+               <!-- Find a way to send data to event -->
+            </a>
+            <a role="button" class="btn btn-primary btn-lg m-2" style="background-color:grey; <%= followed == 0 ? 'display:none': '' %>"
+               id="button" rel="nofollow" target="_self" onclick="unFollowEvent">
+               Unfollow <%=group.name%>
+               <!-- Find a way to send data to event -->
+            </a>
+
+            <a role="button" class="btn btn-primary btn-lg m-2"
+               href="/event/<%=event.path%>" rel="nofollow" target="_self">
+               Export to Google Calendar
+               <!-- Find a way to send data to event -->
+            </a>
           </div>
         </div>
     </section>
+    <script>
+      function followEvent() {
+        console.log("following");
+      }
+      function unFollowEvent() {
+        console.log("unfollowing");
+      }
+    </script>
 
 </main>
 <!--Main layout-->
