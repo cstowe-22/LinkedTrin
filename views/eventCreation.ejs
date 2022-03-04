@@ -62,34 +62,31 @@
 <h2>Create a new event:</h2>
 <form action="/musicianCreate" method="POST">
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-    <div class="card" style="height: 3rem;width: 25rem;">
+    <div class="card" style="height: 3rem;width: 29rem;">
       <div class="card-body">
-        <label for="stageName">Event Name:</label>
-        <input type="text" id="eventName" name="eventName" value="">
+        <label for="title">Event Name:</label>
+        <input type="text" id="title" name="title" value="">
       </div>
     </div>
   </div
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-    <div class="card" style="height: 3rem;width: 25rem;">
+    <div class="card" style="height: 3rem;width: 29rem;">
       <div class="card-body">
-        <label for="name">Description of Event:</label>
+        <label for="description">Description of Event:</label>
         <input type="text" id="description" name="description" value="">
-
       </div>
     </div>
   </div
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-    <div class="card" style="height: 4rem;width: 25rem;">
+    <div class="card" style="height: 4rem;width: 29rem;">
       <div class="card-body">
-        <label for="years">Date of Event (m/d/y):</label>
+        <label for="date">Date of Event (mm/dd/yyyy):</label>
         <input type="text" id="date" name="date" value="">
       </div>
     </div>
   </div>
-  <a role="button" class="btn btn-primary btn-lg m-2"
-     href="/groupListings" rel="nofollow" target="_blank">
-     Create Event
-  </a>
+  <br><br>
+  <input type="submit" value="Create Event">
 
 </form>
 

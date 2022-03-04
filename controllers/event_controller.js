@@ -78,5 +78,34 @@ router.get('/event/:path', function(request, response) {
       });
 });
 
+router.post('/eventCreation', function(request, response) {
+    let title = request.body.title;
+    let description = request.body.description;
+    let date = request.body.date;
+    let path = title.replace(' ', '-').toLowerCase();
+    let organization = request.body.organization;
+    if(title&&description&&date){
+      let events = JSON.parse(fs.readFileSync('data/events.json'));
+      let newMusician = {
+        "title": title,
+        "path": path,
+        "description": description,
+        "organization",
+        "date": date,
+      }
+      events[title] = newEvent;
+      fs.writeFileSync('data/events.json', JSON.stringify(events));
+      response.status(200);
+      response.setHeader('Content-Type', 'text/html')
+      response.redirect("/event/"+stageName);
+    }else{
+      response.status(400);
+      response.setHeader('Content-Type', 'text/html')
+      response.render("error", {
+        "errorCode":"400"
+      });
+    }
+});
+
 
 module.exports = router;
