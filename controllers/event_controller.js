@@ -74,7 +74,8 @@ router.get('/event/:path', function(request, response) {
       response.render("event",{
         event: selectedEvent,
         users: userObj,
-        followed: followed
+        followed: followed,
+        user: request.user
       });
 });
 
@@ -90,7 +91,7 @@ router.post('/eventCreation', function(request, response) {
         "title": title,
         "path": path,
         "description": description,
-        "organization",
+        "organization": name,
         "date": date,
       }
       events[title] = newEvent;

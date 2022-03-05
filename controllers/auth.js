@@ -16,14 +16,14 @@ router.use(session({
   cookie: {
     maxAge: 600000 //600 seconds of login time before being logged out
   },
-  secret: KEYS["session-secret"]
+  secret: KEYS["session_secret"]
 }));
 router.use(passport.initialize());
 router.use(passport.session());
 
 passport.use(new GoogleStrategy({
-    clientID: KEYS["google-client-id"],
-    clientSecret: KEYS["google-client-secret"],
+    clientID: KEYS["client_id"],
+    clientSecret: KEYS["client_secret"],
     callbackURL: "http://localhost:3000/auth/google/callback"
     //todo: port==process.env.PORT? :
   },

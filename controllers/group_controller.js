@@ -24,7 +24,8 @@ router.get('/groupListings', function(request, response) {
     response.render("groupListings", {
       groups: groupArray,
       groupsObj: groupObj,
-      users: userObj
+      users: userObj,
+      user: request.user
     });
 });
 
@@ -49,7 +50,8 @@ router.get('/groupListings/'+':type', function(request, response) {
       response.render("groupListings",{
         groups: groupList,
         groupsObj: groupObj,
-        users: userObj
+        users: userObj,
+        user: request.user
       });
 });
 

@@ -13,6 +13,7 @@ app.use(express.static('public')); //specify location of static assests
 app.set('views', __dirname + '/views'); //specify location of templates
 app.set('view engine', 'ejs'); //specify templating library
 
+app.use(require('./controllers/auth'))
 app.use(require('./controllers/index'));
 app.use(require('./controllers/event_controller'));
 app.use(require('./controllers/group_controller'));

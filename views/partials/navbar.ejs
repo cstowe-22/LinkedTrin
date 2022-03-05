@@ -31,9 +31,12 @@
              target="_self">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/settings" target="_self">Settings</a>
+          <a class="nav-link" href="/about" target="_self">Settings</a>
         </li>
       </ul>
+      <%if(user){%>
+      <small>Logged in as <%=user._json.email%></small>
+      <%}%>
     </div>
   </div>
 </nav>
