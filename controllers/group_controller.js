@@ -78,7 +78,8 @@ router.get('/group/:path', function(request, response) {
       response.render("group",{
         group: selectedGroup,
         users: userObj,
-        followed: followed
+        followed: followed,
+        user: request.user
       });
 });
 
