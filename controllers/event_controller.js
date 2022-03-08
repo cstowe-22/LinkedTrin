@@ -1,6 +1,7 @@
 const express = require('express'),
   router = express.Router();
   const app = express();
+  const fs = require('fs');
 
 const Event = require('../models/event_model');
 const User = require('../models/user_model');
@@ -81,10 +82,13 @@ router.get('/event/:path', function(request, response) {
       });
 });
 
-router.post('/eventCreation', function(request, response) {
+router.get('/eventCreation', function(request, response) {
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
-    response.render("eventCreation");
+    response.render("eventCreation",{
+      user: request.user
+    }
+  );
 });
 
 router.post('/eventCreation', function(request, response) {
@@ -93,7 +97,11 @@ router.post('/eventCreation', function(request, response) {
     let date = request.body.date;
     let path = title.replace(' ', '-').toLowerCase();
     let organization = request.body.organization;
-    if(title&&description&&date){
+    let type = request.body.type;
+    let memberList = request.body.members;
+    let members = memberList.split(",");
+      console.log("yeah");
+   if(0==0){
       console.log("yeah");
       let events = JSON.parse(fs.readFileSync('data/events.json'));
       let newMusician = {
@@ -102,19 +110,21 @@ router.post('/eventCreation', function(request, response) {
         "description": description,
         "organization": name,
         "date": date,
+        "type": type,
+        "members": members
       }
       events[title] = newEvent;
       fs.writeFileSync('data/events.json', JSON.stringify(events));
       response.status(200);
       response.setHeader('Content-Type', 'text/html')
-      response.redirect("/event/"+stageName);
-    }else{
-      response.status(400);
-      response.setHeader('Content-Type', 'text/html')
-      response.render("error", {
-        "errorCode":"400"
-      });
-    }
+      response.redirect("/eventListings");
+   }else{
+     response.status(400);
+     response.setHeader('Content-Type', 'text/html')
+     response.render("error", {
+       "errorCode":"400"
+     });
+   }
 });
 
 
