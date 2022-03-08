@@ -23,7 +23,9 @@ app.get("/:route/", function callback(request, response) {
   if (route) {
     response.status(200);
     response.setHeader("Content-type", "text/html")
-    response.render(route);
+    response.render(route, {
+      user: request.user
+    });
   }
 });
 

@@ -1,5 +1,6 @@
 const express = require('express'),
   router = express.Router();
+  const app = express();
 
 const Event = require('../models/event_model');
 const User = require('../models/user_model');
@@ -22,7 +23,8 @@ router.get('/eventListings', function(request, response) {
     response.render("eventListings", {
       events: eventArray,
       eventsObj: eventObj,
-      users: userObj
+      users: userObj,
+      user: request.user
     });
 });
 
@@ -80,12 +82,19 @@ router.get('/event/:path', function(request, response) {
 });
 
 router.post('/eventCreation', function(request, response) {
+    response.status(200);
+    response.setHeader('Content-Type', 'text/html')
+    response.render("eventCreation");
+});
+
+router.post('/eventCreation', function(request, response) {
     let title = request.body.title;
     let description = request.body.description;
     let date = request.body.date;
     let path = title.replace(' ', '-').toLowerCase();
     let organization = request.body.organization;
     if(title&&description&&date){
+      console.log("yeah");
       let events = JSON.parse(fs.readFileSync('data/events.json'));
       let newMusician = {
         "title": title,
