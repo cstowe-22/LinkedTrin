@@ -151,8 +151,10 @@
                   <br>
                   <textarea id="description" name="description" rows="4" cols="50"><%=event.description%>
                   </textarea> <br>
-                  <label for="date">Edit Date: (Currently set for <%=event.date%>):</label> <br>
-                  <input id="date" type="date"> <br><br>
+                  <label for="date">Edit Date (Currently set for <%=event.date%>):</label> <br>
+                  <input id="date" type="date"> <br>
+                  <label for="date">Edit Time:</label> <br>
+                  <input id="time" type="time"> <br><br>
                   <p class="card-text">Members:</p>
                   <ul>
                     <%for(let j = 0; j<event.members.length;j++) {%>
