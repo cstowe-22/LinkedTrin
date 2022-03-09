@@ -79,42 +79,34 @@ router.get("/auth/logout", (request, response) => {
   response.redirect('/');
 });
 
-// router.post('/auth', function(request, response) {
-//
-//     let users = User.getAllUsers();
-//     let userArray = [];
-//     for(id in users){
-//       userArray.push(users[id].email);
-//       console.log(sers[id].email);
-//     }
-//
-//     let uuid = uuidv4();//Genetate new UUID;
-//     let fullName = request.body.description;
-//     let email = request.body.date;
-//     let graduationYear = title.replace(' ', '-').toLowerCase();
-//     let followedGroups = request.body.organization;
-//     if(title&&description&&date){
-//       let events = JSON.parse(fs.readFileSync('data/events.json'));
-//       let newMusician = {
-//         "title": title,
-//         "path": path,
-//         "description": description,
-//         "organization": name,
-//         "date": date,
-//       }
-//       events[title] = newEvent;
-//       fs.writeFileSync('data/events.json', JSON.stringify(events));
-//       response.status(200);
-//       response.setHeader('Content-Type', 'text/html')
-//       response.redirect("/event/"+stageName);
-//     }else{
-//       response.status(400);
-//       response.setHeader('Content-Type', 'text/html')
-//       response.render("error", {
-//         "errorCode":"400"
-//       });
-//     }
-// });
+router.post('/auth', function(request, response) {
+    let uuid = uuidv4();//Genetate new UUID;
+    let description = request.body.description;
+    let date = request.body.date;
+    let path = title.replace(' ', '-').toLowerCase();
+    let organization = request.body.organization;
+    if(title&&description&&date){
+      let events = JSON.parse(fs.readFileSync('data/events.json'));
+      let newMusician = {
+        "title": title,
+        "path": path,
+        "description": description,
+        "organization": name,
+        "date": date,
+      }
+      events[title] = newEvent;
+      fs.writeFileSync('data/events.json', JSON.stringify(events));
+      response.status(200);
+      response.setHeader('Content-Type', 'text/html')
+      response.redirect("/event/"+stageName);
+    }else{
+      response.status(400);
+      response.setHeader('Content-Type', 'text/html')
+      response.render("error", {
+        "errorCode":"400"
+      });
+    }
+});
 
 /*
 "6d6d812a-557a-48ca-ba5c-651eb84f0ad1": {
