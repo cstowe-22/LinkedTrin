@@ -5,6 +5,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const KEYS = require('../config/keys.json');
 const { v4: uuidv4 } = require('uuid');
+const User = require('../models/user_model');
 //keeping our secrets out of our main application is a security best practice
 //we can add /config/keys.json to our .gitignore file so that we keep it local/private
 
@@ -60,6 +61,16 @@ router.get('/auth/google/callback',
     console.log(userProfile);
     let uuid = uuidv4();//Genetate new UUID;
     console.log("Id: " + uuid);
+    let users = User.getAllUsers();
+    let userEmails = [];
+    for(user in users){
+      userEmails.push(users[user].email);
+    }
+    console.log(userEmails);
+
+    //Check to see if email exists
+
+
     response.redirect('/');
   });
 
