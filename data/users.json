@@ -20,7 +20,7 @@
   },
   "37cddc9b-1150-49d1-af8c-8c78c096ac6b": {
     "fullName": "Clifford Stowe",
-    "email": "clifford.stowe22@trinityschoolnyc.org",
+    "email": "cliford.stowe22@trinityschoolnyc.org",
     "graduationYear": "2022",
     "groupLeadership": [
       "7c095170-730c-11ec-959f-43934c7cc5bd",
@@ -71,11 +71,8 @@
       "3aaa68f2-4db4-4917-b593-2b4474420bff?",
       "4auccf1f-39da-41b4-afda-b95caa2d4636"
     ],
-    "followedGroups": [
-
-    ],
-    "followedEvents": [
-    ]
+    "followedGroups": [],
+    "followedEvents": []
   },
   "3b8a465c-55bb-45ec-931c-2e87f1ce1772": {
     "fullName": "Paul Cernota",
@@ -86,11 +83,8 @@
       "3aaa68f2-4db4-4917-b593-2b4474420bff?",
       "4auccf1f-39da-41b4-afda-b95caa2d4636"
     ],
-    "followedGroups": [
-
-    ],
-    "followedEvents": [
-    ]
+    "followedGroups": [],
+    "followedEvents": []
   },
   "932fc20d-316f-4020-8dca-066141ebd403": {
     "fullName": "Justin Gohde",
@@ -101,11 +95,8 @@
       "3aaa68f2-4db4-4917-b593-2b4474420bff?",
       "4auccf1f-39da-41b4-afda-b95caa2d4636"
     ],
-    "followedGroups": [
-
-    ],
-    "followedEvents": [
-    ]
+    "followedGroups": [],
+    "followedEvents": []
   },
   "60da66fe-43e9-4497-a06b-7f91df321f88": {
     "fullName": "Alexander Kostin",
@@ -116,10 +107,8 @@
       "3aaa68f2-4db4-4917-b593-2b4474420bff?",
       "4auccf1f-39da-41b4-afda-b95caa2d4636"
     ],
-    "followedGroups": [
-
-    ],
-    "followedEvents": [
-    ]
-  }
+    "followedGroups": [],
+    "followedEvents": []
+  },
+  "e136690b-74fc-4dba-ad54-253dacd0d7ca": true
 }

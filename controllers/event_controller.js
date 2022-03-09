@@ -115,7 +115,6 @@ router.post('/eventCreation', function(request, response) {
       fs.writeFileSync('./data/events.json', JSON.stringify(events));
       response.status(200);
       response.setHeader('Content-Type', 'text/html')
-      console.log("WHAT");
       response.redirect("/eventListings");
 
    }else{

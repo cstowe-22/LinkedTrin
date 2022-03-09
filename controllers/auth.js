@@ -1,5 +1,6 @@
 const express = require('express'),
-  router = express.Router();
+router = express.Router();
+const fs = require('fs');
 const session = require('express-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -80,7 +81,14 @@ router.get('/auth/google/callback',
     }
 
     if(newUser) {
-      //Create data
+      let users = JSON.parse(fs.readFileSync('./data/users.json'));
+      let newUser ={
+      "fullName": "Test Name",
+      "email": email,
+      "graduationYear": "2022",
+      }
+      users[uuid] = newUser;
+      fs.writeFileSync('./data/users.json', JSON.stringify(users));
     }
 
     //Check to see if email exists
