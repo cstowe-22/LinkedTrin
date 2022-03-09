@@ -25,6 +25,7 @@ router.get('/groupListings', function(request, response) {
       groups: groupArray,
       groupsObj: groupObj,
       users: userObj,
+      userArray: userArray,
       user: request.user
     });
 });
@@ -78,6 +79,7 @@ router.get('/group/:path', function(request, response) {
       response.render("group",{
         group: selectedGroup,
         users: userObj,
+        userArray: userArray,
         followed: followed,
         user: request.user
       });
