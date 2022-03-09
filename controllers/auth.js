@@ -7,6 +7,8 @@ const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const KEYS = require('../config/keys.json');
 const { v4: uuidv4 } = require('uuid');
 const User = require('../models/user_model');
+const Group = require('../models/group_model');
+const Event = require('../models/event_model');
 //keeping our secrets out of our main application is a security best practice
 //we can add /config/keys.json to our .gitignore file so that we keep it local/private
 
@@ -48,7 +50,7 @@ passport.deserializeUser(function(obj, cb) {
 */
 router.get('/auth/google',
   passport.authenticate('google', {
-    scope: ['email']
+    scope: ['email', 'profile']
   }));
 
 /*
@@ -59,33 +61,38 @@ router.get('/auth/google/callback',
     failureRedirect: '/error?code=401'
   }),
   function(request, response) {
-    console.log(userProfile);
-    let email = userProfile.emails[0].value.toString();
-    console.log("Detected Email: " + email);
-    let uuid = uuidv4();//Genetate new UUID;
-    console.log("Id: " + uuid);
+    console.log(userProfile._json);
+    let userData = userProfile._json;
+    let uuid = uuidv4();//Generate new UUID;
     let users = User.getAllUsers();
     let userEmails = [];
     for(user in users){
       userEmails.push(users[user].email);
     }
 
-    let newUser = false;
     console.log(userEmails);
-    console.log("TEST")
-    for (let l = 0; l < userEmails.length; l++) {
-      if (email !== userEmails[l].toString()) {
-        newUser = true;
-        console.log("This email does not exist.");
-      }
-    }
 
-    if(newUser) {
+    let foundEmail = userEmails.find(element => element == userData.email);
+
+    /* {
+        sub: '109374097182939153766',
+        name: 'Nicholas Eng',
+        given_name: 'Nicholas',
+        family_name: 'Eng',
+        picture: 'https://lh3.googleusercontent.com/a/AATXAJzwI7OrMzLjfor31ybvPnb0C48aEg0ROiX26gPU=s96-c',
+        email: 'nicholas.eng22@trinityschoolnyc.org',
+        email_verified: true,
+        locale: 'en',
+        hd: 'trinityschoolnyc.org'
+      }*/
+
+    if(typeof(foundEmail) == "undefined") {
       let users = JSON.parse(fs.readFileSync('./data/users.json'));
       let newUser ={
-      "fullName": "Test Name",
-      "email": email,
-      "graduationYear": "2022",
+        "fullName": userData.name, //firstname.lastname@
+        "email": userData.email,
+        "followedGroups": [],
+        "followedEvents": []
       }
       users[uuid] = newUser;
       fs.writeFileSync('./data/users.json', JSON.stringify(users));
@@ -130,23 +137,18 @@ router.post('/auth', function(request, response) {
     }
 });
 
-/*
-"6d6d812a-557a-48ca-ba5c-651eb84f0ad1": {
-  "fullName": "Kai Williams",
-  "email": "kai.williams@trinityschoolnyc.org",
-  "graduationYear": "",
-  "groupLeadership": [
-    "7c095172-730c-11ec-959f-47934c7cc5bd",
-    "3aaa68f2-4db4-4917-b593-2b4474420bff?",
-    "4auccf1f-39da-41b4-afda-b95caa2d4636"
-  ],
-  "followedGroups": [
+router.get("/settings", (request, response) => {
+  console.log("In settings --------------")
+  // Get information from google passport
+  // Figure out way to set session/logged in data
+  console.log(request);
+  // let userID =
+  let users = User.getAllUsers();
+  console.log(user);
+  // let user = users.find(())
 
-  ],
-  "followedEvents": [
-  ]
-}
-*/
+
+});
 
 
 //Check to see if useremail already exists

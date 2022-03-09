@@ -8,6 +8,7 @@
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b"
     ],
     "organization": "HackTrin",
+    "creator": "",
     "path": "hacktrin-ix",
     "title": "HackTrin IX",
     "type": "academic"
@@ -21,6 +22,7 @@
       "93499d81-2856-4213-b5e5-f2b821acf75c"
     ],
     "organization": "Community Circle",
+    "creator": "",
     "path": "serve-the-community",
     "title": "Serve the Community",
     "type": "volunteer"
@@ -35,6 +37,7 @@
       "55c614c5-bae3-47fe-bd39-4b101f61cb85"
     ],
     "organization": "",
+    "creator": "",
     "path": "tech-internship",
     "title": "Tech Internship",
     "type": "internship"
@@ -48,6 +51,7 @@
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b"
     ],
     "organization": "TrinLabs",
+    "creator": "",
     "path": "trinlabs-meeting",
     "title": "TrinLabs Meeting",
     "type": "academic"

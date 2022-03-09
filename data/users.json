@@ -1,22 +1,8 @@
 {
-  "55c614c5-bae3-47fe-bd39-4b101f61cb85": {
+    "55c614c5-bae3-47fe-bd39-4b101f61cb85": {
     "fullName": "Nicholas Eng",
     "email": "nicholas.eng22@trinityschoolnyc.org",
-    "graduationYear": "2022",
-    "groupLeadership": [
-      "Esports Club",
-      "St. Ignatius Soup Kitchen",
-      "Business Research"
-    ],
-    "followedGroups": [
-      "HackTrin",
-      "Hackathon"
-    ],
-    "followedEvents": [
-      "hacktrin-ix",
-      "trinlabs-meeting",
-      "Serve the Community"
-    ]
+    "graduationYear": "2022"
   },
   "37cddc9b-1150-49d1-af8c-8c78c096ac6b": {
     "fullName": "Clifford Stowe",
@@ -65,7 +51,6 @@
   "6d6d812a-557a-48ca-ba5c-651eb84f0ad1": {
     "fullName": "Kai Williams",
     "email": "kai.williams@trinityschoolnyc.org",
-    "graduationYear": "",
     "groupLeadership": [
       "7c095172-730c-11ec-959f-47934c7cc5bd",
       "3aaa68f2-4db4-4917-b593-2b4474420bff?",
@@ -109,6 +94,5 @@
     ],
     "followedGroups": [],
     "followedEvents": []
-  },
-  "e136690b-74fc-4dba-ad54-253dacd0d7ca": true
+  }
 }
