@@ -95,29 +95,29 @@ router.post('/eventCreation', function(request, response) {
     let title = request.body.title;
     let description = request.body.description;
     let date = request.body.date;
-    let path = title.replace(' ', '-').toLowerCase();
+    let path = title.replaceAll(' ', '-').toLowerCase();
     let organization = request.body.organization;
     let type = request.body.type;
     let memberList = request.body.members;
     let members = memberList.split(",");
-      console.log("yeah");
    if(0==0){
-      console.log("yeah");
-      let events = JSON.parse(fs.readFileSync('data/events.json'));
-      let newMusician = {
+      let events = JSON.parse(fs.readFileSync('./data/events.json'));
+      let newEvent = {
         "title": title,
         "path": path,
         "description": description,
-        "organization": name,
+        "organization": organization,
         "date": date,
         "type": type,
         "members": members
       }
       events[title] = newEvent;
-      fs.writeFileSync('data/events.json', JSON.stringify(events));
+      fs.writeFileSync('./data/events.json', JSON.stringify(events));
       response.status(200);
       response.setHeader('Content-Type', 'text/html')
+      console.log("WHAT");
       response.redirect("/eventListings");
+
    }else{
      response.status(400);
      response.setHeader('Content-Type', 'text/html')
