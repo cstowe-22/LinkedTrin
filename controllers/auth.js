@@ -59,6 +59,8 @@ router.get('/auth/google/callback',
   }),
   function(request, response) {
     console.log(userProfile);
+    let email = userProfile.emails[0].value.toString();
+    console.log("Detected Email: " + email);
     let uuid = uuidv4();//Genetate new UUID;
     console.log("Id: " + uuid);
     let users = User.getAllUsers();
@@ -66,10 +68,22 @@ router.get('/auth/google/callback',
     for(user in users){
       userEmails.push(users[user].email);
     }
+
+    let newUser = false;
     console.log(userEmails);
+    console.log("TEST")
+    for (let l = 0; l < userEmails.length; l++) {
+      if (email !== userEmails[l].toString()) {
+        newUser = true;
+        console.log("This email does not exist.");
+      }
+    }
+
+    if(newUser) {
+      //Create data
+    }
 
     //Check to see if email exists
-
 
     response.redirect('/');
   });
