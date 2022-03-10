@@ -132,6 +132,51 @@
             </a>
           </div>
         </div>
+        <br>
+
+        <div class="container">
+          <!-- Header -->
+          <h1><%=event.title%> Admin View</h1>
+          <hr />
+          <br>
+          <!--Section: News of the day -- we made edits to this-->
+          <section  class="border-to pb-4 mb-5 colspan-10">
+              <div class="card_container">
+                <div class="card_content">
+                  <h4><b>Edit Title:</b></h4>
+                  <input type="text" name="" placeholder="<%=event.title%>" value=""> <br> <br>
+                  <% if (event.organization) {%>
+                    <p class="card-text"> <i> By <%=event.organization%></i></p>
+                  <%}%>
+                  <label for="description">Edit Description:</label>
+                  <br>
+                  <textarea id="description" name="description" rows="4" cols="50"><%=event.description%>
+                  </textarea> <br>
+                  <label for="date">Edit Date (Currently set for <%=event.date%>):</label> <br>
+                  <input id="date" type="date"> <br>
+                  <label for="date">Edit Time:</label> <br>
+                  <input id="time" type="time"> <br><br>
+                  <p class="card-text">Members:</p>
+                  <ul>
+                    <%for(let j = 0; j<event.members.length;j++) {%>
+                      <li><%=users[event.members[j].toString()].fullName%></li>
+                    <%}%>
+                  </ul>
+                </div>
+                <div class="card_control">
+                  <a role="button" class="btn btn-primary btn-lg m-2" style="<%= followed == 1 ? 'display:none': '' %>"
+                     id="button" rel="nofollow" target="_self" onclick="followEvent">
+                     Update Changes
+                     <!-- Find a way to send data to event -->
+                  </a>
+
+                  <a role="button" class="btn btn-primary btn-lg m-2"
+                     href="../eventListings" rel="nofollow" target="_self">
+                     Back
+                     <!-- Find a way to send data to event -->
+                  </a>
+                </div>
+              </div>
     </section>
     <script>
       function followEvent() {

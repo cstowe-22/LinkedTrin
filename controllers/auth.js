@@ -1,11 +1,14 @@
 const express = require('express'),
-  router = express.Router();
+router = express.Router();
+const fs = require('fs');
 const session = require('express-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const KEYS = require('../config/keys.json');
 const { v4: uuidv4 } = require('uuid');
 const User = require('../models/user_model');
+const Group = require('../models/group_model');
+const Event = require('../models/event_model');
 //keeping our secrets out of our main application is a security best practice
 //we can add /config/keys.json to our .gitignore file so that we keep it local/private
 
@@ -58,18 +61,44 @@ router.get('/auth/google/callback',
     failureRedirect: '/error?code=401'
   }),
   function(request, response) {
-    console.log(userProfile);
-    let uuid = uuidv4();//Genetate new UUID;
-    console.log("Id: " + uuid);
+    console.log(userProfile._json);
+    let userData = userProfile._json;
+    let uuid = uuidv4();//Generate new UUID;
     let users = User.getAllUsers();
     let userEmails = [];
     for(user in users){
       userEmails.push(users[user].email);
     }
+
     console.log(userEmails);
 
-    //Check to see if email exists
+    let foundEmail = userEmails.find(element => element == userData.email);
 
+    /* {
+        sub: '109374097182939153766',
+        name: 'Nicholas Eng',
+        given_name: 'Nicholas',
+        family_name: 'Eng',
+        picture: 'https://lh3.googleusercontent.com/a/AATXAJzwI7OrMzLjfor31ybvPnb0C48aEg0ROiX26gPU=s96-c',
+        email: 'nicholas.eng22@trinityschoolnyc.org',
+        email_verified: true,
+        locale: 'en',
+        hd: 'trinityschoolnyc.org'
+      }*/
+
+    if(typeof(foundEmail) == "undefined") {
+      let users = JSON.parse(fs.readFileSync('./data/users.json'));
+      let newUser ={
+        "fullName": userData.name, //firstname.lastname@
+        "email": userData.email,
+        "followedGroups": [],
+        "followedEvents": []
+      }
+      users[uuid] = newUser;
+      fs.writeFileSync('./data/users.json', JSON.stringify(users));
+    }
+
+    //Check to see if email exists
 
     response.redirect('/');
   });
@@ -79,60 +108,47 @@ router.get("/auth/logout", (request, response) => {
   response.redirect('/');
 });
 
-// router.post('/auth', function(request, response) {
-//
-//     let users = User.getAllUsers();
-//     let userArray = [];
-//     for(id in users){
-//       userArray.push(users[id].email);
-//       console.log(sers[id].email);
-//     }
-//
-//     let uuid = uuidv4();//Genetate new UUID;
-//     let fullName = request.body.description;
-//     let email = request.body.date;
-//     let graduationYear = title.replace(' ', '-').toLowerCase();
-//     let followedGroups = request.body.organization;
-//     if(title&&description&&date){
-//       let events = JSON.parse(fs.readFileSync('data/events.json'));
-//       let newMusician = {
-//         "title": title,
-//         "path": path,
-//         "description": description,
-//         "organization": name,
-//         "date": date,
-//       }
-//       events[title] = newEvent;
-//       fs.writeFileSync('data/events.json', JSON.stringify(events));
-//       response.status(200);
-//       response.setHeader('Content-Type', 'text/html')
-//       response.redirect("/event/"+stageName);
-//     }else{
-//       response.status(400);
-//       response.setHeader('Content-Type', 'text/html')
-//       response.render("error", {
-//         "errorCode":"400"
-//       });
-//     }
-// });
+router.post('/auth', function(request, response) {
+    let uuid = uuidv4();//Genetate new UUID;
+    let description = request.body.description;
+    let date = request.body.date;
+    let path = title.replace(' ', '-').toLowerCase();
+    let organization = request.body.organization;
+    if(title&&description&&date){
+      let events = JSON.parse(fs.readFileSync('data/events.json'));
+      let newMusician = {
+        "title": title,
+        "path": path,
+        "description": description,
+        "organization": name,
+        "date": date,
+      }
+      events[title] = newEvent;
+      fs.writeFileSync('data/events.json', JSON.stringify(events));
+      response.status(200);
+      response.setHeader('Content-Type', 'text/html')
+      response.redirect("/event/"+stageName);
+    }else{
+      response.status(400);
+      response.setHeader('Content-Type', 'text/html')
+      response.render("error", {
+        "errorCode":"400"
+      });
+    }
+});
 
-/*
-"6d6d812a-557a-48ca-ba5c-651eb84f0ad1": {
-  "fullName": "Kai Williams",
-  "email": "kai.williams@trinityschoolnyc.org",
-  "graduationYear": "",
-  "groupLeadership": [
-    "7c095172-730c-11ec-959f-47934c7cc5bd",
-    "3aaa68f2-4db4-4917-b593-2b4474420bff?",
-    "4auccf1f-39da-41b4-afda-b95caa2d4636"
-  ],
-  "followedGroups": [
+router.get("/settings", (request, response) => {
+  console.log("In settings --------------")
+  // Get information from google passport
+  // Figure out way to set session/logged in data
+  console.log(request);
+  // let userID =
+  let users = User.getAllUsers();
+  console.log(user);
+  // let user = users.find(())
 
-  ],
-  "followedEvents": [
-  ]
-}
-*/
+
+});
 
 
 //Check to see if useremail already exists
