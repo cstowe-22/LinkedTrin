@@ -50,7 +50,7 @@ passport.deserializeUser(function(obj, cb) {
 */
 router.get('/auth/google',
   passport.authenticate('google', {
-    scope: ['email', 'profile']
+    scope: ['email',  "https://www.googleapis.com/auth/calendar"]
   }));
 
 /*
