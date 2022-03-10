@@ -64,10 +64,7 @@ router.get('/auth/google/callback',
     console.log("Clifford sucks");
 
     let userData = userProfile._json;
-<<<<<<< HEAD
-    console.log("Name: " + userData.name);
-=======
->>>>>>> d7492baff026122d9ea3fbfbe1b15accb9ebc3a4
+    console.log("userData: " + userData);
     let uuid = uuidv4();//Generate new UUID;
     let users = User.getAllUsers();
     let userEmails = [];
@@ -142,18 +139,17 @@ router.post('/auth', function(request, response) {
     }
 });
 
-router.get("/settings", (request, response) => {
+/*router.get("/settings", (request, response) => {
   console.log("In settings --------------")
   // Get information from google passport
   // Figure out way to set session/logged in data
   console.log(request);
   // let userID =
   let users = User.getAllUsers();
-  console.log(user);
   // let user = users.find(())
 
 
-});
+});*/
 
 
 //Check to see if useremail already exists
