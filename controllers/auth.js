@@ -50,7 +50,7 @@ passport.deserializeUser(function(obj, cb) {
 */
 router.get('/auth/google',
   passport.authenticate('google', {
-    scope: ['email',  "https://www.googleapis.com/auth/calendar"]
+    scope: ['email',  "https://www.googleapis.com/auth/calendar", 'profile']
   }));
 
 /*
@@ -61,7 +61,7 @@ router.get('/auth/google/callback',
     failureRedirect: '/error?code=401'
   }),
   function(request, response) {
-    console.log(userProfile._json);
+    console.log(userProfile);
     let userData = userProfile._json;
     console.log("Userdata: " + userData._json.name);
     let uuid = uuidv4();//Generate new UUID;
