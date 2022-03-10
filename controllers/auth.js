@@ -64,7 +64,10 @@ router.get('/auth/google/callback',
     console.log("Clifford sucks");
 
     let userData = userProfile._json;
+<<<<<<< HEAD
     console.log("Name: " + userData.name);
+=======
+>>>>>>> d7492baff026122d9ea3fbfbe1b15accb9ebc3a4
     let uuid = uuidv4();//Generate new UUID;
     let users = User.getAllUsers();
     let userEmails = [];
@@ -92,7 +95,9 @@ router.get('/auth/google/callback',
       let users = JSON.parse(fs.readFileSync('./data/users.json'));
       let newUser ={
         "fullName": userData.name, //firstname.lastname@
-        "email": userData.email
+        "email": userData.email,
+        "followedGroups": [],
+        "followedEvents": []
       }
       users[uuid] = newUser;
       fs.writeFileSync('./data/users.json', JSON.stringify(users));
@@ -106,6 +111,35 @@ router.get('/auth/google/callback',
 router.get("/auth/logout", (request, response) => {
   request.logout();
   response.redirect('/');
+});
+
+router.post('/auth', function(request, response) {
+    let uuid = uuidv4();//Genetate new UUID;
+    let description = request.body.description;
+    let date = request.body.date;
+    let path = title.replace(' ', '-').toLowerCase();
+    let organization = request.body.organization;
+    if(title&&description&&date){
+      let events = JSON.parse(fs.readFileSync('data/events.json'));
+      let newMusician = {
+        "title": title,
+        "path": path,
+        "description": description,
+        "organization": name,
+        "date": date,
+      }
+      events[title] = newEvent;
+      fs.writeFileSync('data/events.json', JSON.stringify(events));
+      response.status(200);
+      response.setHeader('Content-Type', 'text/html')
+      response.redirect("/event/"+stageName);
+    }else{
+      response.status(400);
+      response.setHeader('Content-Type', 'text/html')
+      response.render("error", {
+        "errorCode":"400"
+      });
+    }
 });
 
 router.get("/settings", (request, response) => {
