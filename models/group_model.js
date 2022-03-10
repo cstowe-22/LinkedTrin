@@ -7,6 +7,21 @@ exports.getAllGroups =  function() {
   return allGroups;
 }
 
-// exports.sendGroupData = function() {
-//   let
-// }
+/* Check to see if a user is part of a group*/
+exports.memberLookup = function(searchEntry, groupObj) {
+  for(let i = 0; i<groupObj.members.length;i++) {
+    if (searchEntry == groupObj.members[i]) {
+      return true;
+    }
+  }
+  return false;
+}
+
+exports.isLeader = function(searchEntry, groupObj) {
+  for(let i = 0; i<groupObj.leaders.length;i++) {
+    if (searchEntry == groupObj.leaders[i] || searchEntry == groupObj.advisor) {
+      return true;
+    }
+  }
+  return false;
+}

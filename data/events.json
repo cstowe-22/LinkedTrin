@@ -2,7 +2,7 @@
   "hacktrin-ix": {
     "date": "3/24/22",
     "description": "Coding happens here.",
-    "members": [
+    "attendees": [
       "55c614c5-bae3-47fe-bd39-4b101f61cb85",
       "93499d81-2856-4213-b5e5-f2b821acf75c",
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b"
@@ -16,7 +16,7 @@
   "serve-the-community": {
     "date": "3/23/22",
     "description": "Do service and stuff like that.",
-    "members": [
+    "attendees": [
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b",
       "55c614c5-bae3-47fe-bd39-4b101f61cb85",
       "93499d81-2856-4213-b5e5-f2b821acf75c"
@@ -31,7 +31,7 @@
     "date": "3/22/22",
     "description": "Internship at Nick, Ari, & Cliff Media.",
     "location": "900 Ari Street, New York, 10021",
-    "members": [
+    "attendees": [
       "93499d81-2856-4213-b5e5-f2b821acf75c",
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b",
       "55c614c5-bae3-47fe-bd39-4b101f61cb85"
@@ -45,7 +45,7 @@
   "trinlabs-meeting": {
     "date": "5/24/22",
     "description": "We make applications for Trinity.",
-    "members": [
+    "attendees": [
       "55c614c5-bae3-47fe-bd39-4b101f61cb85",
       "93499d81-2856-4213-b5e5-f2b821acf75c",
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b"
@@ -62,7 +62,7 @@
     "description": "Heroin, meth, and so much more.",
     "date": "10/10/2022",
     "type": "club",
-    "members": [
+    "attendees": [
       "clifford.stowe22@trinityschoolnyc.org",
       "nicholas.eng22@trinityschoolnyc.org"
     ]
