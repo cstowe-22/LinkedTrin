@@ -61,9 +61,10 @@ router.get('/auth/google/callback',
     failureRedirect: '/error?code=401'
   }),
   function(request, response) {
-    console.log(userProfile);
+    console.log("Clifford sucks");
+
     let userData = userProfile._json;
-    console.log("Userdata: " + userData._json.name);
+    console.log("Name: " + userData.name);
     let uuid = uuidv4();//Generate new UUID;
     let users = User.getAllUsers();
     let userEmails = [];
