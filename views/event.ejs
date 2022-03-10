@@ -106,10 +106,10 @@
             <%}%>
             <p class="card-text"><%=event.description%></p>
             <p class="card-text"><%=event.date%></p>
-            <p class="card-text">Members:</p>
+            <p class="card-text">Attendees:</p>
             <ul>
-              <%for(let j = 0; j<event.members.length;j++) {%>
-                <li><%=users[event.members[j].toString()].fullName%></li>
+              <%for(let j = 0; j<event.attendees.length;j++) {%>
+                <li><%=users[event.attendees[j].toString()].fullName%></li>
               <%}%>
             </ul>
           </div>
@@ -156,10 +156,10 @@
                   <input id="date" type="date"> <br>
                   <label for="date">Edit Time:</label> <br>
                   <input id="time" type="time"> <br><br>
-                  <p class="card-text">Members:</p>
+                  <p class="card-text">Attendees:</p>
                   <ul>
-                    <%for(let j = 0; j<event.members.length;j++) {%>
-                      <li><%=users[event.members[j].toString()].fullName%></li>
+                    <%for(let j = 0; j<event.attendees.length;j++) {%>
+                      <li><%=users[event.attendees[j].toString()].fullName%></li>
                     <%}%>
                   </ul>
                 </div>
