@@ -2,8 +2,8 @@ const uuid = require('uuid');
 const fs = require('fs');
 
 
-exports.getAllGroups =  function() {
-  let allGroups = JSON.parse(fs.readFileSync(__dirname+'/../data/groups.json'));
+exports.getAllGroups =  async function() {
+  let allGroups = await JSON.parse(fs.readFileSync(__dirname+'/../data/groups.json'));
   return allGroups;
 }
 
@@ -17,11 +17,23 @@ exports.memberLookup = function(searchEntry, groupObj) {
   return false;
 }
 
-exports.isLeader = function(searchEntry, groupObj) {
-  for(let i = 0; i<groupObj.leaders.length;i++) {
-    if (searchEntry == groupObj.leaders[i] || searchEntry == groupObj.advisor) {
-      return true;
-    }
+exports.isLeader = async function(userID, gPath) {
+  let allGroups = await JSON.parse(fs.readFileSync(__dirname+'/../data/groups.json'));
+  let group = allGroups[gPath];
+  let result = false;
+  // console.log(group);
+  if(group.advisor == userID) {
+    result = true;
+    // console.log("Found advisor");
+  } else {
+    group.leaders.forEach((leaderID) => {
+      // console.log(leaderID);
+      if(leaderID == userID) {
+        result = true;
+        // console.log("Found leader");
+      }
+    });
   }
-  return false;
+  // console.log("Not A leader");
+  return result;
 }

@@ -13,10 +13,29 @@ app.use(express.static('public')); //specify location of static assests
 app.set('views', __dirname + '/views'); //specify location of templates
 app.set('view engine', 'ejs'); //specify templating library
 
-app.use(require('./controllers/auth'))
+app.use(require('./controllers/auth'));
 app.use(require('./controllers/index'));
 app.use(require('./controllers/event_controller'));
 app.use(require('./controllers/group_controller'));
+
+function loggedIn(request, response, next) {
+  if (request.user) {
+    next();
+  } else {
+    response.redirect('/login');
+  }
+}
+
+app.get("/settings", loggedIn, function callback(request, response) {
+  let route = "settings";
+  if (route) {
+    response.status(200);
+    response.setHeader("Content-type", "text/html")
+    response.render(route, {
+      user: request.user
+    });
+  }
+});
 
 app.get("/:route/", function callback(request, response) {
   let route = request.params.route;

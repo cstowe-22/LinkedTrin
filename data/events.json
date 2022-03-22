@@ -7,8 +7,7 @@
       "93499d81-2856-4213-b5e5-f2b821acf75c",
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b"
     ],
-    "organization": "HackTrin",
-    "creator": "",
+    "organization": "hacktrin",
     "path": "hacktrin-ix",
     "title": "HackTrin IX",
     "type": "academic"
@@ -21,8 +20,7 @@
       "55c614c5-bae3-47fe-bd39-4b101f61cb85",
       "93499d81-2856-4213-b5e5-f2b821acf75c"
     ],
-    "organization": "Community Circle",
-    "creator": "",
+    "organization": "community-circle",
     "path": "serve-the-community",
     "title": "Serve the Community",
     "type": "volunteer"
@@ -36,8 +34,7 @@
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b",
       "55c614c5-bae3-47fe-bd39-4b101f61cb85"
     ],
-    "organization": "",
-    "creator": "",
+    "organization": "nac-media",
     "path": "tech-internship",
     "title": "Tech Internship",
     "type": "internship"
@@ -50,21 +47,9 @@
       "93499d81-2856-4213-b5e5-f2b821acf75c",
       "37cddc9b-1150-49d1-af8c-8c78c096ac6b"
     ],
-    "organization": "TrinLabs",
-    "creator": "",
+    "organization": "trinlabs",
     "path": "trinlabs-meeting",
     "title": "TrinLabs Meeting",
     "type": "academic"
-  },
-  "Nick's Drug Party": {
-    "title": "Nick's Drug Party",
-    "path": "nick's-drug party",
-    "description": "Heroin, meth, and so much more.",
-    "date": "10/10/2022",
-    "type": "club",
-    "attendees": [
-      "clifford.stowe22@trinityschoolnyc.org",
-      "nicholas.eng22@trinityschoolnyc.org"
-    ]
   }
 }

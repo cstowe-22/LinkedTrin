@@ -65,7 +65,7 @@ router.get('/auth/google/callback',
 
     let userData = userProfile._json;
     console.log("userData: " + userData);
-    let uuid = uuidv4();//Generate new UUID;
+    // let uuid = uuidv4();//Generate new UUID;
     let users = User.getAllUsers();
     let userEmails = [];
     for(user in users){
@@ -92,11 +92,9 @@ router.get('/auth/google/callback',
       let users = JSON.parse(fs.readFileSync('./data/users.json'));
       let newUser ={
         "fullName": userData.name, //firstname.lastname@
-        "email": userData.email,
-        "followedGroups": [],
-        "followedEvents": []
+        "email": userData.email
       }
-      users[uuid] = newUser;
+      users[userProfile.id] = newUser;
       fs.writeFileSync('./data/users.json', JSON.stringify(users));
     }
 
@@ -138,21 +136,6 @@ router.post('/auth', function(request, response) {
       });
     }
 });
-
-/*router.get("/settings", (request, response) => {
-  console.log("In settings --------------")
-  // Get information from google passport
-  // Figure out way to set session/logged in data
-  console.log(request);
-  // let userID =
-  let users = User.getAllUsers();
-  // let user = users.find(())
-
-
-});*/
-
-
-//Check to see if useremail already exists
 
 
 module.exports = router;

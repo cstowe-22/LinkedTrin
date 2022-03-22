@@ -5,22 +5,36 @@ const express = require('express'),
 
 const Event = require('../models/event_model');
 const User = require('../models/user_model');
+const Group = require('../models/group_model');
 
-router.get('/eventListings', function(request, response) {
-    let events = Event.getAllEvents();
-    let eventObj = Event.getAllEvents();
+function loggedIn(request, response, next) {
+  if (request.user) {
+    next();
+  } else {
+    response.redirect('/login');
+  }
+}
+
+// let users = User.getallusers;
+// event.attendeeNames = event.attendees.map(function(attendee) { return users[attendee].fullName; });
+
+router.get('/eventListings', loggedIn, async function(request, response) {
+    let events = await Event.getAllEvents();
+    let eventObj = await Event.getAllEvents();
     let eventArray = [];
     for(title in events){
       eventArray.push(events[title])
     }
-    let users = User.getAllUsers();
-    let userObj = User.getAllUsers();
+    let users = await User.getAllUsers();
+    let userObj = await User.getAllUsers();
     let userArray = [];
     response.status(200);
     for(id in users){
       userArray.push(users[id])
     }
-    response.setHeader('Content-Type', 'text/html')
+    response.setHeader('Content-Type', 'text/html');
+    console.log("test");
+    console.log("Req User: " + JSON.stringify(request.user));
     response.render("eventListings", {
       events: eventArray,
       eventsObj: eventObj,
@@ -29,9 +43,9 @@ router.get('/eventListings', function(request, response) {
     });
 });
 
-router.get('/eventListings/:type', function(request, response) {
-    let events = Event.getAllEvents();
-    let eventObj = Event.getAllEvents();
+router.get('/eventListings/:type', loggedIn, async function(request, response) {
+    let events = await Event.getAllEvents();
+    let eventObj = await Event.getAllEvents();
     let eventList = [];
     let typeSave = request.params.type;
     for(type in events){
@@ -39,8 +53,8 @@ router.get('/eventListings/:type', function(request, response) {
         eventList.push(events[type]);
       }
     }
-    let users = User.getAllUsers();
-    let userObj = User.getAllUsers();
+    let users = await User.getAllUsers();
+    let userObj = await User.getAllUsers();
     let userArray = [];
     response.status(200);
     for(id in users){
@@ -54,18 +68,21 @@ router.get('/eventListings/:type', function(request, response) {
       });
 });
 
-router.get('/event/:path', function(request, response) {
-    let events = Event.getAllEvents();
-    let eventObj = Event.getAllEvents();
+router.get('/event/:path', loggedIn, async function(request, response) {
+    let events = await Event.getAllEvents();
+    let eventObj = await Event.getAllEvents();
+    let userId = await User.getId(request.user._json.email);
+    let isLeader = false;
     let selectedEvent = {};
     let path = request.params.path;
     for(eventEntry in events){
       if(events[eventEntry].path==path){
         selectedEvent = events[eventEntry];
+        isLeader = await Group.isLeader(userId, selectedEvent.organization);
       }
     }
-    let users = User.getAllUsers();
-    let userObj = User.getAllUsers();
+    let users = await User.getAllUsers();
+    let userObj = await User.getAllUsers();
     let userArray = [];
     response.status(200);
     for(id in users){
@@ -78,20 +95,23 @@ router.get('/event/:path', function(request, response) {
         event: selectedEvent,
         users: userObj,
         followed: followed,
-        user: request.user
+        user: request.user,
+        isLeader: isLeader
       });
 });
 
-router.get('/eventCreation', function(request, response) {
+router.get('/eventCreation', loggedIn, async function(request, response) {
     response.status(200);
-    response.setHeader('Content-Type', 'text/html')
+    response.setHeader('Content-Type', 'text/html');
+    let users = await User.getAllUsers();
     response.render("eventCreation",{
-      user: request.user
+      user: request.user,
+      users: users
     }
   );
 });
 
-router.post('/eventCreation', function(request, response) {
+router.post('/eventCreation', loggedIn, function(request, response) {
     let title = request.body.title;
     let description = request.body.description;
     let date = request.body.date;

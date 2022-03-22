@@ -7,6 +7,16 @@ exports.getAllEvents =  function() {
   return allEvents;
 }
 
+exports.emailToID = function(email, userObj){
+  console.log(userObj);
+  for (const id in userObj) {
+    if(userObj[id].email == email) {
+      return id;
+    }
+  }
+  return false;
+}
+
 exports.attendeeLookup = function(searchEntry, eventObj) {
   for(let i = 0; i<eventObj.attendees.length;i++) {
     if (searchEntry == eventObj.attendees[i]) {
@@ -17,12 +27,3 @@ exports.attendeeLookup = function(searchEntry, eventObj) {
 }
 
 //Make it so that only organizations can create events
-/*
-exports.isLeader = function(searchEntry, groupObj) {
-  for(let i = 0; i<groupObj.leaders.length;i++) {
-    if (searchEntry == groupObj.leaders[i] || searchEntry == groupObj.advisor) {
-      return true;
-    }
-  }
-  return false;
-}*/

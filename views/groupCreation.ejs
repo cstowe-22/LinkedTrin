@@ -62,27 +62,55 @@
 <h2>Create a new group:</h2>
 <form action="/musicianCreate" method="POST">
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-    <div class="card" style="height: 3rem;width: 25rem;">
+    <div class="card" style="height: 3rem;width: 40rem;">
       <div class="card-body">
-        <label for="stageName">Group Name:</label>
+        <label for="groupName">Group Name:</label>
         <input type="text" id="groupName" name="groupName" value="">
       </div>
     </div>
   </div
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-    <div class="card" style="height: 3rem;width: 25rem;">
+    <div class="card" style="height: 3rem;width: 40rem;">
       <div class="card-body">
-        <label for="name">Description of Group:</label>
+        <label for="description">Description of Group:</label>
         <input type="text" id="description" name="description" value="">
 
       </div>
     </div>
   </div
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-    <div class="card" style="height: 4rem;width: 25rem;">
+    <div class="card" style="height: 4rem;width: 40rem;">
       <div class="card-body">
-        <label for="years">Description of Members:</label>
+        <label for="members">Description of Members:</label>
         <input type="text" id="members" name="members" value="">
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+    <div class="card" style="height: 4rem;width: 40rem;">
+      <div class="card-body">
+        <label for="advisor">Advisor:</label>
+        <select name="advisor" id="advisor">
+          <% for(const userID in users) { %>
+            <option value="<%= userID %>"><%= users[userID].email %></option>
+          <% } %>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+    <div class="card" style="height: 15rem;width: 40rem;">
+      <div class="card-body">
+        <select name="leader" id="group_leader_select">
+          <% for(const userID in users) { %>
+            <option value="<%= userID %>"><%= users[userID].email %></option>
+          <% } %>
+        </select>
+        <button onclick="addGroupLeader();" type="button">Add Leader</button>
+        <br>
+        <label for="years">Leaders:</label>
+        <div id="group_leader_list">
+        </div>
       </div>
     </div>
   </div>
@@ -92,6 +120,28 @@
   </a>
 
 </form>
+<script>
+  function addGroupLeader() {
+    let selectedUserID = document.getElementById("group_leader_select").value;
+    let selectedElement = document.querySelector(`#group_leader_select option[value='${selectedUserID}']`);
+    let leaderListElement = document.getElementById("group_leader_list");
 
+    let inputElement = document.createElement("input");
+    inputElement.setAttribute("type", "text");
+    inputElement.setAttribute("name", "leaderList[]");
+    inputElement.setAttribute("value", selectedUserID);
+    // let labelElement = document.createElement("label");
+    // let divElement = document.createElement("div", {class: "group_leader_card", onclick: `removeGroupLeader(this);`});
+
+    // labelElement.innerText = selectedElement.innerText;
+    // divElement.append(inputElement);
+    // divElement.append(labelElement);
+    leaderListElement.append(inputElement);
+  }
+
+  function removeGroupLeader(that) {
+    debugger;
+  }
+</script>
 
 <%- include('partials/footer') -%>

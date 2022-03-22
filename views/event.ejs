@@ -108,9 +108,9 @@
             <p class="card-text"><%=event.date%></p>
             <p class="card-text">Attendees:</p>
             <ul>
-              <%for(let j = 0; j<event.attendees.length;j++) {%>
-                <li><%=users[event.attendees[j].toString()].fullName%></li>
-              <%}%>
+              <% if(typeof(event.attendees) != "undefined" && event.attendees.length > 0) { for(let j = 0; j<event.attendees.length;j++) {%>
+                <li><%=users[event.attendees[j]].fullName%></li>
+              <%} }%>
             </ul>
           </div>
           <div class="card_control">
@@ -133,7 +133,7 @@
           </div>
         </div>
         <br>
-
+<% if(isLeader) { %>
         <div class="container">
           <!-- Header -->
           <h1><%=event.title%> Admin View</h1>
@@ -158,9 +158,9 @@
                   <input id="time" type="time"> <br><br>
                   <p class="card-text">Attendees:</p>
                   <ul>
-                    <%for(let j = 0; j<event.attendees.length;j++) {%>
+                    <%if(typeof(event.attendees) != "undefined" && event.attendees.length > 0) { for(let j = 0; j<event.attendees.length;j++) {%>
                       <li><%=users[event.attendees[j].toString()].fullName%></li>
-                    <%}%>
+                    <%} }%>
                   </ul>
                 </div>
                 <div class="card_control">
@@ -178,6 +178,8 @@
                 </div>
               </div>
     </section>
+  </div>
+  <% } %>
     <script>
       function followEvent() {
         console.log("following");

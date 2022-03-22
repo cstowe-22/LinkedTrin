@@ -5,15 +5,23 @@ const express = require('express'),
 const Group = require('../models/group_model');
 const User = require('../models/user_model');
 
-router.get('/groupListings', function(request, response) {
-    let groups = Group.getAllGroups();
-    let groupObj = Group.getAllGroups();
+function loggedIn(request, response, next) {
+  if (request.user) {
+    next();
+  } else {
+    response.redirect('/login');
+  }
+}
+
+router.get('/groupListings', loggedIn, async function(request, response) {
+    let groups = await Group.getAllGroups();
+    let groupObj = await Group.getAllGroups();
     let groupArray = [];
     for(name in groups){
       groupArray.push(groups[name])
     }
-    let users = User.getAllUsers();
-    let userObj = User.getAllUsers();
+    let users = await User.getAllUsers();
+    let userObj = await User.getAllUsers();
     let userArray = [];
     response.status(200);
     for(id in users){
@@ -30,9 +38,9 @@ router.get('/groupListings', function(request, response) {
     });
 });
 
-router.get('/groupListings/'+':type', function(request, response) {
-    let groups = Group.getAllGroups();
-    let groupObj = Group.getAllGroups();
+router.get('/groupListings/'+':type', loggedIn, async function(request, response) {
+    let groups = await Group.getAllGroups();
+    let groupObj = await Group.getAllGroups();
     let groupList = [];
     let typeSave = request.params.type;
     for(type in groups){
@@ -40,8 +48,8 @@ router.get('/groupListings/'+':type', function(request, response) {
         groupList.push(groups[type]);
       }
     }
-    let users = User.getAllUsers();
-    let userObj = User.getAllUsers();
+    let users = await User.getAllUsers();
+    let userObj = await User.getAllUsers();
     let userArray = [];
     response.status(200);
     for(id in users){
@@ -56,18 +64,21 @@ router.get('/groupListings/'+':type', function(request, response) {
       });
 });
 
-router.get('/group/:path', function(request, response) {
-    let groups = Group.getAllGroups();
-    let groupObj = Group.getAllGroups();
+router.get('/group/:path', loggedIn, async function(request, response) {
+    let groups = await Group.getAllGroups();
+    let groupObj = await Group.getAllGroups();
+    let userId = await User.getId(request.user._json.email);
     let selectedGroup = {};
+    let isLeader = false;
     let path = request.params.path;
     for(groupEntry in groups){
       if(groups[groupEntry].path==path){
         selectedGroup = groups[groupEntry];
+        isLeader = await Group.isLeader(userId, selectedGroup.path);
       }
     }
-    let users = User.getAllUsers();
-    let userObj = User.getAllUsers();
+    let users = await User.getAllUsers();
+    let userObj = await User.getAllUsers();
     let userArray = [];
     response.status(200);
     for(id in users){
@@ -81,8 +92,20 @@ router.get('/group/:path', function(request, response) {
         users: userObj,
         userArray: userArray,
         followed: followed,
-        user: request.user
+        user: request.user,
+        isLeader: isLeader
       });
+});
+
+router.get('/groupCreation', loggedIn, async function(request, response) {
+    response.status(200);
+    response.setHeader('Content-Type', 'text/html');
+    let users = await User.getAllUsers();
+    response.render("groupCreation",{
+      user: request.user,
+      users: users
+    }
+  );
 });
 
 module.exports = router;

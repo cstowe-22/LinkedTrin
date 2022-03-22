@@ -19,7 +19,8 @@
     "name": "Community Circle",
     "path": "community-circle",
     "leaders": [
-      "60da66fe-43e9-4497-a06b-7f91df321f88"
+      "60da66fe-43e9-4497-a06b-7f91df321f88",
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85"
     ],
     "advisor": "6d6d812a-557a-48ca-ba5c-651eb84f0ad1",
     "description": "We help the disabled and serve food to the elderly.",
@@ -38,6 +39,22 @@
     ],
     "advisor": "932fc20d-316f-4020-8dca-066141ebd403",
     "description": "We are in charge of planning HackTrin IX, Triniy's official hackathon.",
+    "type": "academic",
+    "members": [
+      "93499d81-2856-4213-b5e5-f2b821acf75c",
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85"
+    ]
+  },
+  "nac-media": {
+    "name": "NAC Media",
+    "path": "nac-media",
+    "leaders": [
+      "60da66fe-43e9-4497-a06b-7f91df321f88",
+      "37cddc9b-1150-49d1-af8c-8c78c096ac6b",
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85"
+    ],
+    "advisor": "932fc20d-316f-4020-8dca-066141ebd403",
+    "description": "We create internships.",
     "type": "academic",
     "members": [
       "93499d81-2856-4213-b5e5-f2b821acf75c",
