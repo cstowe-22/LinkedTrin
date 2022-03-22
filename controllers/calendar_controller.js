@@ -8,7 +8,7 @@ const User = require('../models/user_model');
 const {google} = require("googleapis");
 const calendar = google.calendar("v3");
 
-const res = await calendar.calendars.clear({
+const res = await calendar.calendars.get({
   calendarId: "placeholder-value",
 });
 
