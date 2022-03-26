@@ -104,35 +104,36 @@ router.get('/eventCreation', loggedIn, async function(request, response) {
     response.status(200);
     response.setHeader('Content-Type', 'text/html');
     let users = await User.getAllUsers();
+
     response.render("eventCreation",{
       user: request.user,
-      users: users
+      users: users,
+      groupPath: request.query.group
     }
   );
 });
 
-router.post('/eventCreation', loggedIn, function(request, response) {
+router.post('/eventCreation', loggedIn, async function(request, response) {
     let title = request.body.title;
     let description = request.body.description;
     let date = request.body.date;
-    let path = title.replaceAll(' ', '-').toLowerCase();
+    let path = title.replace(' ', '-').toLowerCase();
     let organization = request.body.organization;
     let type = request.body.type;
-    let memberList = request.body.members;
-    let members = memberList.split(",");
+    let members = request.body.memberList;
    if(0==0){
-      let events = JSON.parse(fs.readFileSync('./data/events.json'));
+      let events = await JSON.parse(fs.readFileSync('./data/events.json'));
       let newEvent = {
-        "title": title,
-        "path": path,
-        "description": description,
-        "organization": organization,
         "date": date,
-        "type": type,
-        "members": members
+        "description": description,
+        "attendees": members,
+        "organization": organization,
+        "path": path,
+        "title": title,
+        "type": type
       }
       events[title] = newEvent;
-      fs.writeFileSync('./data/events.json', JSON.stringify(events));
+      await fs.writeFileSync('./data/events.json', JSON.stringify(events));
       response.status(200);
       response.setHeader('Content-Type', 'text/html')
       response.redirect("/eventListings");

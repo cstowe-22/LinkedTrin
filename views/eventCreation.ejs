@@ -61,6 +61,7 @@
 
 <h2>Create a new event:</h2>
 <form action="/eventCreation" method="POST">
+  <input type="hidden" name="organization" value="<%= groupPath %>" >
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
     <div class="card" style="height: 3rem;width: 29rem;">
       <div class="card-body">
@@ -98,19 +99,61 @@
       </div>
     </div>
   </div>
-  <!-- <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-    <div class="card" style="height: 8rem;width: 29rem;">
+  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+    <div class="card" style="height: 15rem;width: 40rem;">
       <div class="card-body">
-        <label for="attendees">Attendee Emails (separated by commas):</label>
-        <input type="text" id="attendees" name="attendees" value="">
-
+        <select name="leader" id="group_leader_select">
+          <% for(const userID in users) { %>
+            <option value="<%= userID %>"><%= users[userID].email %></option>
+          <% } %>
+        </select>
+        <button onclick="addGroupLeader();" type="button">Add Member</button>
+        <br>
+        <label for="years">Members:</label>
+        <div id="group_leader_list">
+        </div>
+        <div id="hidden_group_leader_list">
+        </div>
       </div>
     </div>
-  </div> -->
+  </div>
   <br><br>
   <input type="submit" value="Create Event">
 
 </form>
 
+<script>
+  function addGroupLeader() {
+    let selectedUserID = document.getElementById("group_leader_select").value;
+    let userExists = document.querySelector(`#hidden_group_leader_list input[value='${selectedUserID}']`);
+    let selectedElement = document.querySelector(`#group_leader_select option[value='${selectedUserID}']`);
+    let leaderListElement = document.getElementById("group_leader_list");
+    let hiddenLeaderListElement = document.getElementById("hidden_group_leader_list");
+
+    let inputElement = document.createElement("input");
+    let tagElement = document.createElement("div");
+    if(userExists == null) {
+      inputElement.setAttribute("type", "hidden");
+      inputElement.setAttribute("name", "memberList[]");
+      inputElement.setAttribute("value", selectedUserID);
+
+      tagElement.classList.add("user_tag");
+      tagElement.setAttribute("data-user_id", selectedUserID);
+      tagElement.setAttribute("onclick", `removeGroupLeader(this, '${selectedUserID}');`);
+      tagElement.innerText = selectedElement.innerText;
+
+      leaderListElement.append(tagElement);
+      hiddenLeaderListElement.append(inputElement);
+    }
+  }
+
+  function removeGroupLeader(that, userID) {
+    let inputElement = document.querySelector(`#hidden_group_leader_list input[value='${userID}']`);
+    if(inputElement) {
+      inputElement.remove();
+      that.remove();
+    }
+  }
+</script>
 
 <%- include('partials/footer') -%>

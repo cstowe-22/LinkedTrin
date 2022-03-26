@@ -55,12 +55,20 @@
     .shadow-none {
       box-shadow: none!important;
     }
+    .user_tag {
+      border: 1px solid black;
+      padding: 2px 1px;
+    }
+    .user_tag:hover {
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </header>
 
 
 <h2>Create a new group:</h2>
-<form action="/musicianCreate" method="POST">
+<form action="/groupCreation" method="POST">
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
     <div class="card" style="height: 3rem;width: 40rem;">
       <div class="card-body">
@@ -79,10 +87,15 @@
     </div>
   </div
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-    <div class="card" style="height: 4rem;width: 40rem;">
+    <div class="card" style="height: 8rem;width: 29rem;">
       <div class="card-body">
-        <label for="members">Description of Members:</label>
-        <input type="text" id="members" name="members" value="">
+        <label for="type">Type:</label>
+        <select id="type" name="type" size="4">
+          <option value="volunteer">Volunteer</option>
+          <option value="academic">Academic</option>
+          <option value="club">Club</option>
+          <option value="internship">Internship</option>
+        </select>
       </div>
     </div>
   </div>
@@ -101,6 +114,24 @@
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
     <div class="card" style="height: 15rem;width: 40rem;">
       <div class="card-body">
+        <select name="members" id="group_member_select">
+          <% for(const userID in users) { %>
+            <option value="<%= userID %>"><%= users[userID].email %></option>
+          <% } %>
+        </select>
+        <button onclick="addGroupMember();" type="button">Add Member</button>
+        <br>
+        <label for="years">Members: </label>
+        <div id="group_member_list">
+        </div>
+        <div id="hidden_group_member_list">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+    <div class="card" style="height: 15rem;width: 40rem;">
+      <div class="card-body">
         <select name="leader" id="group_leader_select">
           <% for(const userID in users) { %>
             <option value="<%= userID %>"><%= users[userID].email %></option>
@@ -108,39 +139,80 @@
         </select>
         <button onclick="addGroupLeader();" type="button">Add Leader</button>
         <br>
-        <label for="years">Leaders:</label>
+        <label for="years">Leaders: (max 4)</label>
         <div id="group_leader_list">
+        </div>
+        <div id="hidden_group_leader_list">
         </div>
       </div>
     </div>
   </div>
-  <a role="button" class="btn btn-primary btn-lg m-2"
-     href="/groupListings" rel="nofollow" target="_blank">
-     Create Group
-  </a>
+  <input type="submit" value="Create Group">
 
 </form>
 <script>
   function addGroupLeader() {
     let selectedUserID = document.getElementById("group_leader_select").value;
+    let userExists = document.querySelector(`#hidden_group_leader_list input[value='${selectedUserID}']`);
     let selectedElement = document.querySelector(`#group_leader_select option[value='${selectedUserID}']`);
     let leaderListElement = document.getElementById("group_leader_list");
+    let hiddenLeaderListElement = document.getElementById("hidden_group_leader_list");
 
     let inputElement = document.createElement("input");
-    inputElement.setAttribute("type", "text");
-    inputElement.setAttribute("name", "leaderList[]");
-    inputElement.setAttribute("value", selectedUserID);
-    // let labelElement = document.createElement("label");
-    // let divElement = document.createElement("div", {class: "group_leader_card", onclick: `removeGroupLeader(this);`});
+    let tagElement = document.createElement("div");
+    if(userExists == null && hiddenLeaderListElement.children.length < 4) {
+      inputElement.setAttribute("type", "hidden");
+      inputElement.setAttribute("name", "leaderList[]");
+      inputElement.setAttribute("value", selectedUserID);
 
-    // labelElement.innerText = selectedElement.innerText;
-    // divElement.append(inputElement);
-    // divElement.append(labelElement);
-    leaderListElement.append(inputElement);
+      tagElement.classList.add("user_tag");
+      tagElement.setAttribute("data-user_id", selectedUserID);
+      tagElement.setAttribute("onclick", `removeGroupLeader(this, '${selectedUserID}');`);
+      tagElement.innerText = selectedElement.innerText;
+
+      leaderListElement.append(tagElement);
+      hiddenLeaderListElement.append(inputElement);
+    }
   }
 
-  function removeGroupLeader(that) {
-    debugger;
+  function removeGroupLeader(that, userID) {
+    let inputElement = document.querySelector(`#hidden_group_leader_list input[value='${userID}']`);
+    if(inputElement) {
+      inputElement.remove();
+      that.remove();
+    }
+  }
+
+  function addGroupMember() {
+    let selectedUserID = document.getElementById("group_member_select").value;
+    let userExists = document.querySelector(`#hidden_group_member_list input[value='${selectedUserID}']`);
+    let selectedElement = document.querySelector(`#group_member_select option[value='${selectedUserID}']`);
+    let memberListElement = document.getElementById("group_member_list");
+    let hiddenMemberListElement = document.getElementById("hidden_group_member_list");
+
+    let inputElement = document.createElement("input");
+    let tagElement = document.createElement("div");
+    if(userExists == null && hiddenMemberListElement.children.length < 4) {
+      inputElement.setAttribute("type", "hidden");
+      inputElement.setAttribute("name", "memberList[]");
+      inputElement.setAttribute("value", selectedUserID);
+
+      tagElement.classList.add("user_tag");
+      tagElement.setAttribute("data-user_id", selectedUserID);
+      tagElement.setAttribute("onclick", `removeGroupMember(this, '${selectedUserID}');`);
+      tagElement.innerText = selectedElement.innerText;
+
+      memberListElement.append(tagElement);
+      hiddenMemberListElement.append(inputElement);
+    }
+  }
+
+  function removeGroupMember(that, userID) {
+    let inputElement = document.querySelector(`#hidden_group_member_list input[value='${userID}']`);
+    if(inputElement) {
+      inputElement.remove();
+      that.remove();
+    }
   }
 </script>
 
