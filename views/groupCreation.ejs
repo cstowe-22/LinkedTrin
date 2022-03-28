@@ -63,6 +63,11 @@
       cursor: pointer;
       font-weight: bold;
     }
+    input[type=text] {
+      border-radius: 15px;
+    }
+
+
   </style>
 </header>
 
@@ -74,6 +79,7 @@
       <div class="card-body">
         <label for="groupName">Group Name:</label>
         <input type="text" id="groupName" name="groupName" value="">
+
       </div>
     </div>
   </div
@@ -82,19 +88,18 @@
       <div class="card-body">
         <label for="description">Description of Group:</label>
         <input type="text" id="description" name="description" value="">
-
       </div>
     </div>
   </div
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
     <div class="card" style="height: 8rem;width: 29rem;">
       <div class="card-body">
-        <label for="type">Type:</label>
-        <select id="type" name="type" size="4">
-          <option value="volunteer">Volunteer</option>
-          <option value="academic">Academic</option>
-          <option value="club">Club</option>
-          <option value="internship">Internship</option>
+          <label for="type">Type: </label>
+        <select name="type" id="type_select">
+            <option value =" Volunteer </option>
+            <option value =" Academic </option>
+            <option value =" Club </option>
+            <option value =" Internship </option>
         </select>
       </div>
     </div>
@@ -121,7 +126,7 @@
         </select>
         <button onclick="addGroupMember();" type="button">Add Member</button>
         <br>
-        <label for="years">Members: </label>
+        <label for="members">Members: </label>
         <div id="group_member_list">
         </div>
         <div id="hidden_group_member_list">
@@ -139,7 +144,7 @@
         </select>
         <button onclick="addGroupLeader();" type="button">Add Leader</button>
         <br>
-        <label for="years">Leaders: (max 4)</label>
+        <label for="leaders">Leaders: (max 4)</label>
         <div id="group_leader_list">
         </div>
         <div id="hidden_group_leader_list">
