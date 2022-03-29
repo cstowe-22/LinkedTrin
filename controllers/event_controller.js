@@ -142,10 +142,12 @@ router.post('/event/:path', loggedIn, async function(request, response) {
 router.get('/eventCreation', loggedIn, async function(request, response) {
     response.status(200);
     response.setHeader('Content-Type', 'text/html');
+    let groupObj = await Group.getAllGroups();
     let users = await User.getAllUsers();
     response.render("eventCreation",{
       user: request.user,
-      users: users
+      users: users,
+      groupsObj: groupObj
     }
   );
 });

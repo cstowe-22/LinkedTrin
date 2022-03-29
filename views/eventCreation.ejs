@@ -68,7 +68,12 @@
     <div class="card" style="height: 3rem;width: 29rem;">
       <div class="card-body">
         <label for="organization">Organization:</label>
-        <input type="text" id="organization" name="organization" value="">
+        <select name="organization" id="organization">
+          <% for(const group in groupsObj) { %>
+            <option value="<%= groupsObj[group].path %>"><%= groupsObj[group].name %></option>
+          <% } %>
+        </select>
+        <!-- <input type="text" id="organization" name="organization" value=""> -->
       </div>
     </div>
   </div
