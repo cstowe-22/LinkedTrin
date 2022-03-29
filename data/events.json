@@ -1,1 +1,40 @@
-{"hacktrin-ix":{"date":"3/24/22","description":"Coding happens here.","attendees":["55c614c5-bae3-47fe-bd39-4b101f61cb85","93499d81-2856-4213-b5e5-f2b821acf75c","37cddc9b-1150-49d1-af8c-8c78c096ac6b"],"organization":"hacktrin","path":"hacktrin-ix","title":"HackTrin IX","type":"academic"},"serve-the-community":{"date":"3/23/22","description":"Do service and stuff like that. asdasd\r\n                  \r\n                  \r\n                  \r\n                  \r\n                  ","attendees":["55c614c5-bae3-47fe-bd39-4b101f61cb85","37cddc9b-1150-49d1-af8c-8c78c096ac6b","93499d81-2856-4213-b5e5-f2b821acf75c"],"organization":"community-circle","path":"serve-the-community","title":"Serve the Community","type":"volunteer","attendeesList":["55c614c5-bae3-47fe-bd39-4b101f61cb85","93499d81-2856-4213-b5e5-f2b821acf75c","6d6d812a-557a-48ca-ba5c-651eb84f0ad1"]},"tech-internship":{"date":"3/22/22","description":"Internship at Nick, Ari, & Cliff Media.","location":"900 Ari Street, New York, 10021","attendees":["93499d81-2856-4213-b5e5-f2b821acf75c","37cddc9b-1150-49d1-af8c-8c78c096ac6b","55c614c5-bae3-47fe-bd39-4b101f61cb85"],"organization":"nac-media","path":"tech-internship","title":"Tech Internship","type":"internship"},"trinlabs-meeting":{"date":"5/24/22","description":"We make applications for Trinity.","attendees":["55c614c5-bae3-47fe-bd39-4b101f61cb85","93499d81-2856-4213-b5e5-f2b821acf75c","37cddc9b-1150-49d1-af8c-8c78c096ac6b"],"organization":"trinlabs","path":"trinlabs-meeting","title":"TrinLabs Meeting","type":"academic"}}
+{
+  "hacktrin-ix": {
+    "date": "3/24/22",
+    "description": "Coding happens here.",
+    "attendees": ["55c614c5-bae3-47fe-bd39-4b101f61cb85", "93499d81-2856-4213-b5e5-f2b821acf75c", "37cddc9b-1150-49d1-af8c-8c78c096ac6b"],
+    "organization": "hacktrin",
+    "path": "hacktrin-ix",
+    "title": "HackTrin IX",
+    "type": "academic"
+  },
+  "serve-the-community": {
+    "date": "3/23/22",
+    "description": "Do service and stuff like that. asdasd\r\n                  \r\n                  \r\n                  \r\n                  \r\n                  ",
+    "attendees": ["55c614c5-bae3-47fe-bd39-4b101f61cb85", "37cddc9b-1150-49d1-af8c-8c78c096ac6b", "93499d81-2856-4213-b5e5-f2b821acf75c"],
+    "organization": "community-circle",
+    "path": "serve-the-community",
+    "title": "Serve the Community",
+    "type": "volunteer",
+    "attendeesList": ["55c614c5-bae3-47fe-bd39-4b101f61cb85", "93499d81-2856-4213-b5e5-f2b821acf75c", "6d6d812a-557a-48ca-ba5c-651eb84f0ad1"]
+  },
+  "tech-internship": {
+    "date": "3/22/22",
+    "description": "Internship at Nick, Ari, & Cliff Media.",
+    "location": "900 Ari Street, New York, 10021",
+    "attendees": ["93499d81-2856-4213-b5e5-f2b821acf75c", "37cddc9b-1150-49d1-af8c-8c78c096ac6b", "55c614c5-bae3-47fe-bd39-4b101f61cb85"],
+    "organization": "nac-media",
+    "path": "tech-internship",
+    "title": "Tech Internship",
+    "type": "internship"
+  },
+  "trinlabs-meeting": {
+    "date": "5/24/22",
+    "description": "We make applications for Trinity.",
+    "attendees": ["55c614c5-bae3-47fe-bd39-4b101f61cb85", "93499d81-2856-4213-b5e5-f2b821acf75c", "37cddc9b-1150-49d1-af8c-8c78c096ac6b"],
+    "organization": "trinlabs",
+    "path": "trinlabs-meeting",
+    "title": "TrinLabs Meeting",
+    "type": "academic"
+  }
+}
