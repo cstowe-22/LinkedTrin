@@ -143,8 +143,9 @@
           <section  class="border-to pb-4 mb-5 colspan-10">
               <div class="card_container">
                 <div class="card_content">
+                  <form id="event_form" action="/event/<%= path %>" method="POST">
                   <h4><b>Edit Title:</b></h4>
-                  <input type="text" name="" placeholder="<%=event.title%>" value=""> <br> <br>
+                  <input type="text" name="title" value="<%=event.title%>"> <br> <br>
                   <% if (event.organization) {%>
                     <p class="card-text"> <i> By <%=event.organization%></i></p>
                   <%}%>
@@ -156,16 +157,42 @@
                   <input id="date" type="date"> <br>
                   <label for="date">Edit Time:</label> <br>
                   <input id="time" type="time"> <br><br>
-                  <p class="card-text">Attendees:</p>
-                  <ul>
-                    <%if(typeof(event.attendees) != "undefined" && event.attendees.length > 0) { for(let j = 0; j<event.attendees.length;j++) {%>
-                      <li><%=users[event.attendees[j].toString()].fullName%></li>
-                    <%} }%>
-                  </ul>
+                  <label for="type_select">Type: </label>
+                  <select name="type" id="type_select">
+                      <option value ="volunteer" <%= event.type == 'volunteer' ? 'selected' : ''; %>>Volunteer</option>
+                      <option value ="academic" <%= event.type == 'academic' ? 'selected' : ''; %>Academic</option>
+                      <option value ="club" <%= event.type == 'club' ? 'selected' : ''; %>Club</option>
+                      <option value ="internship" <%= event.type == 'internship' ? 'selected' : ''; %>Internship</option>
+                  </select>
+                  <br>
+                  <select name="attendees" id="event_attendees_select">
+                    <% for(const userID in users) { %>
+                      <option value="<%= userID %>" <%= event.attendees.includes(userID) ? 'disabled' : ''; %>><%= users[userID].email %></option>
+                    <% } %>
+                  </select>
+                  <button onclick="addEventAttendees();" type="button">Add Attendees</button>
+                  <br>
+                  <label for="attendees">Attendees: </label>
+                  <div id="event_attendees_list" class="user_list_container">
+                    <% for(const userID in users) {
+                      if(event.attendees.includes(userID)) {
+                      %>
+                      <div class="user_tag" data-user_id="<%= userID %>" onclick="removeEventAttendees(this, '<%= userID %>');"><%= users[userID].email; %></div>
+                    <% } } %>
+                  </div>
+                  <div id="hidden_event_attendees_list">
+                    <% for(const userID in users) {
+                      if(event.attendees.includes(userID)) {
+                      %>
+                      <input type="hidden" name="attendeesList[]" value="<%= userID %>">
+                    <% } } %>
+                  </div>
+                  <br>
+                  </form>
                 </div>
                 <div class="card_control">
                   <a role="button" class="btn btn-primary btn-lg m-2" style="<%= followed == 1 ? 'display:none': '' %>"
-                     id="button" rel="nofollow" target="_self" onclick="followEvent">
+                     id="button" rel="nofollow" target="_self" onclick="submitChanges()">
                      Update Changes
                      <!-- Find a way to send data to event -->
                   </a>
@@ -186,6 +213,47 @@
       }
       function unFollowEvent() {
         console.log("unfollowing");
+      }
+
+      function submitChanges() {
+        let event_form = document.querySelector("#event_form");
+        event_form.submit();
+      }
+
+      function addEventAttendees() {
+        let selectedUserID = document.getElementById("event_attendees_select").value;
+        let userExists = document.querySelector(`#hidden_event_attendees_list input[value='${selectedUserID}']`);
+        let selectedElement = document.querySelector(`#event_attendees_select option[value='${selectedUserID}']`);
+        let attendeesListElement = document.getElementById("event_attendees_list");
+        let hiddenAttendeesListElement = document.getElementById("hidden_event_attendees_list");
+
+        let inputElement = document.createElement("input");
+        let tagElement = document.createElement("div");
+        if(userExists == null) {
+          inputElement.setAttribute("type", "hidden");
+          inputElement.setAttribute("name", "attendeesList[]");
+          inputElement.setAttribute("value", selectedUserID);
+
+          tagElement.classList.add("user_tag");
+          tagElement.setAttribute("data-user_id", selectedUserID);
+          tagElement.setAttribute("onclick", `removeEventAttendees(this, '${selectedUserID}');`);
+          tagElement.innerText = selectedElement.innerText;
+
+          attendeesListElement.append(tagElement);
+          hiddenAttendeesListElement.append(inputElement);
+
+          selectedElement.setAttribute("disabled", true);
+        }
+      }
+
+      function removeEventAttendees(that, userID) {
+        let inputElement = document.querySelector(`#hidden_event_attendees_list input[value='${userID}']`);
+        let selectedElement = document.querySelector(`#event_attendees_select option[value='${userID}']`);
+        if(inputElement) {
+          selectedElement.removeAttribute("disabled");
+          inputElement.remove();
+          that.remove();
+        }
       }
     </script>
 

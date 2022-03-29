@@ -96,44 +96,79 @@ router.get('/event/:path', loggedIn, async function(request, response) {
         users: userObj,
         followed: followed,
         user: request.user,
-        isLeader: isLeader
+        isLeader: isLeader,
+        path: path
       });
+});
+
+router.post('/event/:path', loggedIn, async function(request, response) {
+  let path = request.params.path;
+  let title = request.body.title;
+  let attendeesList = request.body.attendeesList;
+  let description = request.body.description;
+  let type = request.body.type;
+
+  if(0==0){
+      let updateEvent = {};
+     let events = await JSON.parse(fs.readFileSync('./data/events.json'));
+     for(eventEntry in events){
+       if(events[eventEntry].path==path){
+         updateEvent = events[eventEntry];
+       }
+     }
+     updateEvent['title'] = title;
+     updateEvent['attendees'] = attendeesList;
+     updateEvent['description'] = description;
+     updateEvent['type'] = type;
+
+     events[path] = updateEvent;
+     await fs.writeFileSync('./data/events.json', JSON.stringify(events));
+     response.status(200);
+     response.setHeader('Content-Type', 'text/html')
+     response.redirect(`/event/${path}`);
+
+  }else{
+    response.status(400);
+    response.setHeader('Content-Type', 'text/html')
+    response.render("error", {
+      "errorCode":"400"
+    });
+  }
 });
 
 router.get('/eventCreation', loggedIn, async function(request, response) {
     response.status(200);
     response.setHeader('Content-Type', 'text/html');
     let users = await User.getAllUsers();
-
     response.render("eventCreation",{
       user: request.user,
-      users: users,
-      groupPath: request.query.group
+      users: users
     }
   );
 });
 
-router.post('/eventCreation', loggedIn, async function(request, response) {
+router.post('/eventCreation', loggedIn, function(request, response) {
     let title = request.body.title;
     let description = request.body.description;
     let date = request.body.date;
-    let path = title.replace(' ', '-').toLowerCase();
+    let path = title.replaceAll(' ', '-').toLowerCase();
     let organization = request.body.organization;
     let type = request.body.type;
-    let members = request.body.memberList;
+    let memberList = request.body.members;
+    let members = memberList.split(",");
    if(0==0){
-      let events = await JSON.parse(fs.readFileSync('./data/events.json'));
+      let events = JSON.parse(fs.readFileSync('./data/events.json'));
       let newEvent = {
-        "date": date,
-        "description": description,
-        "attendees": members,
-        "organization": organization,
-        "path": path,
         "title": title,
-        "type": type
+        "path": path,
+        "description": description,
+        "organization": organization,
+        "date": date,
+        "type": type,
+        "members": members
       }
       events[title] = newEvent;
-      await fs.writeFileSync('./data/events.json', JSON.stringify(events));
+      fs.writeFileSync('./data/events.json', JSON.stringify(events));
       response.status(200);
       response.setHeader('Content-Type', 'text/html')
       response.redirect("/eventListings");

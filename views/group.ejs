@@ -140,41 +140,85 @@
           <section  class="border-to pb-4 mb-5 colspan-10">
               <div class="card_container">
                 <div class="card_content">
+                  <form id="group_form" action="/group/<%= group.path %>" method="POST">
                   <h4><b>Edit Group Name:</b></h4>
-                  <input type="text" name="" placeholder="<%=group.name%>" value=""> <br> <br>
-                  <p class="card-text">Leadership:
-                    <% for (let j = 0; j < group.leaders.length; j++) {%>
-                      <%=users[group.leaders[j].toString()].fullName%>,
-                    <%}%>
-                  </p>
-                  <p class="card-text">Advisor: <%=users[group.advisor.toString()].fullName%></p>
+                  <input type="text" name="groupName" value="<%=group.name%>"> <br> <br>
+                  <select name="leader" id="group_leader_select">
+                    <% for(const userID in users) { %>
+                      <option value="<%= userID %>" <%= group.leaders.includes(userID) ? 'disabled' : ''; %>><%= users[userID].email %></option>
+                    <% } %>
+                  </select>
+                  <button onclick="addGroupLeader();" type="button">Add Leader</button>
+                  <br>
+                  <label for="leaders">Leaders: (max 4)</label>
+                  <div id="group_leader_list">
+                    <% for(const userID in users) {
+                      if(group.leaders.includes(userID)) {
+                      %>
+                      <div class="user_tag" data-user_id="<%= userID %>" onclick="removeGroupLeader(this, '<%= userID %>');"><%= users[userID].email; %></div>
+                    <% } } %>
+                  </div>
+                  <div id="hidden_group_leader_list">
+                    <% for(const userID in users) {
+                      if(group.leaders.includes(userID)) {
+                      %>
+                      <input type="hidden" name="leaderList[]" value="<%= userID %>">
+                    <% } } %>
+                  </div>
+                  <br>
+                  <label for="type_select">Type: </label>
+                  <select name="type" id="type_select">
+                      <option value ="volunteer" <%= group.type == 'volunteer' ? 'selected' : ''; %>>Volunteer</option>
+                      <option value ="academic" <%= group.type == 'academic' ? 'selected' : ''; %>Academic</option>
+                      <option value ="club" <%= group.type == 'club' ? 'selected' : ''; %>Club</option>
+                      <option value ="internship" <%= group.type == 'internship' ? 'selected' : ''; %>Internship</option>
+                  </select>
+                  <br>
+                  <label for="advisor">Advisor:</label>
+                  <select name="advisor" id="advisor">
+                    <% for(const userID in users) { %>
+                      <option value="<%= userID %>"><%= users[userID].email %></option>
+                    <% } %>
+                  </select>
+                  <br>
                   <label for="description">Edit Description:</label>
                   <br>
                   <textarea id="description" name="description" rows="4" cols="50"><%=group.description%>
-                  </textarea> <br>
-                  <p class="card-text">Members:</p>
-                  <ul>
-                    <%for(let j = 0; j<group.members.length;j++) {%>
-                      <li><%=users[group.members[j].toString()].fullName%></li>
-                    <%}%>
-                  </ul>
-                  <label for="members">Add User:</label>
-                  <select name="members" id="users">
-                    <%for(let j = 0; j<group.members.length;j++) {%>
-
-                      <option value="id"><%=users[group.members[j].toString()].fullName%></option>
-                    <%}%>
-
+                  </textarea>
+                  <br>
+                  <select name="members" id="group_member_select">
+                    <% for(const userID in users) { %>
+                      <option value="<%= userID %>" <%= group.members.includes(userID) ? 'disabled' : ''; %>><%= users[userID].email %></option>
+                    <% } %>
                   </select>
+                  <button onclick="addGroupMember();" type="button">Add Member</button>
+                  <br>
+                  <label for="members">Members: </label>
+                  <div id="group_member_list" class="user_list_container">
+                    <% for(const userID in users) {
+                      if(group.members.includes(userID)) {
+                      %>
+                      <div class="user_tag" data-user_id="<%= userID %>" onclick="removeGroupMember(this, '<%= userID %>');"><%= users[userID].email; %></div>
+                    <% } } %>
+                  </div>
+                  <div id="hidden_group_member_list">
+                    <% for(const userID in users) {
+                      if(group.members.includes(userID)) {
+                      %>
+                      <input type="hidden" name="memberList[]" value="<%= userID %>">
+                    <% } } %>
+                  </div>
+                  <br>
+                  </form>
                 </div>
                 <div class="card_control">
                   <a role="button" class="btn btn-primary btn-lg m-2" style="<%= followed == 1 ? 'display:none': '' %>"
-                     id="button" rel="nofollow" target="_self" onclick="followEvent">
+                     id="button" rel="nofollow" target="_self" onclick="submitChanges()">
                      Save Changes
                      <!-- Find a way to send data to event -->
                   </a>
                   <a role="button" class="btn btn-primary btn-lg m-2" style="<%= followed == 1 ? 'display:none': '' %>"
-                     id="button" rel="nofollow" target="_self" onclick="followEvent" href="/eventCreation?group=<%= group.path %>">
+                     id="button" rel="nofollow" target="_self" onclick="followEvent" href="/eventCreation">
                      New Event
                      <!-- Find a way to send data to event -->
                   </a>
@@ -194,6 +238,83 @@
       }
       function unFollowEvent() {
         console.log("unfollowing");
+      }
+
+      function submitChanges() {
+        let group_form = document.querySelector("#group_form");
+        group_form.submit();
+      }
+
+      function addGroupLeader() {
+        let selectedUserID = document.getElementById("group_leader_select").value;
+        let userExists = document.querySelector(`#hidden_group_leader_list input[value='${selectedUserID}']`);
+        let selectedElement = document.querySelector(`#group_leader_select option[value='${selectedUserID}']`);
+        let leaderListElement = document.getElementById("group_leader_list");
+        let hiddenLeaderListElement = document.getElementById("hidden_group_leader_list");
+
+        let inputElement = document.createElement("input");
+        let tagElement = document.createElement("div");
+        if(userExists == null && hiddenLeaderListElement.children.length < 4) {
+          inputElement.setAttribute("type", "hidden");
+          inputElement.setAttribute("name", "leaderList[]");
+          inputElement.setAttribute("value", selectedUserID);
+
+          tagElement.classList.add("user_tag");
+          tagElement.setAttribute("data-user_id", selectedUserID);
+          tagElement.setAttribute("onclick", `removeGroupLeader(this, '${selectedUserID}');`);
+          tagElement.innerText = selectedElement.innerText;
+
+          leaderListElement.append(tagElement);
+          hiddenLeaderListElement.append(inputElement);
+
+          selectedElement.setAttribute("disabled", true);
+        }
+      }
+
+      function removeGroupLeader(that, userID) {
+        let inputElement = document.querySelector(`#hidden_group_leader_list input[value='${userID}']`);
+        let selectedElement = document.querySelector(`#group_leader_select option[value='${userID}']`);
+        if(inputElement) {
+          selectedElement.removeAttribute("disabled");
+          inputElement.remove();
+          that.remove();
+        }
+      }
+
+      function addGroupMember() {
+        let selectedUserID = document.getElementById("group_member_select").value;
+        let userExists = document.querySelector(`#hidden_group_member_list input[value='${selectedUserID}']`);
+        let selectedElement = document.querySelector(`#group_member_select option[value='${selectedUserID}']`);
+        let memberListElement = document.getElementById("group_member_list");
+        let hiddenMemberListElement = document.getElementById("hidden_group_member_list");
+
+        let inputElement = document.createElement("input");
+        let tagElement = document.createElement("div");
+        if(userExists == null) {
+          inputElement.setAttribute("type", "hidden");
+          inputElement.setAttribute("name", "memberList[]");
+          inputElement.setAttribute("value", selectedUserID);
+
+          tagElement.classList.add("user_tag");
+          tagElement.setAttribute("data-user_id", selectedUserID);
+          tagElement.setAttribute("onclick", `removeGroupMember(this, '${selectedUserID}');`);
+          tagElement.innerText = selectedElement.innerText;
+
+          memberListElement.append(tagElement);
+          hiddenMemberListElement.append(inputElement);
+
+          selectedElement.setAttribute("disabled", true);
+        }
+      }
+
+      function removeGroupMember(that, userID) {
+        let inputElement = document.querySelector(`#hidden_group_member_list input[value='${userID}']`);
+        let selectedElement = document.querySelector(`#group_member_select option[value='${userID}']`);
+        if(inputElement) {
+          selectedElement.removeAttribute("disabled");
+          inputElement.remove();
+          that.remove();
+        }
       }
     </script>
 

@@ -55,6 +55,7 @@
     .shadow-none {
       box-shadow: none!important;
     }
+    <!-- Member and Leader list -->
     .user_tag {
       border: 1px solid black;
       padding: 2px 1px;
@@ -66,8 +67,10 @@
     input[type=text] {
       border-radius: 15px;
     }
-
-
+    .user_list_container {
+      overflow-y: auto;
+      height: 158px;
+    }
   </style>
 </header>
 
@@ -95,12 +98,12 @@
     <div class="card" style="height: 8rem;width: 29rem;">
       <div class="card-body">
           <label for="type">Type: </label>
-        <select name="type" id="type_select">
-            <option value =" Volunteer </option>
-            <option value =" Academic </option>
-            <option value =" Club </option>
-            <option value =" Internship </option>
-        </select>
+          <select name="type" id="type_select">
+              <option value ="volunteer">Volunteer</option>
+              <option value ="academic">Academic</option>
+              <option value ="club">Club</option>
+              <option value ="internship">Internship</option>
+          </select>
       </div>
     </div>
   </div>
@@ -127,7 +130,7 @@
         <button onclick="addGroupMember();" type="button">Add Member</button>
         <br>
         <label for="members">Members: </label>
-        <div id="group_member_list">
+        <div id="group_member_list" class="user_list_container">
         </div>
         <div id="hidden_group_member_list">
         </div>
@@ -177,12 +180,16 @@
 
       leaderListElement.append(tagElement);
       hiddenLeaderListElement.append(inputElement);
+
+      selectedElement.setAttribute("disabled", true);
     }
   }
 
   function removeGroupLeader(that, userID) {
     let inputElement = document.querySelector(`#hidden_group_leader_list input[value='${userID}']`);
+    let selectedElement = document.querySelector(`#group_leader_select option[value='${userID}']`);
     if(inputElement) {
+      selectedElement.removeAttribute("disabled");
       inputElement.remove();
       that.remove();
     }
@@ -197,7 +204,7 @@
 
     let inputElement = document.createElement("input");
     let tagElement = document.createElement("div");
-    if(userExists == null && hiddenMemberListElement.children.length < 4) {
+    if(userExists == null) {
       inputElement.setAttribute("type", "hidden");
       inputElement.setAttribute("name", "memberList[]");
       inputElement.setAttribute("value", selectedUserID);
@@ -209,12 +216,16 @@
 
       memberListElement.append(tagElement);
       hiddenMemberListElement.append(inputElement);
+
+      selectedElement.setAttribute("disabled", true);
     }
   }
 
   function removeGroupMember(that, userID) {
     let inputElement = document.querySelector(`#hidden_group_member_list input[value='${userID}']`);
+    let selectedElement = document.querySelector(`#group_member_select option[value='${userID}']`);
     if(inputElement) {
+      selectedElement.removeAttribute("disabled");
       inputElement.remove();
       that.remove();
     }
