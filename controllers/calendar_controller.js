@@ -37,6 +37,9 @@ var event = {
   },
 };
 
+//I've left this here to illustrate what an event should look like.
+//Once we've made it such that our events can be read as cal events, all that is required is to call the function below to add the event to the cal.
+
 calendar.events.insert({
   auth: auth,
   calendarId: 'primary',
@@ -48,5 +51,3 @@ calendar.events.insert({
   }
   console.log('Event created: %s', event.htmlLink);
 });
-
-console.log(res.data);
