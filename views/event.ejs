@@ -108,8 +108,8 @@
             <p class="card-text"><%=event.date%></p>
             <p class="card-text">Attendees:</p>
             <ul>
-              <% if(typeof(event.attendees) != "undefined" && event.attendees.length > 0) { for(let j = 0; j<event.attendees.length;j++) {%>
-                <li><%=users[event.attendees[j]].fullName%></li>
+              <% if(typeof(event.members) != "undefined" && event.members.length > 0) { for(let j = 0; j<event.members.length;j++) {%>
+                <li><%=users[event.members[j]].fullName%></li>
               <%} }%>
             </ul>
           </div>
@@ -167,7 +167,7 @@
                   <br>
                   <select name="attendees" id="event_attendees_select">
                     <% for(const userID in users) { %>
-                      <option value="<%= userID %>" <%= event.attendees.includes(userID) ? 'disabled' : ''; %>><%= users[userID].email %></option>
+                      <option value="<%= userID %>" <%= event.members.includes(userID) ? 'disabled' : ''; %>><%= users[userID].email %></option>
                     <% } %>
                   </select>
                   <button onclick="addEventAttendees();" type="button">Add Attendees</button>
@@ -175,14 +175,14 @@
                   <label for="attendees">Attendees: </label>
                   <div id="event_attendees_list" class="user_list_container">
                     <% for(const userID in users) {
-                      if(event.attendees.includes(userID)) {
+                      if(event.members.includes(userID)) {
                       %>
                       <div class="user_tag" data-user_id="<%= userID %>" onclick="removeEventAttendees(this, '<%= userID %>');"><%= users[userID].email; %></div>
                     <% } } %>
                   </div>
                   <div id="hidden_event_attendees_list">
                     <% for(const userID in users) {
-                      if(event.attendees.includes(userID)) {
+                      if(event.members.includes(userID)) {
                       %>
                       <input type="hidden" name="attendeesList[]" value="<%= userID %>">
                     <% } } %>

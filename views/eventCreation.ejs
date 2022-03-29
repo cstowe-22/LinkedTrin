@@ -55,13 +55,23 @@
     .shadow-none {
       box-shadow: none!important;
     }
+    input[type=text] {
+      border-radius: 15px;
+    }
   </style>
 </header>
 
 
 <h2>Create a new event:</h2>
 <form action="/eventCreation" method="POST">
-  <input type="hidden" name="organization" value="<%= groupPath %>" >
+  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+    <div class="card" style="height: 3rem;width: 29rem;">
+      <div class="card-body">
+        <label for="organization">Organization:</label>
+        <input type="text" id="organization" name="organization" value="">
+      </div>
+    </div>
+  </div
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
     <div class="card" style="height: 3rem;width: 29rem;">
       <div class="card-body">
@@ -89,13 +99,13 @@
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
     <div class="card" style="height: 8rem;width: 29rem;">
       <div class="card-body">
-        <label for="type">Type:</label>
-        <select id="type" name="type" size="4">
-          <option value="volunteer">Volunteer</option>
-          <option value="academic">Academic</option>
-          <option value="club">Club</option>
-          <option value="internship">Internship</option>
-        </select>
+          <label for="type">Type: </label>
+          <select name="type" id="type_select">
+              <option value ="volunteer">Volunteer</option>
+              <option value ="academic">Academic</option>
+              <option value ="club">Club</option>
+              <option value ="internship">Internship</option>
+          </select>
       </div>
     </div>
   </div>
@@ -112,7 +122,7 @@
         <label for="attendees">Attendees:</label>
         <div id="group_leader_list">
         </div>
-        <div id="hidden_group_leader_list">
+        <div id="hidden_group_leader_list" >
         </div>
       </div>
     </div>

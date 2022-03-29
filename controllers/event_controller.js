@@ -85,7 +85,7 @@ router.get('/event/:path', loggedIn, async function(request, response) {
     let userObj = await User.getAllUsers();
     let userArray = [];
     response.status(200);
-    for(id in users){
+    for(id in users) {
       userArray.push(users[id])
     }
     // TODO: add logic after user is figured route
@@ -102,12 +102,13 @@ router.get('/event/:path', loggedIn, async function(request, response) {
 });
 
 router.post('/event/:path', loggedIn, async function(request, response) {
-  let path = request.params.path;
+  let path = request.body.path;
+  let organization = request.body.organization;
+  let date = request.body.date;
   let title = request.body.title;
-  let attendeesList = request.body.attendeesList;
+  let memberList = request.body.memberList;
   let description = request.body.description;
   let type = request.body.type;
-
   if(0==0){
       let updateEvent = {};
      let events = await JSON.parse(fs.readFileSync('./data/events.json'));
@@ -117,10 +118,12 @@ router.post('/event/:path', loggedIn, async function(request, response) {
        }
      }
      updateEvent['title'] = title;
-     updateEvent['attendees'] = attendeesList;
+     updateEvent['members'] = memberList;
      updateEvent['description'] = description;
      updateEvent['type'] = type;
-
+     updateEvent['date'] = date;
+     updateEvent['organization'] = organization;
+     updateEvent['path'] = path;
      events[path] = updateEvent;
      await fs.writeFileSync('./data/events.json', JSON.stringify(events));
      response.status(200);
@@ -151,11 +154,10 @@ router.post('/eventCreation', loggedIn, function(request, response) {
     let title = request.body.title;
     let description = request.body.description;
     let date = request.body.date;
-    let path = title.replaceAll(' ', '-').toLowerCase();
+    let path = title.replace(/ /g, '-').toLowerCase();
     let organization = request.body.organization;
     let type = request.body.type;
-    let memberList = request.body.members;
-    let members = memberList.split(",");
+    let memberList = request.body.memberList;
    if(0==0){
       let events = JSON.parse(fs.readFileSync('./data/events.json'));
       let newEvent = {
@@ -165,9 +167,9 @@ router.post('/eventCreation', loggedIn, function(request, response) {
         "organization": organization,
         "date": date,
         "type": type,
-        "members": members
+        "members": memberList
       }
-      events[title] = newEvent;
+      events[path] = newEvent;
       fs.writeFileSync('./data/events.json', JSON.stringify(events));
       response.status(200);
       response.setHeader('Content-Type', 'text/html')
