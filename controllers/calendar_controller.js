@@ -1,6 +1,7 @@
 const express = require('express'),
   router = express.Router();
   const app = express();
+const fs = require('fs');
 
 const Event = require('../models/event_model');
 const User = require('../models/user_model');
@@ -8,24 +9,27 @@ const User = require('../models/user_model');
 const {google} = require("googleapis");
 const calendar = google.calendar("v3");
 
+var users = fs.readFileSync("../data/users.json");
+var events = fs.readFileSync("../data/events.json");
+
 //this is the function that should be called when a button is clicked, which adds that event to the user's main calendar
 var event = {
-  'summary': 'Google I/O 2015',
-  'location': '800 Howard St., San Francisco, CA 94103',
-  'description': 'A chance to hear more about Google\'s developer products.',
+  'summary': (),//event name
+  'location': 'Trinity School',
+  'description': ()//event description,
   'start': {
     'dateTime': '2015-05-28T09:00:00-07:00',
-    'timeZone': 'America/Los_Angeles',
+    'timeZone': 'America/New_York',
   },
   'end': {
     'dateTime': '2015-05-28T17:00:00-07:00',
-    'timeZone': 'America/Los_Angeles',
+    'timeZone': 'America/New_York',
   },
   'recurrence': [
-    'RRULE:FREQ=DAILY;COUNT=2'
+    'RRULE:FREQ=DAILY;COUNT=2'//Will figure out how to set this ot not recur at all
   ],
   'attendees': [
-    {'email': 'lpage@example.com'},
+    {'email': 'lpage@example.com'},//use user json file to include these
     {'email': 'sbrin@example.com'},
   ],
   'reminders': {
