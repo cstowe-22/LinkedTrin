@@ -32,16 +32,7 @@ function createEvent(eventID) {
       },
     ],
     'reminders': {
-      'useDefault': false,
-      'overrides': [{
-          'method': 'email',
-          'minutes': 24 * 60
-        },
-        {
-          'method': 'popup',
-          'minutes': 10
-        },
-      ],
+      'useDefault': true,
     },
   };
 
