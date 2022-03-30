@@ -14,6 +14,13 @@ var events = fs.readFileSync("../data/events.json");
 
 function createEvent(eventID) {
 
+  let attendeeList = [];
+
+  let keyEvent = events[eventID];
+  for (let member of keyEvent[members]) {
+    attendeeList.push(users[member].email);
+  }
+
   //this is the function that should be called when a button is clicked, which adds that event to the user's main calendar
   var event = {
     'summary': eventID, //event name
@@ -26,7 +33,7 @@ function createEvent(eventID) {
     "endTimeUnspecified": true,
     'attendees': [{
         'email': 'lpage@example.com'
-      }, //use user json file to include these
+      }, //I've created a list of emails, trying to figure out how to translate that array into this format
       {
         'email': 'sbrin@example.com'
       },
