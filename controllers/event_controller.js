@@ -64,7 +64,8 @@ router.get('/eventListings/:type', loggedIn, async function(request, response) {
       response.render("eventListings",{
         events: eventList,
         eventsObj: eventObj,
-        users: userObj
+        users: userObj,
+        user: request.user
       });
 });
 
