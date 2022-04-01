@@ -43,14 +43,17 @@ router.get('/eventListings', loggedIn, async function(request, response) {
     });
 });
 
-router.get('/eventListings/:type', loggedIn, async function(request, response) {
+router.get('/eventListings/:item', loggedIn, async function(request, response) {
     let events = await Event.getAllEvents();
     let eventObj = await Event.getAllEvents();
     let eventList = [];
-    let typeSave = request.params.type;
-    for(type in events){
-      if(events[type].type==typeSave){
-        eventList.push(events[type]);
+    let itemSave = request.params.item;
+    for(item in events){
+      if(events[item].type==itemSave){
+        eventList.push(events[item]);
+      }
+      else if(events[item].organization==itemSave){
+        eventList.push(events[item]);
       }
     }
     let users = await User.getAllUsers();
