@@ -164,6 +164,7 @@ router.post('/eventCreation', loggedIn, function(request, response) {
     let organization = request.body.organization;
     let type = request.body.type;
     let memberList = request.body.memberList;
+    let memberCount = memberList.length;
    if(0==0){
       let events = JSON.parse(fs.readFileSync('./data/events.json'));
       let newEvent = {
@@ -173,7 +174,8 @@ router.post('/eventCreation', loggedIn, function(request, response) {
         "organization": organization,
         "date": date,
         "type": type,
-        "members": memberList
+        "members": memberList,
+        "memberCount": memberCount
       }
       events[path] = newEvent;
       fs.writeFileSync('./data/events.json', JSON.stringify(events));

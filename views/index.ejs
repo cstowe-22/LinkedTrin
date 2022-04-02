@@ -89,7 +89,6 @@
 
 <!--Main layout-->
 <main class="my-5">
-    <%for(i=0;i<=2;i++){%>
   <div class="container">
     <section class="border-to pb-4 mb-5">
       <h1>Popular Events</h1>
@@ -97,6 +96,7 @@
          href="/eventListings" rel="nofollow" target="_blank">
          All Events
       </a>
+          <%for(i=0;i<=2;i++){%>
       <div class="col-lg-4 col-md-24 mb-4 mb-lg-0">
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-10">
             <div class="card" style="min-height: 21rem;width: 81rem;padding: 2rem;">
@@ -121,6 +121,36 @@
         </div>
         <%}%>
       </section>
+      <section class="border-to pb-4 mb-5">
+        <h1>Popular Groups</h1>
+        <a role="button" class="btn btn-primary btn-lg m-2"
+           href="/groupListings" rel="nofollow" target="_blank">
+           All Groups
+        </a>
+            <%for(i=0;i<=2;i++){%>
+              <div class="col-lg-4 col-md-24 mb-4 mb-lg-0">
+                  <div class="col-lg-4 col-md-6 mb-4 mb-lg-10">
+                    <div class="card" style="min-height: 21rem;width: 81rem;padding: 2rem;">
+                      <div class="card-body">
+                        <h4><b><%=groups[i].name%></b></h4>
+                        <p class="card-text">Leadership:
+                          <% for (let j = 0; j < groups[i].leaders.length; j++) {%>
+                            <%=users[groups[i].leaders[j].toString()].fullName%>,
+                          <%}%>
+                        </p>
+                        <p class="card-text">Advisor: <%=users[groups[i].advisor.toString()].fullName%></p>
+                        <p class="card-text"><%=groups[i].description%></p>
+                        <p class="card-text">Members: <%=groups[i].members.length%> </p>
+                        <a role="button" class="btn btn-primary btn-lg m-2"
+                           href="/group/<%=groups[i].path%>" rel="nofollow" target="_self">
+                           Learn More
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          <%}%>
+        </section>
   </div>
 </main>
 <!--Main layout-->
