@@ -153,9 +153,6 @@ router.post('/groupCreation', loggedIn, async function(request, response) {
     let description = request.body.description;
     let type = request.body.type;
     let memberList = request.body.memberList;
-
-    console.log("My Grroup: ");
-    console.log(request.body);
    if(0==0){
       let groups = await JSON.parse(fs.readFileSync('./data/groups.json'));
       let newGroup = {

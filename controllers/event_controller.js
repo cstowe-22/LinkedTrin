@@ -43,14 +43,17 @@ router.get('/eventListings', loggedIn, async function(request, response) {
     });
 });
 
-router.get('/eventListings/:type', loggedIn, async function(request, response) {
+router.get('/eventListings/:item', loggedIn, async function(request, response) {
     let events = await Event.getAllEvents();
     let eventObj = await Event.getAllEvents();
     let eventList = [];
-    let typeSave = request.params.type;
-    for(type in events){
-      if(events[type].type==typeSave){
-        eventList.push(events[type]);
+    let itemSave = request.params.item;
+    for(item in events){
+      if(events[item].type==itemSave){
+        eventList.push(events[item]);
+      }
+      else if(events[item].organization==itemSave){
+        eventList.push(events[item]);
       }
     }
     let users = await User.getAllUsers();
@@ -64,7 +67,8 @@ router.get('/eventListings/:type', loggedIn, async function(request, response) {
       response.render("eventListings",{
         events: eventList,
         eventsObj: eventObj,
-        users: userObj
+        users: userObj,
+        user: request.user
       });
 });
 
@@ -160,6 +164,7 @@ router.post('/eventCreation', loggedIn, function(request, response) {
     let organization = request.body.organization;
     let type = request.body.type;
     let memberList = request.body.memberList;
+    let memberCount = memberList.length;
    if(0==0){
       let events = JSON.parse(fs.readFileSync('./data/events.json'));
       let newEvent = {
@@ -169,7 +174,8 @@ router.post('/eventCreation', loggedIn, function(request, response) {
         "organization": organization,
         "date": date,
         "type": type,
-        "members": memberList
+        "members": memberList,
+        "memberCount": memberCount
       }
       events[path] = newEvent;
       fs.writeFileSync('./data/events.json', JSON.stringify(events));

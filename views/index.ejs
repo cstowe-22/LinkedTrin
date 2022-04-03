@@ -90,194 +90,67 @@
 <!--Main layout-->
 <main class="my-5">
   <div class="container">
-    <!-- Header -->
-    <h1>Recently Viewed</h1>
-    <a role="button" class="btn btn-primary btn-lg m-2"
-       href="/eventListings" rel="nofollow" target="_blank">
-       See More
-    </a>
-    <hr />
-
-    <!--Section: News of the day -- we made edits to this-->
-    <section  class="border-to pb-4 mb-5 colspan-20">
-      <div class="row gx-lg-5">
-        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-          <!-- News block -->
-            <!-- Article title and description -->
-
-            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-              <div class="card" style="height: 20rem;width: 25rem;">
-                <div class="card-body">
-                  <h4><b>Tech Internship</b></h4>
-                  <p class="card-text">Internship at Nick, Ari, & Cliff Media.</p>
-                  <a role="button" class="btn btn-primary btn-lg m-2"
-                     href="/eventListings" rel="nofollow" target="_blank">
-                     Learn More
-                  </a>
-                </div>
-              </div>
-            </div>
-          <!-- News block -->
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-            <!-- Article title and description -->
-            <div class="card" style="height:20rem;width: 25rem;">
-              <div class="card-body">
-                <h4><b>Serve the Community</b></h4>
-                <p class="card-text">  Do service and stuff like that. Learn more by clicking on this event.</p>
-                <a role="button" class="btn btn-primary btn-lg m-2"
-                   href="/eventListings" rel="nofollow" target="_blank">
-                   Learn More
-                </a>
-              </div>
-            </div>
-          <!-- News block -->
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-            <!-- Article title and description -->
-            <div class="card" style="height:20rem;width: 25rem;">
-              <div class="card-body">
-                <h4><b>HackTrin</b></h4>
-                <p class="card-text">  Coding happens here.</p>
-                <a role="button" class="btn btn-primary btn-lg m-2"
-                   href="/eventListings" rel="nofollow" target="_blank">
-                   Learn More
-                </a>
-              </div>
-            </div>
-        </div>
-  </div>
-
-    </section>
-    <!--Section: News of the day-->
-
-    <!--Section: Content-->
-    <section>
-      <h1>Recommended</h1>
-      <a role="button" class="btn btn-primary btn-lg m-2"
-         href="/eventListings" rel="nofollow" target="_blank">
-         See More
-      </a>
-      <hr />
-
-      <!--Section: News of the day -- we made edits to this-->
-      <section  class="border-to pb-4 mb-5 colspan-20">
-        <div class="row gx-lg-5">
-          <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-            <!-- News block -->
-              <!-- Article title and description -->
-
-              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                <div class="card" style="height: 20rem;width: 25rem;">
-                  <div class="card-body">
-                    <h4><b>Tech Internship</b></h4>
-                    <p class="card-text">Internship at Nick, Ari, & Cliff Media.</p>
-                    <a role="button" class="btn btn-primary btn-lg m-2"
-                       href="/eventListings" rel="nofollow" target="_blank">
-                       Learn More
-                    </a>
-                  </div>
-                </div>
-              </div>
-            <!-- News block -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-              <!-- Article title and description -->
-              <div class="card" style="height:20rem;width: 25rem;">
-                <div class="card-body">
-                  <h4><b>Serve the Community</b></h4>
-                  <p class="card-text">  Do service and stuff like that. Learn more by clicking on this event.</p>
-                  <a role="button" class="btn btn-primary btn-lg m-2"
-                     href="/eventListings" rel="nofollow" target="_blank">
-                     Learn More
-                  </a>
-                </div>
-              </div>
-            <!-- News block -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-              <!-- Article title and description -->
-              <div class="card" style="height:20rem;width: 25rem;">
-                <div class="card-body">
-                  <h4><b>HackTrin</b></h4>
-                  <p class="card-text">  Coding happens here.</p>
-                  <a role="button" class="btn btn-primary btn-lg m-2"
-                     href="/eventListings" rel="nofollow" target="_blank">
-                     Learn More
-                  </a>
-                </div>
-              </div>
-          </div>
-    </div>
-
-      </section>
-    <!--Section: Content-->
-
     <section class="border-to pb-4 mb-5">
-      <h1>Popular Right Now</h1>
+      <h1>Popular Events</h1>
       <a role="button" class="btn btn-primary btn-lg m-2"
          href="/eventListings" rel="nofollow" target="_blank">
-         See More
+         All Events
       </a>
-      <hr />
+          <%for(i=0;i<=2;i++){%>
+      <div class="col-lg-4 col-md-24 mb-4 mb-lg-0">
+          <div class="col-lg-4 col-md-6 mb-4 mb-lg-10">
+            <div class="card" style="min-height: 21rem;width: 81rem;padding: 2rem;">
+              <div class="card-body">
+                <h4><b><%=events[i].title%></b></h4>
+                <% if (events[i].organization) {%>
+                  <p class="card-text"> <i> By <%=events[i].organization%></i></p>
+                <%}%>
+                <p class="card-text"><%=events[i].description%></p>
+                <p class="card-text"><%=events[i].date%></p>
+                <p class="card-text">Attendees: <%=events[i].members.length%> </p>
 
-      <!--Section: News of the day -- we made edits to this-->
-      <section  class="border-to pb-4 mb-5 colspan-20">
-        <div class="row gx-lg-5">
-          <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-            <!-- News block -->
-              <!-- Article title and description -->
+                <a role="button" class="btn btn-primary btn-lg m-2"
+                   href="/event/<%=events[i].path%>" rel="nofollow" target="_self">
+                   About <%=events[i].title%>
+                   <!-- Find a way to send data to event -->
+                </a>
 
-              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                <div class="card" style="height: 20rem;width: 25rem;">
-                  <div class="card-body">
-                    <h4><b>Tech Internship</b></h4>
-                    <p class="card-text">Internship at Nick, Ari, & Cliff Media.</p>
-                    <a role="button" class="btn btn-primary btn-lg m-2"
-                       href="/eventListings" rel="nofollow" target="_blank">
-                       Learn More
-                    </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%}%>
+      </section>
+      <section class="border-to pb-4 mb-5">
+        <h1>Popular Groups</h1>
+        <a role="button" class="btn btn-primary btn-lg m-2"
+           href="/groupListings" rel="nofollow" target="_blank">
+           All Groups
+        </a>
+            <%for(i=0;i<=2;i++){%>
+              <div class="col-lg-4 col-md-24 mb-4 mb-lg-0">
+                  <div class="col-lg-4 col-md-6 mb-4 mb-lg-10">
+                    <div class="card" style="min-height: 21rem;width: 81rem;padding: 2rem;">
+                      <div class="card-body">
+                        <h4><b><%=groups[i].name%></b></h4>
+                        <p class="card-text">Leadership:
+                          <% for (let j = 0; j < groups[i].leaders.length; j++) {%>
+                            <%=users[groups[i].leaders[j].toString()].fullName%>,
+                          <%}%>
+                        </p>
+                        <p class="card-text">Advisor: <%=users[groups[i].advisor.toString()].fullName%></p>
+                        <p class="card-text"><%=groups[i].description%></p>
+                        <p class="card-text">Members: <%=groups[i].members.length%> </p>
+                        <a role="button" class="btn btn-primary btn-lg m-2"
+                           href="/group/<%=groups[i].path%>" rel="nofollow" target="_self">
+                            About <%=groups[i].name%>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <!-- News block -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-              <!-- Article title and description -->
-              <div class="card" style="height:20rem;width: 25rem;">
-                <div class="card-body">
-                  <h4><b>Serve the Community</b></h4>
-                  <p class="card-text">  Do service and stuff like that. Learn more by clicking on this event.</p>
-                  <a role="button" class="btn btn-primary btn-lg m-2"
-                     href="/eventListings" rel="nofollow" target="_blank">
-                     Learn More
-                  </a>
-                </div>
-              </div>
-            <!-- News block -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-              <!-- Article title and description -->
-              <div class="card" style="height:20rem;width: 25rem;">
-                <div class="card-body">
-                  <h4><b>HackTrin</b></h4>
-                  <p class="card-text">  Coding happens here.</p>
-                  <a role="button" class="btn btn-primary btn-lg m-2"
-                     href="/eventListings" rel="nofollow" target="_blank">
-                     Learn More
-                  </a>
-                </div>
-              </div>
-          </div>
-    </div>
-
-      </section>
+          <%}%>
+        </section>
   </div>
 </main>
 <!--Main layout-->

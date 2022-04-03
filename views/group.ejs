@@ -111,14 +111,10 @@
             </ul>
           </div>
           <div class="card_control">
-            <a role="button" class="btn btn-primary btn-lg m-2" style="<%= followed == 1 ? 'display:none': '' %>"
+            <a role="button" class="btn btn-primary btn-lg m-2"  href="/eventListings/<%=group.path%>"
+               style="<%= followed == 1 ? 'display:none': '' %>"
                id="button" rel="nofollow" target="_self" onclick="followEvent">
-               Follow <%=group.name%>
-               <!-- Find a way to send data to event -->
-            </a>
-            <a role="button" class="btn btn-primary btn-lg m-2" style="background-color:grey; <%= followed == 0 ? 'display:none': '' %>"
-               id="button" rel="nofollow" target="_self" onclick="unFollowEvent">
-               Unfollow <%=group.name%>
+               Events by <%=group.name%>
                <!-- Find a way to send data to event -->
             </a>
 
