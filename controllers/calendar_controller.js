@@ -19,7 +19,7 @@ function createEvent(eventID) {
   let keyEvent = events[eventID];
   for (let member of keyEvent[members]) {
     attendeeList.push(users[member].email);
-  }
+  }//This is what makes intuitive sense vis a vis an attendee list, an arry of email addresses. See line 36 for more comment
 
   //this is the function that should be called when a button is clicked, which adds that event to the user's main calendar
   var event = {
@@ -33,7 +33,7 @@ function createEvent(eventID) {
     "endTimeUnspecified": true,
     'attendees': [{
         'email': 'lpage@example.com'
-      }, //I've created a list of emails, trying to figure out how to translate that array into this format
+      }, //Unfortunately, the attendee list is not an array of emails, but a list of objects with the property "email" and the address listed. Automating this is the one barrier to full integration of the calendar API. 
       {
         'email': 'sbrin@example.com'
       },
