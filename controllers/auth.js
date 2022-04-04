@@ -29,11 +29,7 @@ router.use(passport.session());
 passport.use(new GoogleStrategy({
     clientID: KEYS["client_id"],
     clientSecret: KEYS["client_secret"],
-<<<<<<< HEAD
     callbackURL: "/auth/google/callback"
-=======
-    callbackURL: "http://localhost:3000/auth/google/callback"
->>>>>>> parent of 991c896 (Update auth.js)
     //todo: port==process.env.PORT? :
   },
   function(accessToken, refreshToken, profile, done) {
