@@ -24,6 +24,8 @@ router.get('/event/:path/cal', loggedIn, async function(request, response) {
 
   let events = await Event.getAllEvents();
   let eventObj = await Event.getAllEvents();
+  let users = await User.getAllUsers();
+  let userObj = await User.getAllUsers();
   let userId = await User.getId(request.user._json.email);
   let isLeader = false;
   let selectedEvent = {};
@@ -31,12 +33,10 @@ router.get('/event/:path/cal', loggedIn, async function(request, response) {
   for(eventEntry in events){
     if(events[eventEntry].path==path){
       selectedEvent = events[eventEntry];
-      isLeader = await Group.isLeader(userId, selectedEvent.organization);
     }
   }
 
-  let keyEvent = events[eventID];
-  for (let member of keyEvent[members]) {
+  for (let member of selectedEvent[members]) {
     attendeeList.push(users[member].email);
   }//This is what makes intuitive sense vis a vis an attendee list, an arry of email addresses. See line 36 for more comment
 
@@ -62,9 +62,6 @@ router.get('/event/:path/cal', loggedIn, async function(request, response) {
     },
   };
 
-  //I've left this here to illustrate what an event should look like.
-  //Once we've made it such that our events can be read as cal events, all that is required is to call the function below to add the event to the cal.
-
   calendar.events.insert({
     auth: auth,
     calendarId: 'primary',
@@ -82,7 +79,7 @@ router.get('/event/:path/cal', loggedIn, async function(request, response) {
   response.render("event",{
     event: selectedEvent,
     users: userObj,
-    followed: followed,
+    followed: 0,
     user: request.user,
     isLeader: isLeader,
     path: path
