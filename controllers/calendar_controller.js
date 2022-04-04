@@ -46,7 +46,7 @@ router.get('/event/:path/cal', loggedIn, async function(request, response) {
     'location': 'Trinity School',
     'description': selectedEvent.description, //event description,
     'start': {
-      'date': (selectedEvent.date),
+      'date': selectedEvent.date,
       'timeZone': 'America/New_York',
     },
     "endTimeUnspecified": true,
@@ -78,18 +78,13 @@ router.get('/event/:path/cal', loggedIn, async function(request, response) {
   });
 
   response.status(200);
-  for(id in users) {
-    userArray.push(users[id])
-  }
-
-  let followed = 0;
-    response.setHeader('Content-Type', 'text/html')
-    response.render("event",{
-      event: selectedEvent,
-      users: userObj,
-      followed: followed,
-      user: request.user,
-      isLeader: isLeader,
-      path: path
-    });
+  response.setHeader('Content-Type', 'text/html')
+  response.render("event",{
+    event: selectedEvent,
+    users: userObj,
+    followed: followed,
+    user: request.user,
+    isLeader: isLeader,
+    path: path
+  });
 });
