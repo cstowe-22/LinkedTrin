@@ -96,7 +96,8 @@
               <div class="card-body">
                 <h4><b><%=groups[i].name%></b></h4>
                 <p class="card-text">Leadership:
-                  <% for (let j = 0; j < groups[i].leaders.length; j++) {%>
+                  <% let array = groups[i].leaders %>
+                  <% for (let j = 0; j < array.length; j++) {%>
                     <%=users[groups[i].leaders[j].toString()].fullName%>,
                   <%}%>
                 </p>
