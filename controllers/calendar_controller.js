@@ -12,7 +12,15 @@ const calendar = google.calendar("v3");
 var users = fs.readFileSync("../data/users.json");
 var events = fs.readFileSync("../data/events.json");
 
-function createEvent(eventID) {
+function loggedIn(request, response, next) {
+  if (request.user) {
+    next();
+  } else {
+    response.redirect('/login');
+  }
+}
+
+router.get("/event/:path/cal") {
 
   let attendeeList = [];
 
@@ -33,7 +41,7 @@ function createEvent(eventID) {
     "endTimeUnspecified": true,
     'attendees': [{
         'email': 'lpage@example.com'
-      }, //Unfortunately, the attendee list is not an array of emails, but a list of objects with the property "email" and the address listed. Automating this is the one barrier to full integration of the calendar API. 
+      }, //Unfortunately, the attendee list is not an array of emails, but a list of objects with the property "email" and the address listed. Automating this is the one barrier to full integration of the calendar API.
       {
         'email': 'sbrin@example.com'
       },
