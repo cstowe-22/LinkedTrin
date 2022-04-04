@@ -20,7 +20,7 @@ function loggedIn(request, response, next) {
   }
 }
 
-router.get('/event/:path', loggedIn, async function(request, response) {
+router.get('/event/:path/cal', loggedIn, async function(request, response) {
 
   let attendeeList = [];
 
@@ -70,7 +70,7 @@ router.get('/event/:path', loggedIn, async function(request, response) {
   for(id in users) {
     userArray.push(users[id])
   }
-  // TODO: add logic after user is figured route
+
   let followed = 0;
     response.setHeader('Content-Type', 'text/html')
     response.render("event",{
