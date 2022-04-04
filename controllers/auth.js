@@ -29,7 +29,7 @@ router.use(passport.session());
 passport.use(new GoogleStrategy({
     clientID: KEYS["client_id"],
     clientSecret: KEYS["client_secret"],
-    callbackURL: "http://linkedtrinity.herokuapp.com/auth/google/callback"
+    callbackURL: "/auth/google/callback"
     //todo: port==process.env.PORT? :
   },
   function(accessToken, refreshToken, profile, done) {
