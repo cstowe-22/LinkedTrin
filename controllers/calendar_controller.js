@@ -20,7 +20,7 @@ function loggedIn(request, response, next) {
   }
 }
 
-router.get("/event/:path/cal") {
+router.get('/event/:path', loggedIn, async function(request, response) {
 
   let attendeeList = [];
 
@@ -65,4 +65,20 @@ router.get("/event/:path/cal") {
     }
     console.log('Event created: %s', event.htmlLink);
   });
-}
+
+  response.status(200);
+  for(id in users) {
+    userArray.push(users[id])
+  }
+  // TODO: add logic after user is figured route
+  let followed = 0;
+    response.setHeader('Content-Type', 'text/html')
+    response.render("event",{
+      event: selectedEvent,
+      users: userObj,
+      followed: followed,
+      user: request.user,
+      isLeader: isLeader,
+      path: path
+    });
+});
