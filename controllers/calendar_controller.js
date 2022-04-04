@@ -22,7 +22,18 @@ function loggedIn(request, response, next) {
 
 router.get('/event/:path/cal', loggedIn, async function(request, response) {
 
-  let attendeeList = [];
+  let events = await Event.getAllEvents();
+  let eventObj = await Event.getAllEvents();
+  let userId = await User.getId(request.user._json.email);
+  let isLeader = false;
+  let selectedEvent = {};
+  let path = request.params.path;
+  for(eventEntry in events){
+    if(events[eventEntry].path==path){
+      selectedEvent = events[eventEntry];
+      isLeader = await Group.isLeader(userId, selectedEvent.organization);
+    }
+  }
 
   let keyEvent = events[eventID];
   for (let member of keyEvent[members]) {
@@ -31,11 +42,11 @@ router.get('/event/:path/cal', loggedIn, async function(request, response) {
 
   //this is the function that should be called when a button is clicked, which adds that event to the user's main calendar
   var event = {
-    'summary': eventID, //event name
+    'summary': selectedEvent, //event name
     'location': 'Trinity School',
-    'description': events[eventID].description, //event description,
+    'description': selectedEvent.description, //event description,
     'start': {
-      'date': (events[eventID].date),
+      'date': (selectedEvent.date),
       'timeZone': 'America/New_York',
     },
     "endTimeUnspecified": true,
