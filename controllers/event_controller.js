@@ -101,15 +101,35 @@ router.get('/event/:path', loggedIn, async function(request, response) {
       });
 });
 
+router.post('/event/:path/delete', loggedIn, async function(request, response) {
+  let path = request.params.path;
+  console.log("Deleteing------------------------------------------------");
+  console.log(path);
+  if(true) {
+    let events = await JSON.parse(fs.readFileSync('./data/events.json'));
+    delete events[path];
+    await fs.writeFileSync('./data/events.json', JSON.stringify(events));
+    response.status(200);
+    response.setHeader('Content-Type', 'text/html')
+    response.redirect(`/eventListings`);
+  }else{
+   response.status(400);
+   response.setHeader('Content-Type', 'text/html')
+   response.render("error", {
+     "errorCode":"400"
+   });
+  }
+});
+
 router.post('/event/:path', loggedIn, async function(request, response) {
-  let path = request.body.path;
+  let path = request.params.path;
   let organization = request.body.organization;
   let date = request.body.date;
   let title = request.body.title;
-  let memberList = request.body.memberList;
+  let attendeesList = request.body.attendeesList;
   let description = request.body.description;
   let type = request.body.type;
-  if(0==0){
+  if(true){
       let updateEvent = {};
      let events = await JSON.parse(fs.readFileSync('./data/events.json'));
      for(eventEntry in events){
@@ -118,7 +138,7 @@ router.post('/event/:path', loggedIn, async function(request, response) {
        }
      }
      updateEvent['title'] = title;
-     updateEvent['members'] = memberList;
+     updateEvent['members'] = attendeesList;
      updateEvent['description'] = description;
      updateEvent['type'] = type;
      updateEvent['date'] = date;
