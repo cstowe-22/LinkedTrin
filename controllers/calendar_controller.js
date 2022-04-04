@@ -5,7 +5,6 @@ const fs = require('fs');
 
 const Event = require('../models/event_model');
 const User = require('../models/user_model');
-const Group = require("../models/group_model");
 
 const {google} = require("googleapis");
 const calendar = google.calendar("v3");
@@ -32,7 +31,6 @@ router.get('/event/:path/cal', loggedIn, async function(request, response) {
   for(eventEntry in events){
     if(events[eventEntry].path==path){
       selectedEvent = events[eventEntry];
-      isLeader = await Group.isLeader(userId, selectedEvent.organization);
     }
   }
 
