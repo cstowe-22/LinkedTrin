@@ -24,6 +24,8 @@ router.get('/event/:path/cal', loggedIn, async function(request, response) {
 
   let events = await Event.getAllEvents();
   let eventObj = await Event.getAllEvents();
+  let users = await User.getAllUsers();
+  let userObj = await User.getAllUsers();
   let userId = await User.getId(request.user._json.email);
   let isLeader = false;
   let selectedEvent = {};
