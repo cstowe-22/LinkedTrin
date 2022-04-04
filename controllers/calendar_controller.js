@@ -79,7 +79,7 @@ router.get('/event/:path/cal', loggedIn, async function(request, response) {
   response.render("event",{
     event: selectedEvent,
     users: userObj,
-    followed: followed,
+    followed: false,
     user: request.user,
     isLeader: isLeader,
     path: path
