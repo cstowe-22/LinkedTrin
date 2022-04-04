@@ -5,6 +5,7 @@ const fs = require('fs');
 
 const Event = require('../models/event_model');
 const User = require('../models/user_model');
+const Group = require("../models/group_model");
 
 const {google} = require("googleapis");
 const calendar = google.calendar("v3");
