@@ -1,75 +1,55 @@
 {
-  "hacktrin-ix": {
-    "date": "3/24/22",
-    "description": "Coding happens here.",
-    "members": ["55c614c5-bae3-47fe-bd39-4b101f61cb85", "93499d81-2856-4213-b5e5-f2b821acf75c", "37cddc9b-1150-49d1-af8c-8c78c096ac6b"],
-    "organization": "hacktrin",
-    "path": "hacktrin-ix",
-    "title": "HackTrin IX",
-    "type": "academic"
+  "valorant": {
+    "date": "4/6/22",
+    "description": "We will play Valorant afterschool in the Swamp. All are invited to come.",
+    "members": [
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85",
+      "37cddc9b-1150-49d1-af8c-8c78c096ac6b"
+    ],
+    "organization": "esports-club",
+    "path": "valorant",
+    "title": "Valorant",
+    "type": "club"
   },
-  "serve-the-community": {
-    "date": "3/23/22",
-    "description": "Do service and stuff like that.",
-    "members": ["55c614c5-bae3-47fe-bd39-4b101f61cb85", "93499d81-2856-4213-b5e5-f2b821acf75c", "6d6d812a-557a-48ca-ba5c-651eb84f0ad1"],
+  "service-corp-meeting": {
+    "description": "The Service Corp will be meeting in the cafeteria to discuss new ideas for community service.",
+    "date": "4/7/22",
     "organization": "community-circle",
-    "path": "serve-the-community",
-    "title": "Serve the Community",
-    "type": "volunteer"
-  },
-  "tech-internship": {
-    "date": "3/22/22",
-    "description": "Internship at Nick, Ari, & Cliff Media.",
-    "location": "900 Ari Street, New York, 10021",
-    "members": ["93499d81-2856-4213-b5e5-f2b821acf75c", "37cddc9b-1150-49d1-af8c-8c78c096ac6b", "55c614c5-bae3-47fe-bd39-4b101f61cb85"],
-    "organization": "nac-media",
-    "path": "tech-internship",
-    "title": "Tech Internship",
-    "type": "internship"
+    "path": "service-corp-meeting",
+    "title": "Service Corp Meeting",
+    "type": "volunteer",
+    "members": [
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85",
+      "37cddc9b-1150-49d1-af8c-8c78c096ac6b",
+      "6d6d812a-557a-48ca-ba5c-651eb84f0ad1"
+    ]
   },
   "trinlabs-meeting": {
-    "date": "5/24/22",
-    "description": "We make applications for Trinity.",
-    "members": ["55c614c5-bae3-47fe-bd39-4b101f61cb85", "93499d81-2856-4213-b5e5-f2b821acf75c", "37cddc9b-1150-49d1-af8c-8c78c096ac6b"],
+    "date": "4/8/22",
+    "description": "TrinLabs will be discussing the Sticker Tag website in N-303 at ad hoc.",
+    "members": [
+      "93499d81-2856-4213-b5e5-f2b821acf75c",
+      "37cddc9b-1150-49d1-af8c-8c78c096ac6b",
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85",
+      "6d6d812a-557a-48ca-ba5c-651eb84f0ad1"
+    ],
     "organization": "trinlabs",
     "path": "trinlabs-meeting",
     "title": "TrinLabs Meeting",
     "type": "academic"
-  },
-  "meds": {
-    "title": "MEDS",
-    "path": "meds",
-    "description": "I like Gohde",
-    "organization": "nac-media",
-    "date": "07/23/1999",
-    "type": "volunteer",
-    "members": ["93499d81-2856-4213-b5e5-f2b821acf75c"]
-  },
-  "gaming": {
-    "title": "Gaming",
-    "path": "gaming",
-    "description": "Game",
-    "organization": "esports-club",
-    "date": "04/23/23",
-    "type": "club",
-    "members": ["37cddc9b-1150-49d1-af8c-8c78c096ac6b"]
-  },
-  "julia": {
-    "title": "JULIA",
-    "path": "julia",
-    "description": "JULIA",
-    "organization": "trinlabs",
-    "date": "2004-01-29",
-    "type": "volunteer",
-    "members": ["37cddc9b-1150-49d1-af8c-8c78c096ac6b"]
-  },
-  "test": {
-    "title": "Test",
-    "path": "test",
-    "description": "Test",
-    "organization": "nac-media",
-    "date": "2022-03-25",
-    "type": "volunteer",
-    "members": ["6d6d812a-557a-48ca-ba5c-651eb84f0ad1", "932fc20d-316f-4020-8dca-066141ebd403", "109374097182939153766"]
+},
+  "hacktrin-internship-meeting":{
+    "date": "4/8/22",
+    "description": "HackTrin will be explaining its new summer internship program for all interested students.",
+    "members": [
+      "93499d81-2856-4213-b5e5-f2b821acf75c",
+      "37cddc9b-1150-49d1-af8c-8c78c096ac6b",
+      "55c614c5-bae3-47fe-bd39-4b101f61cb85",
+      "6d6d812a-557a-48ca-ba5c-651eb84f0ad1"
+    ],
+    "organization": "hacktrin",
+    "path": "hacktrin-internship-meeting",
+    "title": "HackTrin Internship Meeting",
+    "type": "internship"
   }
 }
