@@ -12,28 +12,47 @@ const calendar = google.calendar("v3");
 var users = fs.readFileSync("../data/users.json");
 var events = fs.readFileSync("../data/events.json");
 
-function createEvent(eventID) {
+function loggedIn(request, response, next) {
+  if (request.user) {
+    next();
+  } else {
+    response.redirect('/login');
+  }
+}
 
-  let attendeeList = [];
+router.get('/event/:path/cal', loggedIn, async function(request, response) {
 
-  let keyEvent = events[eventID];
-  for (let member of keyEvent[members]) {
+  let events = await Event.getAllEvents();
+  let eventObj = await Event.getAllEvents();
+  let users = await User.getAllUsers();
+  let userObj = await User.getAllUsers();
+  let userId = await User.getId(request.user._json.email);
+  let isLeader = false;
+  let selectedEvent = {};
+  let path = request.params.path;
+  for(eventEntry in events){
+    if(events[eventEntry].path==path){
+      selectedEvent = events[eventEntry];
+    }
+  }
+
+  for (let member of selectedEvent[members]) {
     attendeeList.push(users[member].email);
   }//This is what makes intuitive sense vis a vis an attendee list, an arry of email addresses. See line 36 for more comment
 
   //this is the function that should be called when a button is clicked, which adds that event to the user's main calendar
   var event = {
-    'summary': eventID, //event name
+    'summary': selectedEvent, //event name
     'location': 'Trinity School',
-    'description': events[eventID].description, //event description,
+    'description': selectedEvent.description, //event description,
     'start': {
-      'date': (events[eventID].date),
+      'date': selectedEvent.date,
       'timeZone': 'America/New_York',
     },
     "endTimeUnspecified": true,
     'attendees': [{
         'email': 'lpage@example.com'
-      }, //Unfortunately, the attendee list is not an array of emails, but a list of objects with the property "email" and the address listed. Automating this is the one barrier to full integration of the calendar API. 
+      }, //Unfortunately, the attendee list is not an array of emails, but a list of objects with the property "email" and the address listed. Automating this is the one barrier to full integration of the calendar API.
       {
         'email': 'sbrin@example.com'
       },
@@ -42,9 +61,6 @@ function createEvent(eventID) {
       'useDefault': true,
     },
   };
-
-  //I've left this here to illustrate what an event should look like.
-  //Once we've made it such that our events can be read as cal events, all that is required is to call the function below to add the event to the cal.
 
   calendar.events.insert({
     auth: auth,
@@ -57,4 +73,15 @@ function createEvent(eventID) {
     }
     console.log('Event created: %s', event.htmlLink);
   });
-}
+
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html')
+  response.render("event",{
+    event: selectedEvent,
+    users: userObj,
+    followed: 0,
+    user: request.user,
+    isLeader: isLeader,
+    path: path
+  });
+});
